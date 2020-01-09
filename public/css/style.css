@@ -1,0 +1,350 @@
+@font-face {
+  font-family: 'unifun';
+  src:  url('fonts/unifun.eot?4yzrky');
+  src:  url('fonts/unifun.eot?4yzrky#iefix') format('embedded-opentype'),
+    url('fonts/unifun.ttf?4yzrky') format('truetype'),
+    url('fonts/unifun.woff?4yzrky') format('woff'),
+    url('fonts/unifun.svg?4yzrky#unifun') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="unir-"], [class*=" unir-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'unifun' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="unib-"], [class*=" unib-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'unifun' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: bold;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.unir-check1:before {
+  content: "\e931";
+}
+.unir-uncheck:before {
+  content: "\e932";
+  color: #c8ccd4;
+}
+.unir-add:before {
+  content: "\e900";
+}
+.unir-ads:before {
+  content: "\e901";
+}
+.unir-archive:before {
+  content: "\e902";
+}
+.unir-arrow_top:before {
+  content: "\e903";
+}
+.unir-bcheck:before {
+  content: "\e904";
+}
+.unir-beye:before {
+  content: "\e905";
+}
+.unir-bheart:before {
+  content: "\e906";
+}
+.unir-ban:before {
+  content: "\e907";
+}
+.unir-bell:before {
+  content: "\e908";
+}
+.unir-cards:before {
+  content: "\e909";
+}
+.unir-check:before {
+  content: "\e90a";
+}
+.unir-clock:before {
+  content: "\e90b";
+}
+.unir-close:before {
+  content: "\e90c";
+}
+.unir-close_l:before {
+  content: "\e90d";
+}
+.unir-download:before {
+  content: "\e90e";
+}
+.unir-edit:before {
+  content: "\e90f";
+}
+.unir-exit:before {
+  content: "\e910";
+}
+.unir-eye:before {
+  content: "\e911";
+}
+.unir-filtr:before {
+  content: "\e912";
+}
+.unir-folder:before {
+  content: "\e913";
+}
+.unir-heart:before {
+  content: "\e914";
+}
+.unir-home:before {
+  content: "\e915";
+}
+.unir-info:before {
+  content: "\e916";
+}
+.unir-larrow:before {
+  content: "\e917";
+}
+.unir-larrow2:before {
+  content: "\e918";
+}
+.unir-list:before {
+  content: "\e919";
+}
+.unir-location:before {
+  content: "\e91a";
+}
+.unir-lock:before {
+  content: "\e91b";
+}
+.unir-mail:before {
+  content: "\e91c";
+}
+.unir-menu:before {
+  content: "\e91d";
+}
+.unir-minus:before {
+  content: "\e91e";
+}
+.unir-note:before {
+  content: "\e91f";
+}
+.unir-pages:before {
+  content: "\e920";
+}
+.unir-pencil:before {
+  content: "\e921";
+}
+.unir-phone:before {
+  content: "\e922";
+}
+.unir-photo:before {
+  content: "\e923";
+}
+.unir-rarrow:before {
+  content: "\e924";
+}
+.unir-rarrow2:before {
+  content: "\e925";
+}
+.unir-rmenu:before {
+  content: "\e926";
+}
+.unir-rocket:before {
+  content: "\e927";
+}
+.unir-safe:before {
+  content: "\e928";
+}
+.unir-search:before {
+  content: "\e929";
+}
+.unir-settings:before {
+  content: "\e92a";
+}
+.unir-sheild:before {
+  content: "\e92b";
+}
+.unir-table:before {
+  content: "\e92c";
+}
+.unir-toggles:before {
+  content: "\e92d";
+}
+.unir-user:before {
+  content: "\e92e";
+}
+.unir-users:before {
+  content: "\e92f";
+}
+.unir-wallet:before {
+  content: "\e930";
+}
+.unib-check1:before {
+  content: "\e931";
+}
+.unib-uncheck:before {
+  content: "\e932";
+  color: #c8ccd4;
+}
+.unib-add:before {
+  content: "\e900";
+}
+.unib-ads:before {
+  content: "\e901";
+}
+.unib-archive:before {
+  content: "\e902";
+}
+.unib-arrow_top:before {
+  content: "\e903";
+}
+.unib-bcheck:before {
+  content: "\e904";
+}
+.unib-beye:before {
+  content: "\e905";
+}
+.unib-bheart:before {
+  content: "\e906";
+}
+.unib-ban:before {
+  content: "\e907";
+}
+.unib-bell:before {
+  content: "\e908";
+}
+.unib-cards:before {
+  content: "\e909";
+}
+.unib-check:before {
+  content: "\e90a";
+}
+.unib-clock:before {
+  content: "\e90b";
+}
+.unib-close:before {
+  content: "\e90c";
+}
+.unib-close_l:before {
+  content: "\e90d";
+}
+.unib-download:before {
+  content: "\e90e";
+}
+.unib-edit:before {
+  content: "\e90f";
+}
+.unib-exit:before {
+  content: "\e910";
+}
+.unib-eye:before {
+  content: "\e911";
+}
+.unib-filtr:before {
+  content: "\e912";
+}
+.unib-folder:before {
+  content: "\e913";
+}
+.unib-heart:before {
+  content: "\e914";
+}
+.unib-home:before {
+  content: "\e915";
+}
+.unib-info:before {
+  content: "\e916";
+}
+.unib-larrow:before {
+  content: "\e917";
+}
+.unib-larrow2:before {
+  content: "\e918";
+}
+.unib-list:before {
+  content: "\e919";
+}
+.unib-location:before {
+  content: "\e91a";
+}
+.unib-lock:before {
+  content: "\e91b";
+}
+.unib-mail:before {
+  content: "\e91c";
+}
+.unib-menu:before {
+  content: "\e91d";
+}
+.unib-minus:before {
+  content: "\e91e";
+}
+.unib-note:before {
+  content: "\e91f";
+}
+.unib-pages:before {
+  content: "\e920";
+}
+.unib-pencil:before {
+  content: "\e921";
+}
+.unib-phone:before {
+  content: "\e922";
+}
+.unib-photo:before {
+  content: "\e923";
+}
+.unib-rarrow:before {
+  content: "\e924";
+}
+.unib-rarrow2:before {
+  content: "\e925";
+}
+.unib-rmenu:before {
+  content: "\e926";
+}
+.unib-rocket:before {
+  content: "\e927";
+}
+.unib-safe:before {
+  content: "\e928";
+}
+.unib-search:before {
+  content: "\e929";
+}
+.unib-settings:before {
+  content: "\e92a";
+}
+.unib-sheild:before {
+  content: "\e92b";
+}
+.unib-table:before {
+  content: "\e92c";
+}
+.unib-toggles:before {
+  content: "\e92d";
+}
+.unib-user:before {
+  content: "\e92e";
+}
+.unib-users:before {
+  content: "\e92f";
+}
+.unib-wallet:before {
+  content: "\e930";
+}

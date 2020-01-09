@@ -1,0 +1,15 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7c7d7d;
+      }
+    </style>
+  </defs>
+  <title>menu</title>
+  <g>
+    <rect class="cls-1" x="2" y="4.5" width="21" height="2" rx="1"/>
+    <rect class="cls-1" x="2" y="11.5" width="21" height="2" rx="1"/>
+    <rect class="cls-1" x="2" y="18.5" width="21" height="2" rx="1"/>
+  </g>
+</svg>

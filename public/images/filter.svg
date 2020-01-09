@@ -1,0 +1,23 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 0.5px;
+      }
+    </style>
+  </defs>
+  <title>Artboard 1</title>
+  <g>
+    <rect class="cls-1" x="18.1" y="3.25" width="1.4" height="5.22" rx="0.7"/>
+    <rect class="cls-1" x="7.6" y="9.81" width="1.4" height="5.22" rx="0.7"/>
+    <rect class="cls-1" x="13.2" y="16.53" width="1.4" height="5.22" rx="0.7"/>
+    <rect class="cls-1" x="13.9" y="18.39" width="9.1" height="1.49" rx="0.75"/>
+    <rect class="cls-1" x="2" y="18.39" width="9.1" height="1.49" rx="0.75"/>
+    <rect class="cls-1" x="2" y="11.68" width="6.3" height="1.49" rx="0.75"/>
+    <rect class="cls-1" x="11.1" y="11.68" width="11.9" height="1.49" rx="0.75"/>
+    <rect class="cls-1" x="2" y="4.97" width="14" height="1.49" rx="0.75"/>
+    <rect class="cls-1" x="18.8" y="4.97" width="4.2" height="1.49" rx="0.75"/>
+  </g>
+</svg>
