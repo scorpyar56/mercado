@@ -2,6 +2,10 @@
 
 Classified CMS. Built with Laravel and Bootstrap. 
 
-## Installation & Update Documentation
+## Installation
 
-Please run composer install upon fork.....
+Please run composer install upon fork.
+
+## Configuration
+
+Ask colleagues for .env file.
