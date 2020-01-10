@@ -107,19 +107,19 @@ function buildList($list)
                             @endforeach
                             <?php
                             $minv = floor(request()->get('minPrice') ?? $placeholderValue[0]->min);
-                            $maxv = request()->get('maxPrice') ?? $placeholderValue[0]->max;
+                            $maxv = number_format(request()->get('maxPrice') ?? $placeholderValue[0]->max, 0);
+                            $maxv = str_replace(",", "", $maxv);
                             ?>
                             <div class="form-group col-sm-4 no-padding">
                                 <input type="number" id="minPrice"
                                        name="minPrice" class="form-control"
-                                       value="{{ $minv }}" min="{{ $minv }}"
-                                      >
+                                       value="{{ $minv }}" min="{{ $minv }}">
                             </div>
                             <div class="form-group col-sm-1 no-padding text-center hidden-xs"> -</div>
                             <div class="form-group col-sm-4 no-padding">
                                 <input type="number" id="maxPrice"
                                        name="maxPrice" class="form-control"
-                                       value="{{ $maxv }}" min="{{ $placeholderValue[0]->min }}"">
+                                       value="{{ $maxv }}" min="{{ round($placeholderValue[0]->min) }}">
                             </div>
                             <div class="form-group col-sm-3 no-padding">
                                 <button class="btn btn-default pull-right btn-block-xs go-button"
