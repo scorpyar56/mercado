@@ -101,7 +101,20 @@ $(document).ready(function ()
             $(this).find('.unir-rarrow2.icon').addClass('rotate-arrow');
             $('.nice-select.niceselecter.select-sort-by > .list').css('display', 'unset');
         }
-    });
+	});
+	
+	$('.owner-phone > div.input-group > input#phone').keypress(function(e) {
+		e = e['originalEvent']['key'];
+		if (/\+/.test($(this).val())) {
+			if (!Number(e) || $(this).val().length > 13) {
+				return false;
+			}
+		} else {
+			if (e !== '+' && !Number(e) || $(this).val().length > 13) {
+				return false;
+			}
+		}
+	})
 
 	$(document).mouseup(function (a) {
 		var el = $('.select2-selection.select2-selection--single');
