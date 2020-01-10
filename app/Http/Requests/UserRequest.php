@@ -96,7 +96,7 @@ class UserRequest extends Request
 				'required',
 				'min:' . config('larapen.core.passwordLength.min', 4),
 				'max:' . config('larapen.core.passwordLength.max', 60),
-				'dumbpwd',
+				// 'dumbpwd',
 				'confirmed'
 			],
 			'term'         => ['accepted'],
@@ -168,7 +168,7 @@ class UserRequest extends Request
 				'password' => [
 					'min:' . config('larapen.core.passwordLength.min', 4),
 					'max:' . config('larapen.core.passwordLength.max', 60),
-					'dumbpwd',
+					// 'dumbpwd',
 					'confirmed'
 				]
 			];
