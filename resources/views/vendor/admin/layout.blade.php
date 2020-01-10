@@ -88,7 +88,8 @@ if (isset($title)) {
          @yield('header')
 
         <!-- Main content -->
-        <section class="content" style="display: flex">
+        <!-- <section class="content" style="display: flex"> -->
+        <section class="content">
 
           @yield('content')
 
