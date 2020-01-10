@@ -135,7 +135,7 @@ function buildList($list)
         if (request()->filled('cf')) {
             $clearTitle = t('Clear all the :category\'s filters', ['category' => $cat->name]);
             $clearAll = '<div class="block-title sidebar-header">'
-                . '<a class="btn btn-primary btn-block" href="' . qsurl($fullUrlNoParams, request()->except(['page', 'cf']), null, false) . '" title="' . $clearTitle . '">'
+                . '<a class="btn btn-grey btn-block" href="' . qsurl($fullUrlNoParams, request()->except(['page', 'cf']), null, false) . '">'
                 . strtoupper(t('Clear all')) . '</a></div>';
             echo $clearAll;
         }
