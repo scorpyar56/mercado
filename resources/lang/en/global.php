@@ -200,7 +200,7 @@ return [
     'Edit Photos' => 'Edit Photos',
     'New password is sent on your email address' => 'New password is sent on your email address',
     'New password : ' => 'New password : ',
-    'A great title from 2 to 55 characters.' => 'A great title from 2 to 55 characters.',
+    'A great title from 10 to 55 characters.' => 'A great title from 10 to 55 characters.',
     'Describe what makes your ad unique from 5 to 6000 characters.' => 'Describe what makes your ad unique from 5 to 6000 characters.',
     'Publish' => 'Publish',
     'Add photo' => 'Add photo',

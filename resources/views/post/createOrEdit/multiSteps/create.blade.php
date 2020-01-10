@@ -128,7 +128,7 @@
 													<div>
 														<input id="title" name="title" placeholder="{{ t('Ad title') }}" class="form-control input-md{{ $titleError }}"
 															   type="text" value="{{ old('title') }}">
-														<small id="" class="form-text text-muted">{{ t('A great title from 2 to 55 characters.') }}</small>
+														<small id="" class="form-text text-muted">{{ t('A great title from 10 to 55 characters.') }}</small>
 													</div>
 												</div>
 
