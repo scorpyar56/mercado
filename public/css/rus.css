@@ -1200,14 +1200,6 @@ a.sell-your-item-cart{
     flex-flow: row;
 }
 
-@media (max-width: 1200px) {
-    .block-content.list-filter .form-inline .form-group.col-sm-4.no-padding{
-        height: 35px;
-        max-width: 120%;
-        width: 215%;
-    }
-}
-
 #subCatsList .list-filter ul li a{
     padding: 3px 15px 3px 0px;
 }
