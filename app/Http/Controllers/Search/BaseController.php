@@ -244,7 +244,7 @@ class BaseController extends FrontController
 
         $cacheId = 'postsOfchildCats.' . $chCatId;
         $posts = Cache::remember($cacheId, new \DateInterval('PT2H'), function () use ($childCats) {
-            $posts = Post::whereIn('category_id', $childCats)->get()->count();
+            $posts = Post::whereIn('category_id', $childCats)->where('archived', 0)->get()->count();
             return $posts;
         });
 
