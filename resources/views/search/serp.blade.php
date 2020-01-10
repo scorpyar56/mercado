@@ -61,7 +61,8 @@
 		?>
 		@include('common.spacer')
 		<div class="container">
-			<div class="row" style="margin-top:16px;">
+			<!-- <div class="row" style="margin-top:16px;"> -->
+			<div class="row">
 
 				<!-- Sidebar -->
                 @if (config('settings.listing.left_sidebar'))
