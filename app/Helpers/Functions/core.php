@@ -2968,7 +2968,7 @@ function genPhoneNumberBtn($post, $btnBlock = false)
 		if (config('settings.single.hide_phone_number') == '3') {
 			$phone = maskPhoneNumber($phone, 0, true);
 		}
-		$btnLink = '';
+		$btnLink = '#phoneUser';
 		$btnAttr = 'data-toggle="tooltip" data-original-title="' . $btnHint . '"';
 		$btnClass = $btnClass . ' tooltipHere';
 	} else {
