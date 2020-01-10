@@ -232,6 +232,8 @@ return [
     'Describe ad' => 'Descrever anúncio',
     'Describe what makes your ad unique from 5 to 3000 characters.' => 'Descreva o que torna seu anúncio exclusivo from 5 to 3000 characters.pt',
     'Price' => 'Preço',
+    'Reviewed'=>'Reviewed pt',
+    'Declined'=>'Declined pt',
     'e.i. 15000' => 'ex 15000',
     'Negotiable' => 'Negociável',
     'Pictures' => 'Imagens',

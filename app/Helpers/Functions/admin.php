@@ -122,15 +122,15 @@ function ajaxReviewedDisplay($id, $table, $field, $fieldValue = null)
     // Decoration
 
     if ($fieldValue == 0) {
-        $lable = 'Rejected';
+        $lable = 'Rejected 0';
         $class = 'red';
     }
     else if($fieldValue == 1){
-        $lable = 'In process';
+        $lable = 'In process 1';
         $class = 'yellow';
     }
     else if($fieldValue == 2) {
-        $lable = 'Confirmed';
+        $lable = 'Confirmed 2';
         $class = 'green';
     }
 

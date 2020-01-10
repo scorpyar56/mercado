@@ -237,13 +237,13 @@ class BaseController extends FrontController
     {
         $chCatId = $root;
         $cacheId = 'childCats.' . $root;
-        $childCats = Cache::remember($cacheId, new \DateInterval('PT2H'), function () use ($chCatId) {
+        $childCats = Cache::remember($cacheId, new \DateInterval('PT1S'), function () use ($chCatId) {
             $childCats = $this->makeRootTree($chCatId);
             return $childCats;
         });
 
         $cacheId = 'postsOfchildCats.' . $chCatId;
-        $posts = Cache::remember($cacheId, new \DateInterval('PT2H'), function () use ($childCats) {
+        $posts = Cache::remember($cacheId, new \DateInterval('PT1M'), function () use ($childCats) {
             $posts = Post::whereIn('category_id', $childCats)->where('archived', 0)->get()->count();
             return $posts;
         });

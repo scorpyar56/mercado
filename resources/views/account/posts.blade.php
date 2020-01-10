@@ -122,6 +122,7 @@
 										<?php
 										if (isset($posts) && $posts->count() > 0):
 										foreach($posts as $key => $post):
+											
 											// Fixed 1
 											if ($pagePath == 'favourite') {
 												if (isset($post->post)) {

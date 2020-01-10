@@ -315,6 +315,8 @@ if (isset($title)) {
                     '_token': _token
                 }
             }).done(function(data) {
+
+                console.log(data);
                 /* Check 'status' */
                 if (data.status != 1) {
                     return false;
@@ -322,13 +324,13 @@ if (isset($title)) {
 
                 /* All others cases */
                 if (data.fieldValue == 0) {
-                    $('#' + dataLineId).text('Rejected');
+                    $('#' + dataLineId).text('Rejected 0');
                     $('#' + dataLineId).css('background-color', '#B00020');
                 } else if (data.fieldValue == 1) {
-                    $('#' + dataLineId).text('In process');
+                    $('#' + dataLineId).text('In process 1');
                     $('#' + dataLineId).css('background-color', '#FFAB00');
                 } else if (data.fieldValue == 2) {
-                    $('#' + dataLineId).text('Confirmed');
+                    $('#' + dataLineId).text('Confirmed 2');
                     $('#' + dataLineId).css('background-color', '#2E7D32');
                 }
 

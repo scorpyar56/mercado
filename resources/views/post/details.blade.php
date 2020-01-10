@@ -922,6 +922,14 @@
         if( $(window).width() >= 992){   
 
             $(".new-button.phoneBtn .btn-user-card").removeAttr("href");
+            
+            $(".new-button.phoneBtn .btn-user-card").hover(function(){
+                $(".new-button.phoneBtn .btn-user-card").attr("style","color: #29b6f6");
+            });
+
+            $(".new-button.phoneBtn .btn-user-card").mouseleave(function(){
+                $(".new-button.phoneBtn .btn-user-card").attr("style","color: #212121");
+            });
 
             //click btn  
             $(".new-button.phoneBtn .phoneBlock").on("click", function(){
