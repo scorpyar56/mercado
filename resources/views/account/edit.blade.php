@@ -29,11 +29,11 @@
 				<div class="modal-footer modal-footer-dif modal-footer-user">
 					<div class="modal-chose">
 						<form role="form" method="POST" action="{{ lurl('account/' . auth()->user()->id . '/photo/delete') }}" enctype="multipart/form-data">
-							<button type="submit" class="kv-file-remove btn btn-success btn-dif btn-green">{{ ('Delete') }}</button>
+							<button type="submit" class="btn btn-dif btn-grey">{{ ('Delete') }}</button>
 						</form>
 					</div>
 					<div class="modal-cancel">
-						<button class="kv-file-remove btn btn-default btn-default-dif btn-modal btn-kv btn-outline-secondary" id="cancelDelPhoto">{{ t('Cancel') }}</button>
+						<button class="kv-file-remove btn btn-default btn-default-dif btn-modal btn-kv btn-outline-secondary btn-grey" id="cancelDelPhoto">{{ t('Cancel') }}</button>
 					</div>
 				</div>
 			</div>
@@ -957,6 +957,11 @@
 					$('.menu-overly-mask').removeClass('is-visible');
 					modal_userInfo = false;
 				});
+
+				// $(".btn.btn-dif.btn-grey").hover(function(value){
+				// 	console.log(value);
+				// 	// value. = ("bgcolr","#6b8096 !important");
+				// });
 
 			</script>
 @endsection

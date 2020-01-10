@@ -110,7 +110,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                                     <div class="mb10">
                                         <!-- <input name="file" id="file" type="file"  class="form-control{{ $failError }}"> -->
                                         <div class="button-wrap">
-                                            <label class ="custom-button-upfile" for="file"> Attach file </label>
+                                            <label class ="custom-button-upfile btn-grey" for="file"> Attach file </label>
                                             <input class="custom-upfile" id="file" name="file" type="file" class="form-control{{ $failError }}">
                                             <div id="fileName"></div>
                                             <small style="display:block;" class="text-muted">
