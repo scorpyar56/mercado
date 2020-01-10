@@ -17,7 +17,7 @@ function buildList($list)
         }
 
 
-        $result .= '<li><a href="' . $l['url'] . '" title="' . $l['name'] . '">'
+        $result .= '<li><a href="' . $l['url'] . '">'
             . '<span class="title">' . $name . '</span>'
             . '<span class="count">(' . $l['count'] . ')</span>'
             . '</a>';
@@ -238,8 +238,7 @@ function buildList($list)
                                         </a>
                                     </strong>
                                 @else
-                                    <a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}"
-                                       title="{{ $city->name }}">
+                                    <a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}">
                                         <span class="title">{{ $city->name }}</span>
 {{--                                        <span class="count">{{ '(' . Cache::get('ads' . $city->name)[0]->ads . ')' }}</span>--}}
                                         <span class="count">{{ '(' . $adsNum . ')' }}</span>
