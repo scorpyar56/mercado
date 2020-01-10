@@ -245,12 +245,12 @@ $(document).ready(function ()
 	 Global Plugins ||
 	 ==================================*/
 
-	$('.long-list').hideMaxListItems({
-		'max': 8,
-		'speed': 500,
-        'moreText': langLayout.hideMaxListItems.moreText + ' ([COUNT])',
-        'lessText': langLayout.hideMaxListItems.lessText
-	});
+	// $('.long-list').hideMaxListItems({
+	// 	'max': 8,
+	// 	'speed': 500,
+    //     'moreText': langLayout.hideMaxListItems.moreText + ' ([COUNT])',
+    //     'lessText': langLayout.hideMaxListItems.lessText
+	// });
 
 	$('.long-list-user').hideMaxListItems({
 		'max': 12,
