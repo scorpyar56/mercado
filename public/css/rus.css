@@ -1441,9 +1441,12 @@ input::placeholder {
     transform: unset;
 }
 
-.photo-field-dif .file-thumbnail-footer .user-name,
-.photo-field-dif .file-thumbnail-footer .user-onSite{
+.photo-field-dif .file-thumbnail-footer .user-name{
     padding: 0 0 7px 0;
+}
+
+.photo-field-dif .file-thumbnail-footer .user-onSite{
+    padding: 0;
 }
 
 .user-panel-sidebar #badge-notif-nm{
