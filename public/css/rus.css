@@ -1578,6 +1578,6 @@ input::placeholder {
     background-color: #6b8096 !important;
 }
 
-.modal-chose button.btn.btn-dif.btn-grey:hover{
+.modal-footer > .modal-chose button.btn.btn-dif.btn-grey:hover{
     background-color: #6b8096 !important;
 }
