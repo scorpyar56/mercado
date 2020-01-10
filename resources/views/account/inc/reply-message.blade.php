@@ -38,8 +38,8 @@
 				</div>
 				
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-default pull-right btn-dif">{{ t('Reply') }}</button>
-					<button type="button" class="btn btn-default btn-default-dif btn-modal" data-dismiss="modal">{{ t('Cancel') }}</button>
+					<button type="submit" class="btn btn-default pull-right btn-dif btn-green">{{ t('Reply') }}</button>
+					<button type="button" class="btn btn-default btn-default-dif btn-modal btn-grey" data-dismiss="modal">{{ t('Cancel') }}</button>
 				</div>
 			</form>
 		</div>
