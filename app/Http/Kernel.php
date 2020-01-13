@@ -32,8 +32,10 @@ class Kernel extends HttpKernel
 		\App\Http\Middleware\TrimStrings::class,
 		\Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
 		\App\Http\Middleware\TrustProxies::class,
+        \Illuminate\Session\Middleware\StartSession::class
+
 	];
-	
+
 	/**
 	 * The application's route middleware groups.
 	 *
@@ -48,7 +50,7 @@ class Kernel extends HttpKernel
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			// \App\Http\Middleware\VerifyCsrfToken::class,
 			\Illuminate\Routing\Middleware\SubstituteBindings::class,
-			
+
 			\App\Http\Middleware\CheckBrowserLanguage::class,
 			\App\Http\Middleware\CheckCountryLanguage::class,
 			\App\Http\Middleware\XSSProtection::class,
@@ -57,7 +59,7 @@ class Kernel extends HttpKernel
 			\App\Http\Middleware\LazyLoading::class,
 			\App\Http\Middleware\HtmlMinify::class,
 		],
-		
+
 		'admin' => [
 			\App\Http\Middleware\EncryptCookies::class,
 			\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
@@ -65,21 +67,21 @@ class Kernel extends HttpKernel
 			\Illuminate\View\Middleware\ShareErrorsFromSession::class,
 			\App\Http\Middleware\VerifyCsrfToken::class,
 			\Illuminate\Routing\Middleware\SubstituteBindings::class,
-			
+
 			\App\Http\Middleware\Admin::class,
 			\App\Http\Middleware\XSSProtection::class,
 			\App\Http\Middleware\BannedUser::class,
 			\App\Http\Middleware\HttpsProtocol::class,
 		],
-		
+
 		'api' => [
 			'throttle:60,1',
 			'bindings',
 		],
-		
+
 		'locale' => ['localize', 'localizationRedirect', 'localeSessionRedirect', 'localeViewPath'],
 	];
-	
+
 	/**
 	 * The application's route middleware.
 	 *
@@ -96,22 +98,22 @@ class Kernel extends HttpKernel
 		'guest'         => \App\Http\Middleware\RedirectIfAuthenticated::class,
 		'signed'        => \Illuminate\Routing\Middleware\ValidateSignature::class,
 		'throttle'      => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-		
+
 		'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
-		
+
 		'banned.user' => \App\Http\Middleware\BannedUser::class,
-		
+
 		'localize'              => \Larapen\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
 		'localizationRedirect'  => \Larapen\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
 		'localeSessionRedirect' => \Larapen\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
 		'localeViewPath'        => \Larapen\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
-		
+
 		'install.checker'      => \App\Http\Middleware\InstallationChecker::class,
 		'prevent.back.history' => \App\Http\Middleware\PreventBackHistory::class,
 		'only.ajax'            => \App\Http\Middleware\OnlyAjax::class,
 		'demo.restriction'     => \App\Http\Middleware\DemoRestriction::class,
 	];
-	
+
 	/**
 	 * The priority-sorted list of middleware.
 	 *
