@@ -67,7 +67,7 @@
         {{--                                                    <div class="col-md-8"></div>--}}
                                                         <div class="col-md-12 text-center pt-2 col-md-12-dif" style="position: relative; float: {!! (config('lang.direction')=='rtl') ? 'left' : 'right' !!};">
                                                             <div {!! (config('lang.direction')=='rtl') ? 'dir="rtl"' : '' !!} class="file-loading">
-                                                                <input id="pictureField" name="pictures[]" type="file" multiple class="file picimg{{ $picturesError }}">
+                                                                <input title=" " id="pictureField" name="pictures[]" type="file" multiple class="file picimg{{ $picturesError }}">
                                                             </div>
                                                             <small id="add-photo-text" class="form-text text-muted">
                                                                 {{ t('Add up to :pictures_number pictures. Use real pictures of your product, not catalogs.', [
