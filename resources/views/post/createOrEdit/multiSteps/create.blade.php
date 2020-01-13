@@ -417,8 +417,19 @@
 												<?php $termError = (isset($errors) and $errors->has('term')) ? ' is-invalid' : ''; ?>
 												<div class="form-group row required terms-conditions">
 													<label class="col-md-2 col-form-label{{ $termError }}"></label>
-													<div class="col-md-9">
-														<label class="checkbox mb-0" for="term-0">
+													<div class="col-md-9 cntr">
+														<label class="checkbox mb-0 label-cbx" id="term" for="terms">
+															@if (!auth()->check())
+																<input id="terms" name="terms" type="checkbox" class="invisible" value="0">
+																<div class="checkbox">
+																	<svg width="14px" height="14px" viewBox="0 0 14 14">
+																		<path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+																		<polyline points="4 8 6 10 11 5"></polyline>
+																	</svg>
+																</div>
+															@else
+																<input id="terms" name="terms" type="checkbox" class="invisible" value="1" checked='checked'>
+															@endif
 															{!! t('I have read and agree to the <a :attributes>Terms of Use</a>', ['attributes' => getUrlPageByType('terms')]) !!}
 														</label>
 													</div>

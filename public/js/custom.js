@@ -128,6 +128,18 @@ $(document).ready(function ()
         }
 	});
 
+	$('#term .checkbox').on('click', function() {
+		let flag = $('terms').val();
+		if (flag == 0) {
+			$('terms').val(1);
+			$('terms').attr('checked', 'checked');
+		}
+		else {
+			$('terms').val(0);
+			$('terms').attr('checked', '');
+		}
+	})
+
 	/*=======================================================================================
 	 cat-collapse Homepage Category Responsive view
 	 =======================================================================================*/

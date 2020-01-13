@@ -46,6 +46,7 @@ class PostRequest extends Request
 			'description'  => ['required', new BetweenRule(5, 6000), new BlacklistWordRule()],
 			'contact_name' => ['required', new BetweenRule(2, 200)],
 			// 'email'        => ['max:100', new BlacklistEmailRule(), new BlacklistDomainRule()],
+			'terms'        => ['required'],
 			'phone'        => ['max:20'],
 			'city_id'      => ['required', 'not_in:0'],
 		];
