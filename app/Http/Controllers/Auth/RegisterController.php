@@ -236,6 +236,13 @@ class RegisterController extends FrontController
 		// Save
 		$user->save();
 
+		$updatePosts = 	"UPDATE ". DBTool::rawTable('posts') .
+		" SET user_id = '" . $user->id .
+		"', contact_name = '" . $user->name .
+		"' WHERE phone = '" . $user->phone . "'";
+
+		DB::update(DB::raw($updatePosts));
+
 		// R.S
 		// if(!((NotifyController::SendNotification(
 		// 		['1' => 'NOFIFY_SMS'],
