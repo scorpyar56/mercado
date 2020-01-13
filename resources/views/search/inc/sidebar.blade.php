@@ -152,9 +152,8 @@ function buildList($list)
                     <div class="block-title has-arrow sidebar-header">
                         <h5>
                             <strong>
-                                <a href="#"> {{ t('Others Categories') }}
-                                    <i class="fa fa-chevron-down"></i>
-                                </a>
+                                {{ t('Others Categories') }}
+                                <!-- <i class="fa fa-chevron-down"></i> -->
                             </strong>
                         </h5>
                     </div>
@@ -208,7 +207,7 @@ function buildList($list)
 
             <!-- City -->
             <div class="block-title has-arrow sidebar-header sidebar-location">
-                <h5><strong><a href="#">{{ t('Locations') }}</a></strong></h5>
+                <h5><strong>{{ t('Locations') }}</strong></h5>
             </div>
             <div class="block-content list-filter locations-list">
                 <ul class="browse-list list-unstyled long-list">
