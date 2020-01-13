@@ -805,7 +805,7 @@
             confirmationSaveSearch: "{!! t('Search saved successfully!') !!}",
             confirmationRemoveSaveSearch: "{!! t('Search deleted successfully!') !!}"
         };
-        
+
         $('.owl-carousel').owlCarousel({
             loop:true,
             dots: true,
@@ -885,14 +885,14 @@
             $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
             $(".product-view-thumb-wrapper .bx-controls .next" ).remove(  );
             $(".product-view-thumb-wrapper .bx-controls .prev" ).remove(  );
-            
+
         });
 
 
 
         $( ".div.bx-viewport").ready(function() {
             var height = "460px";
-            
+
             $(".bx-next").attr("style"," height: " + height + " !important;");
             $(".bx-prev").attr("style"," height: " + height + " !important;");
         });
@@ -905,7 +905,7 @@
                 $( "#terms>a" ).text( " <?php echo  t("Terms & Conditions") ?> ");
             }
         });
-        
+
         if( $(window).width() <= 992){
 
             $(".footer-content .row").attr("style","padding-bottom: 40px;");
@@ -919,10 +919,10 @@
         var modal_userInfo = false;
 
 
-        if( $(window).width() >= 992){   
+        if( $(window).width() >= 992){
 
             $(".new-button.phoneBtn .btn-user-card").removeAttr("href");
-            
+
             $(".new-button.phoneBtn .btn-user-card").hover(function(){
                 $(".new-button.phoneBtn .btn-user-card").attr("style","color: #29b6f6");
             });
@@ -931,16 +931,10 @@
                 $(".new-button.phoneBtn .btn-user-card").attr("style","color: #212121");
             });
 
-            $(".new-button.phoneBtn .btn-user-card").hover(function () {
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color:#29b6f6");
-            });
-
-            $(".new-button.phoneBtn .btn-user-card").mouseleave(function () {
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color:#212121");
-            });
 
 
-            //click btn  
+
+            //click btn
             $(".new-button.phoneBtn .phoneBlock").on("click", function(){
                 console.log("clicked btn");
                 if(modal_userInfo == false){
@@ -956,7 +950,7 @@
                     modal_userInfo = true;
                     $('.menu-overly-mask').addClass('is-visible');
                 }
-            }); 
+            });
 
             $(".new-button.phoneBtn a").on("click",function(){
                 if(modal_userInfo == false){
@@ -964,7 +958,7 @@
                     modal_userInfo = true;
                     $('.menu-overly-mask').addClass('is-visible');
                 }
-            }); 
+            });
 
 
             $(".unir-close").on("click", function(){
@@ -974,6 +968,9 @@
                 // console.log("Modal close x ");
             });
 
+            $('.user-info-modal').click(function () {//нужно убрать margin'ы и сделать позиционирование с position в ed.css .user-modal-content
+                $('.unir-close').click();
+            });
         }
 
 
