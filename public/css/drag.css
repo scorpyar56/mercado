@@ -1,0 +1,3 @@
+div.form-group.col-sm-4.no-padding > input.form-control {
+ max-height: 35px;
+}
