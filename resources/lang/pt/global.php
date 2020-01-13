@@ -237,6 +237,7 @@ return [
     'e.i. 15000' => 'ex 15000',
     'Negotiable' => 'Negociável',
     'Pictures' => 'Imagens',
+    'Edited by Admin'=>'Edited by Admin pt',
     'Your resume' => 'Seu currículo',
     'Resume format' => 'Formato : pdf, doc, docx, odt, rtf, jpg, png',
     'File types: :file_types' => 'Tipos de arquivo: :file_types',

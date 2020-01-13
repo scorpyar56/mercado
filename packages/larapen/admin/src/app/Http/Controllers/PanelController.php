@@ -213,7 +213,7 @@ class PanelController extends Controller
 			// update the row in the db
 			$item = $this->xPanel->update($request->get($this->xPanel->model->getKeyName()), $request->except('redirect_after_save', '_token'));
 
-			// R.S
+			// R.S send message afer Admin save changes
 			$notify = t("Edited by Admin");	
 
 			if(!is_null($item->contact_name) && $item->user_id != 0){	

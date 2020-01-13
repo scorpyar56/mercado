@@ -131,6 +131,7 @@ class NotifyController
 			. ': <a href="' . UrlGen::post($item) . '">' . t('Click here to see') . '</a>';
 		// Save
 		try{
+
 			$message->save();
 			Alert::success(t("Your message has sent successfully to :contact_name.", ['contact_name' => $message->to_name ]))->flash();
 		}catch(\Exception $e){

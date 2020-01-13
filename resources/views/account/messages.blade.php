@@ -99,7 +99,11 @@
 											<!-- <strong>{{ t("Sender's Email") }}:</strong> {{ $conversation->from_email ?? '--' }}<br> -->
 											<strong>{{ t("Sender's Phone") }}:</strong> {{ $conversation->from_phone ?? '--' }}<br>
 											<hr>
-{{--											{!! nl2br($conversation->message) !!}--}}
+											@if($conversation->from_user_id == 1)
+											
+												{!! nl2br($conversation->message) !!}
+											@endif
+									
 											{{ $mes }}
 											@if (!empty($conversation->filename) and $disk->exists($conversation->filename))
 												<br><br><a class="btn btn-info" href="{{ fileUrl($conversation->filename) }}">{{ t('Download') }}</a>
