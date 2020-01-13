@@ -140,6 +140,9 @@ $(document).ready(function ()
 		}
 	})
 
+	let sort_by_text = $('li a.link-bold').text();
+	$('.dropdown-toggle span#mobileCurrent').text(sort_by_text);
+
 	/*=======================================================================================
 	 cat-collapse Homepage Category Responsive view
 	 =======================================================================================*/
