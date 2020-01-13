@@ -375,7 +375,7 @@ class Post extends BaseModel implements Feedable
 	{
 		return $builder->where('archived', 1);
 	}
-	
+
 	public function scopeUnarchived($builder)
 	{
 		return $builder->where('archived', 0);
@@ -385,7 +385,7 @@ class Post extends BaseModel implements Feedable
 	{
 		if (config('settings.single.posts_review_activation')) {
 //			return $builder->where('reviewed', 1);
-                        return $builder->where('reviewed', '>', 0);
+                        return $builder->where("reviewed", 1 )->orWhere("reviewed", 2 );
 		} else {
 			return $builder;
 		}
