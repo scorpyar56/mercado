@@ -282,8 +282,6 @@ class DetailsController extends FrontController
 			$data['joined'] = $this->getJoinedTime($post);
 		}
 
-
-
 		// Reviews Plugin Data
 		if (config('plugins.reviews.installed')) {
 			try {
@@ -617,49 +615,91 @@ class DetailsController extends FrontController
 			$owner = $owner->getDate($owner);
 
 			if(isset($owner['created_at']) && !is_null($owner['created_at']) && is_null($owner['deleted_at'])){
-				// var_dump("Deleted :'" . $owner['deleted_at'] . "'");
 				// var_dump("Closed :'" .$owner['closed']  . "'");
+				
+				$joined =  explode("-",substr( $owner['created_at'], 0 , strpos(date('Y-m-d H:i:s'), " ") )) ;
 
-				$today=  explode("-",substr( date('Y-m-d H:i:s'), 0 , strpos(date('Y-m-d H:i:s'), " ") )) ;
-				$joined = explode("-", substr( $owner['created_at'] , 0 , strpos($owner['created_at']," ") ));
+				switch($joined[1]){
+					case "01":
+						$month = t("Jan");
+					break;
+					case "02":
+						$month = t("Feb");
+					break;
+					case "03":
+					 	$month = t("Mar");
+					break;
+					case "04":
+						$month = t("Apr");
+					break;
+					case "05":
+						$month = t("May");
+					break;
+					case "06":
+						$month = t("Jun");
+					break;
+					case "07":
+					 	$month = t("Jul");
+					break;
+					case "08":
+						$month = t("Aug");
+					break;
+					case "09":
+						$month = t("Sept");
+					break;
+					case "10":
+						$month = t("Oct");
+					break;
+					case "11":
+						$month = t("Nov");
+					break;
+					case "12":
+						$month = t("Dec");
+					break;
+				}
 
-				if($today[0] > $joined[0]){
-					// for years
-					$years = $today[0] - $joined[0];
-					$joined_time = ( $years > 1) ? ( $years . t(" years ago")) : ( $years . t(" year ago"));
-					// var_dump($joined_time);
-					return $joined_time;
-				}
-				elseif($today[1] > $joined[1]){
-					// for months
-					$months = $today[1] - $joined[1];
-					$joined_time = ( $months > 1) ? ( $months . t(" months ago")) : ( $months . t(" month ago"));
-					// var_dump($joined_time);
-					return $joined_time;
-				}
-				elseif($today[2] > $joined[2]){
-					// for days
-					$days = $today[2] - $joined[2];
-					// var_dump($days);
+				return $month . " " .  $joined[0];
+				
+				// $today=  explode("-",substr( date('Y-m-d H:i:s'), 0 , strpos(date('Y-m-d H:i:s'), " ") )) ;
+				// $joined = explode("-", substr( $owner['created_at'] , 0 , strpos($owner['created_at']," ") ));
 
-					if($days > 7){
-						//	for weeks
-						$weeks = $days / 7;
-						$weeks = substr ($weeks, 0, strpos($weeks, "."));
-						$joined_time = ($weeks > 1) ? ( $weeks . t(" weeks ago")) : ( $weeks . t(" week ago"));
-						// var_dump($joined_time);
-						return $joined_time;
-					}
-					elseif($days >= 1){
-						// for days
-						$joined_time = ($days > 1) ? ( $days . t(" days ago")) : ( $days . t(" day ago"));
-						// var_dump($joined_time);
-						return $joined_time;
-					}
-				}
-				else{
-					return t(' today');
-				}
+				// if($today[0] > $joined[0]){
+				// 	// for years
+				// 	$years = $today[0] - $joined[0];
+				// 	$joined_time = ( $years > 1) ? ( $years . t(" years ago")) : ( $years . t(" year ago"));
+				// 	// var_dump($joined_time);
+				// 	return $joined_time;
+				// }
+				// elseif($today[1] > $joined[1]){
+				// 	// for months
+				// 	$months = $today[1] - $joined[1];
+				// 	$joined_time = ( $months > 1) ? ( $months . t(" months ago")) : ( $months . t(" month ago"));
+				// 	// var_dump($joined_time);
+				// 	return $joined_time;
+				// }
+				// elseif($today[2] > $joined[2]){
+				// 	// for days
+				// 	$days = $today[2] - $joined[2];
+				// 	// var_dump($days);
+
+				// 	if($days > 7){
+				// 		//	for weeks
+				// 		$weeks = $days / 7;
+				// 		$weeks = substr ($weeks, 0, strpos($weeks, "."));
+				// 		$joined_time = ($weeks > 1) ? ( $weeks . t(" weeks ago")) : ( $weeks . t(" week ago"));
+				// 		// var_dump($joined_time);
+				// 		return $joined_time;
+				// 	}
+				// 	elseif($days >= 1){
+				// 		// for days
+				// 		$joined_time = ($days > 1) ? ( $days . t(" days ago")) : ( $days . t(" day ago"));
+				// 		// var_dump($joined_time);
+				// 		return $joined_time;
+				// 	}
+				// }
+				// else{
+				// 	return t(' today');
+				// }
 			}
 		}
 		else{

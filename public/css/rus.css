@@ -1587,3 +1587,7 @@ input::placeholder {
 .reject-info-modal .close{
     margin-left: 50% !important;
 }
+
+.grid-col .col.gray{
+    text-transform: none;
+}

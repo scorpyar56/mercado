@@ -783,26 +783,69 @@
 			$startDate = new DateTime($date);
 			$currentDate = new DateTime();
 
-			$time = $startDate->diff($currentDate);
-			if ($time->format("%y") == 0 && $time->format("%m") == 0 && $time->format("%d") == 0 && $time->format("%H") == 0) {
-				$ans = 'Some minutes on the site';
-			}
-			else if ($time->format("%y") == 0 && $time->format("%m") == 0 && $time->format("%d") == 0) {
-				if ($time->format("%H") == 1 || $time->format("%H") < 2) $ans = '1 hour on the site';
-				else $ans = $time->format("%H") . ' hours on the site';
-			}
-			else if ($time->format("%y") == 0 && $time->format("%m") == 0) {
-				if ($time->format("%d") == 1 || $time->format("%d") < 2) $ans = '1 day ' . $time->format("%H") . ' hours on the site';
-				else $ans = $time->format("%d") . ' days on the site';
-			}
-			else if ($time->format("%y") == 0) {
-				if ($time->format("%m") == 1 || $time->format("%m") < 2) $ans = '1 month ' . $time->format("%d") . ' days on the site';
-				else $ans = $time->format("%m") . ' months on the site';
-			}
-			else {
-				if ($time->format("%y") == 1 || $time->format("%y") < 2) $ans = '1 year ' . $time->format("%m") . ' months on the site';
-				else $ans = $time->format("%y") . ' years on the site';
-			}
+			// $time = $startDate->diff($currentDate);
+			// if ($time->format("%y") == 0 && $time->format("%m") == 0 && $time->format("%d") == 0 && $time->format("%H") == 0) {
+			// 	$ans = 'Some minutes on the site';
+			// }
+			// else if ($time->format("%y") == 0 && $time->format("%m") == 0 && $time->format("%d") == 0) {
+			// 	if ($time->format("%H") == 1 || $time->format("%H") < 2) $ans = '1 hour on the site';
+			// 	else $ans = $time->format("%H") . ' hours on the site';
+			// }
+			// else if ($time->format("%y") == 0 && $time->format("%m") == 0) {
+			// 	if ($time->format("%d") == 1 || $time->format("%d") < 2) $ans = '1 day ' . $time->format("%H") . ' hours on the site';
+			// 	else $ans = $time->format("%d") . ' days on the site';
+			// }
+			// else if ($time->format("%y") == 0) {
+			// 	if ($time->format("%m") == 1 || $time->format("%m") < 2) $ans = '1 month ' . $time->format("%d") . ' days on the site';
+			// 	else $ans = $time->format("%m") . ' months on the site';
+			// }
+			// else {
+			// 	if ($time->format("%y") == 1 || $time->format("%y") < 2) $ans = '1 year ' . $time->format("%m") . ' months on the site';
+			// 	else $ans = $time->format("%y") . ' years on the site';
+			// }
+			// R.S 
+				$joined =  explode("-",substr( $user->created_at, 0 , strpos(date('Y-m-d H:i:s'), " ") )) ;
+
+				switch($joined[1]){
+					case "01":
+						$month = t("Jan");
+					break;
+					case "02":
+						$month = t("Feb");
+					break;
+					case "03":
+						$month = t("Mar");
+					break;
+					case "04":
+						$month = t("Apr");
+					break;
+					case "05":
+						$month = t("May");
+					break;
+					case "06":
+						$month = t("Jun");
+					break;
+					case "07":
+						$month = t("Jul");
+					break;
+					case "08":
+						$month = t("Aug");
+					break;
+					case "09":
+						$month = t("Sept");
+					break;
+					case "10":
+						$month = t("Oct");
+					break;
+					case "11":
+						$month = t("Nov");
+					break;
+					case "12":
+						$month = t("Dec");
+					break;
+				}
+
+				$ans =  t('On site since ') .  $month . " " .  $joined[0];
 			?>
 
 			<script>

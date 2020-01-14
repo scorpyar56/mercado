@@ -179,6 +179,21 @@ return [
     ' today' => ' today',
     'Admin' => 'Admin',
 
+    'Jan' => 'Jan',
+    'Feb' => 'Feb',
+    'Mar' => 'Mar',
+    'Apr' => 'Apr',
+    'May' => 'May',
+    'Jun' => 'Jun',
+    'Jul' => 'Jul',
+    'Aug' => 'Aug',
+    'Sept' => 'Sept',
+    'Oct' => 'Oct',
+    'Nov' => 'Nov',
+    'Dec' => 'Dec',
+    'On site since ' => 'Registado desde ',
+
+
     'tell seller that you found this ad on Mercado.Gratis' => 'Tell seller that you found this ad on Mercado.gratis',
     'All cities' => 'Todas as Cidades',
     'Confirm' => 'Confirmpt',
