@@ -14,13 +14,13 @@
 @extends('layouts.master')
 
 <?php
-    use App\Models\User;
+use App\Models\User;
 
-    if(isset(auth()->user()->id)){
-        $userID = auth()->user()->id;
-        $user = User::find($userID);
-        $is_admin = $user->is_admin=="1" ? true:false;
-    }
+if (isset(auth()->user()->id)) {
+    $userID = auth()->user()->id;
+    $user = User::find($userID);
+    $is_admin = $user->is_admin == "1" ? true : false;
+}
 ?>
 
 @section('content')
@@ -29,14 +29,14 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
-                <div id="make_favorite">  
+                <div id="make_favorite">
                 </div>
             </div>
         </div>
     </div>
 
     @if (Session::has('flash_notification'))
-        
+
         <?php $paddingTopExists = true; ?>
         <div class="container">
             <div class="row">
@@ -63,11 +63,14 @@
 
                     <nav aria-label="breadcrumb" role="navigation" class="pull-left">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ lurl('/') }}">{{ t('Home')}} &#8194;<i class="unir-rarrow2"> </i> </a></li>
+                            <li class="breadcrumb-item"><a href="{{ lurl('/') }}">{{ t('Home')}} &#8194;<i
+                                            class="unir-rarrow2"> </i> </a></li>
                             <?php
 
-                             $attr = ['city' => $post->city->name ];?>
-                            <li class="breadcrumb-item"><a href="{{ \App\Helpers\UrlGen::city( $post->city) }}">{{ $post->city->name }}&#8194;<i class="unir-rarrow2"></i></a> </li>
+                            $attr = ['city' => $post->city->name];?>
+                            <li class="breadcrumb-item"><a
+                                        href="{{ \App\Helpers\UrlGen::city( $post->city) }}">{{ $post->city->name }}
+                                    &#8194;<i class="unir-rarrow2"></i></a></li>
                             @if (!empty($post->category->parent))
                                 <li class="breadcrumb-item">
                                     <a href="{{ \App\Helpers\UrlGen::category($post->category->parent) }}">
@@ -95,7 +98,7 @@
                                 aria-current="page">{{ t("Ad")}}</li>
                         </ol>
                     </nav>
- 
+
 
                 </div>
             </div>
@@ -106,71 +109,72 @@
                 <div class="col-md-12">
                     <h2 class="enable-long-words-posts">
                         <strong>
-                                {{ $post->title}}
+                            {{ $post->title}}
                         </strong>
                     <!--<small class="label label-default adlistingtype">{{ $post->postType->name }}</small>-->
                         @if ($post->featured==1 and !empty($post->latestPayment))
                             @if (isset($post->latestPayment->package) and !empty($post->latestPayment->package))
                                 <i class="icon-ok-circled tooltipHere"
-                                    style="color: {{ $post->latestPayment->package->ribbon }};" title=""
-                                    data-placement="right"
-                                    data-toggle="tooltip"
-                                    data-original-title="{{ $post->latestPayment->package->short_name }}"></i>
+                                   style="color: {{ $post->latestPayment->package->ribbon }};" title=""
+                                   data-placement="right"
+                                   data-toggle="tooltip"
+                                   data-original-title="{{ $post->latestPayment->package->short_name }}"></i>
                             @endif
                         @endif
                     </h2>
                 </div>
             </div>
-            
-            <div class="user-info-modal">
-                <div class="user-modal-content">
-                    @if( $post->phone) 
-                        <div class="modal-header modal-header-dif">
-                            <h2 class="modal-title">
-                                {{ t('Phone') }}&#58
+
+            <div class="modal fade" id="phoneModal" tabindex="-1" role="dialog" aria-labeledby="#titlePhoneModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        @if( $post->phone)
+                            <div class="modal-header modal-header-dif">
+                                <h2 class="modal-title" id="titlePhoneModal">
+                                    {{ t('Phone') }}&#58
                                     <?php
-                                            if(  preg_match( '/^\+(\d{3})(\d{2})(\d{3})(\d{4})$/', $post->phone,  $matches ) ){
-                                                 $phone = "+" . $matches[1] . ' ' .$matches[2] . ' ' . $matches[3];
-                                            }
-                                            if(isset($matches[4])){
-                                                $phone .= ' ' .$matches[4];
-                                            }
+                                    if (preg_match('/^\+(\d{3})(\d{2})(\d{3})(\d{4})$/', $post->phone, $matches)) {
+                                        $phone = "+" . $matches[1] . ' ' . $matches[2] . ' ' . $matches[3];
+                                    }
+                                    if (isset($matches[4])) {
+                                        $phone .= ' ' . $matches[4];
+                                    }
                                     ?>
-                                @if( isset($phone))
-                                    {{ $phone }}
-                                @else
-                                    {{ $post->phone }}
-                                @endif
-                            </h2>
-                            <button type="button" class="close" data-dismiss="modal">
-                                {{--					<span aria-hidden="true">&times;</span>--}}
-                                <span aria-hidden="true"><i class="unir-close"></i></span>
-                                <span class="sr-only">{{ t('Close') }}</span>
-                            </button>
-                        </div>
+                                    @if( isset($phone))
+                                        {{ $phone }}
+                                    @else
+                                        {{ $post->phone }}
+                                    @endif
+                                </h2>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    {{--					<span aria-hidden="true">&times;</span>--}}
+                                    <span aria-hidden="true"><i class="unir-close"></i></span>
+                                    <span class="sr-only">{{ t('Close') }}</span>
+                                </button>
+                            </div>
+                        @endif
 
-                    @endif
-                    <div class="modal-body modal-body-dif modal-body-user">
-                        <div class="modal-text">
-                            {{ t("tell seller that you found this ad on Mercado.Gratis")}}
-                        </div>
-
-                        <div class="block-cell user">
-                            <div class="cell-media cart-user-photo">
-                                @if (!empty($userPhoto))
-                                    <img src="{{ $userPhoto }}" alt="{{ $post->contact_name }}">
-                                @else
-                                    <img src="{{ url('images/userCard.png') }}" alt="{{ $post->contact_name }}">
-                                @endif
+                        <div class="modal-body modal-body-dif modal-body-user">
+                            <div class="modal-text">
+                                {{ t("tell seller that you found this ad on Mercado.Gratis")}}
                             </div>
 
-                            <?php
-    //                                    $userID = DB::select('SELECT DISTINCT(user_id) FROM posts WHERE contact_name = "' . $post->contact_name . '"');
-    //                                    $url = str_replace(substr(url()->current(), strripos(url()->current(), '/')), '', url()->current());
-    //                                    var_dump($url);
-    //                                    var_dump($url . '/users/' . $userID[0]->user_id . '/ads');
-                            ?>
-                            <div class="cell-content">
+                            <div class="block-cell user">
+                                <div class="cell-media cart-user-photo">
+                                    @if (!empty($userPhoto))
+                                        <img src="{{ $userPhoto }}" alt="{{ $post->contact_name }}">
+                                    @else
+                                        <img src="{{ url('images/userCard.png') }}" alt="{{ $post->contact_name }}">
+                                    @endif
+                                </div>
+
+                                <?php
+                                //                                    $userID = DB::select('SELECT DISTINCT(user_id) FROM posts WHERE contact_name = "' . $post->contact_name . '"');
+                                //                                    $url = str_replace(substr(url()->current(), strripos(url()->current(), '/')), '', url()->current());
+                                //                                    var_dump($url);
+                                //                                    var_dump($url . '/users/' . $userID[0]->user_id . '/ads');
+                                ?>
+                                <div class="cell-content">
                                 <span class="name">
                                     @if (isset($user) and !empty($user))
                                         <a href="{{ \App\Helpers\UrlGen::userPosts($post->user_id) }}">
@@ -179,38 +183,39 @@
                                     @else
                                         {{ $post->contact_name }}
                                     @endif
-                                    
-                                @if (isset($user) and !empty($user) and isset($joined))
-                                    <div class="grid-col">
+
+                                    @if (isset($user) and !empty($user) and isset($joined))
+                                        <div class="grid-col">
                                         <div class="col gray">
                                             <span>{{ t('Joined') }} {{ $joined }}</span>
                                         </div>
                                     </div>
-                                @elseif($post->user_id == 1)
-                                    <div class="grid-col">
+                                    @elseif($post->user_id == 1)
+                                        <div class="grid-col">
                                         <div class="col gray">
                                             <span>{{ t('Admin') }}</span>
                                         </div>
                                     </div>
-                                @else
-                                    <div class="grid-col">
+                                    @else
+                                        <div class="grid-col">
                                         <div class="col gray">
                                             <span>{{ t('Not registered user') }} </span>
                                         </div>
                                     </div>
-                                @endif
-
-                                @if (config('plugins.reviews.installed'))
-                                    @if (view()->exists('reviews::ratings-user'))
-                                        @include('reviews::ratings-user')
                                     @endif
-                                @endif
+
+                                    @if (config('plugins.reviews.installed'))
+                                        @if (view()->exists('reviews::ratings-user'))
+                                            @include('reviews::ratings-user')
+                                        @endif
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
 
                 <div class="col-lg-9 page-content col-thin-right cart">
@@ -227,7 +232,7 @@
                                         </a>
                                     </span> &nbsp;
                                     <span class="date gray">
-                                            <i class="unir-clock" > </i>
+                                            <i class="unir-clock"> </i>
                                             <!-- <img src="{{ url('images/clock.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image">     -->
                                      {{ $post->created_at_ta }} </span> &nbsp;
                                     <!-- <span class="category">{{ (!empty($post->category->parent)) ? $post->category->parent->name : $post->category->name }}</span> -&nbsp; -->
@@ -250,24 +255,24 @@
 
                                         <span>
                                             <a class="make-favorite" id="{{ $post->id }}"
-                                                href="javascript:void(0)">
+                                               href="javascript:void(0)">
                                                 @if (auth()->check())
                                                     @if (\App\Models\SavedPost::where('user_id', auth()->user()->id)->where('post_id', $post->id)->count() > 0)
                                                         <i class="unir-bheart gray"> </i>
-                                                        <!-- <img src="{{ url('images/heart_blue.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image"> -->
+                                                    <!-- <img src="{{ url('images/heart_blue.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image"> -->
                                                         <span class="actions-text">
                                                             {{ t('Remove favorite') }}
                                                         </span>
                                                     @else
                                                         <i class="unir-heart gray"> </i>
-                                                        <!-- <img src="{{ url('images/heart.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image"> -->
+                                                    <!-- <img src="{{ url('images/heart.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image"> -->
                                                         <span class="actions-text">
                                                             {{ t('To favorites.') }}
                                                         </span>
                                                     @endif
                                                 @else
                                                     <i class="unir-heart gray"> </i>
-                                                    <!-- <img src="{{ url('images/heart.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image"> -->
+                                                <!-- <img src="{{ url('images/heart.svg') }}" alt="{{ $post->contact_name }}" class="sidebar-image"> -->
                                                     <span class="actions-text">
                                                     {{ t('To favorites.') }}
                                                 </span>
@@ -280,19 +285,19 @@
                             </div>
                         </div>
                         <div class="posts-image">
-                            <?php $titleSlug = \Illuminate\Support\Str::slug($post->title); ?>
-                            <!-- @if (!in_array($post->category->type, ['not-salable']))
-                                <h1 class="pricetag">
-                                    @if ($post->price > 0)
-                                        {!! \App\Helpers\Number::money($post->price) !!}
-                                    @else
-                                        {!! \App\Helpers\Number::money(' --') !!}
-                                    @endif
-                                </h1>
-                            @endif -->
+                        <?php $titleSlug = \Illuminate\Support\Str::slug($post->title); ?>
+                        <!-- @if (!in_array($post->category->type, ['not-salable']))
+                            <h1 class="pricetag">
+@if ($post->price > 0)
+                                {!! \App\Helpers\Number::money($post->price) !!}
+                            @else
+                                {!! \App\Helpers\Number::money(' --') !!}
+                            @endif
+                                    </h1>
+@endif -->
 
                             @if (count($post->pictures) > 0)
-                                <ul class="bxslider" >
+                                <ul class="bxslider">
                                     @foreach($post->pictures as $key => $image)
                                         <li><img src="{{ imgUrl($image->filename, 'big') }}"
                                                  alt="{{ $titleSlug . '-big-' . $key }}"></li>
@@ -302,7 +307,7 @@
                                     <ul id="bx-pager" class="product-view-thumb">
                                         @foreach($post->pictures as $key => $image)
                                             <li>
-                                                <a class="thumb-item-link" data-slide-index="{{ $key }}" href=""> 
+                                                <a class="thumb-item-link" data-slide-index="{{ $key }}" href="">
                                                     <img src="{{ imgUrl($image->filename, 'small') }}"
                                                          alt="{{ $titleSlug . '-small-' . $key }}">
                                                 </a>
@@ -378,85 +383,85 @@
                                         @include('post.inc.fields-values')
 
                                         <!-- Tags -->
-                                            <!-- @if (!empty($post->tags))
-                                                <?php $tags = array_map('trim', explode(',', $post->tags)); ?>
-                                                @if (!empty($tags))
-                                                    <div class="row">
-                                                        <div class="tags col-12">
-                                                            <h4><i class="icon-tag"></i> {{ t('Tags') }}:</h4>
+                                        <!-- @if (!empty($post->tags))
+                                            <?php $tags = array_map('trim', explode(',', $post->tags)); ?>
+                                            @if (!empty($tags))
+                                                <div class="row">
+                                                    <div class="tags col-12">
+                                                        <h4><i class="icon-tag"></i> {{ t('Tags') }}:</h4>
                                                             @foreach($tags as $iTag)
-                                                                <a href="{{ \App\Helpers\UrlGen::tag($iTag) }}">
+                                                    <a href="{{ \App\Helpers\UrlGen::tag($iTag) }}">
                                                                     {{ $iTag }}
-                                                                </a>
-                                                            @endforeach
+                                                            </a>
+@endforeach
                                                         </div>
                                                     </div>
                                             @endif
                                         @endif -->
 
-                                        <!-- Actions -->
-                                            <!-- <div class="row detail-line-action text-center">
+                                            <!-- Actions -->
+                                        <!-- <div class="row detail-line-action text-center">
                                                 <div class="col-4">
                                                         @if (auth()->check())
-                                                            @if (auth()->user()->id == $post->user_id || $is_admin)
-                                                                <a href="{{ lurl('posts/' . $post->id . '/edit') }}">
+                                            @if (auth()->user()->id == $post->user_id || $is_admin)
+                                                <a href="{{ lurl('posts/' . $post->id . '/edit') }}">
                                                                     <i class="icon-pencil-circled tooltipHere"
                                                                        data-toggle="tooltip"
                                                                        data-original-title="{{ t('Edit') }}"></i>
                                                                 </a>
                                                             @else
-                                                                {!! genEmailContactBtn($post, false, true) !!}
-                                                            @endif
-                                                        @else
-                                                            {!! genEmailContactBtn($post, false, true) !!}
-                                                        @endif
+                                                {!! genEmailContactBtn($post, false, true) !!}
+                                            @endif
+                                        @else
+                                            {!! genEmailContactBtn($post, false, true) !!}
+                                        @endif
                                                 </div>
                                                 <div class="col-4">
                                                     <a class="make-favorite" id="{{ $post->id }}"
                                                        href="javascript:void(0)">
                                                         @if (auth()->check())
-                                                            @if (\App\Models\SavedPost::where('user_id', auth()->user()->id)->where('post_id', $post->id)->count() > 0)
-                                                                <i class="fa fa-heart tooltipHere" data-toggle="tooltip"
-                                                                   data-original-title="{{ t('Remove favorite') }}"></i>
+                                            @if (\App\Models\SavedPost::where('user_id', auth()->user()->id)->where('post_id', $post->id)->count() > 0)
+                                                <i class="fa fa-heart tooltipHere" data-toggle="tooltip"
+                                                   data-original-title="{{ t('Remove favorite') }}"></i>
                                                             @else
-                                                                <i class="far fa-heart" class="tooltipHere"
-                                                                   data-toggle="tooltip"
-                                                                   data-original-title="{{ t('Save ad') }}"></i>
+                                                <i class="far fa-heart" class="tooltipHere"
+                                                   data-toggle="tooltip"
+                                                   data-original-title="{{ t('Save ad') }}"></i>
                                                             @endif
-                                                        @else
-                                                            <i class="far fa-heart" class="tooltipHere"
-                                                               data-toggle="tooltip"
-                                                               data-original-title="{{ t('Save ad') }}"></i>
+                                        @else
+                                            <i class="far fa-heart" class="tooltipHere"
+                                               data-toggle="tooltip"
+                                               data-original-title="{{ t('Save ad') }}"></i>
                                                         @endif
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="{{ lurl('posts/' . $post->id . '/report') }}">
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a href="{{ lurl('posts/' . $post->id . '/report') }}">
                                                         <i class="fa icon-info-circled-alt tooltipHere"
                                                            data-toggle="tooltip"
                                                            data-original-title="{{ t('Report abuse') }}"></i>
                                                     </a>
                                                 </div>
                                             </div> -->
-                                            
+
                                             <div class="col-xl-12 pl-1 pr-1 cart">
-                                                @if (!in_array($post->category->type, ['not-salable']))
-                                                    <!-- Price / Salary -->
+                                            @if (!in_array($post->category->type, ['not-salable']))
+                                                <!-- Price / Salary -->
                                                     <div class="col-xl-12 pl-1 pr-1 cart">
                                                         <span class="title-3">
                                                             <!-- <span >
                                                                 {{ (!in_array($post->category->type, ['job-offer', 'job-search'])) ? t('Price') : t('Salary') }}:
                                                             </span> -->
-                                                            <span class="big_price detail-line-value">
+                                                                <span class="big_price detail-line-value">
                                                                 @if ($post->price > 0)
                                                                     {!! \App\Helpers\Number::money($post->price) !!}
                                                                 @elseif($post->negotiable == 1)
-                                                                     {{ t('Negotiable') }}
+                                                                    {{ t('Negotiable') }}
                                                                 @else
                                                                     {{ t('Negotiable') }}
                                                                 @endif
                                                                 <!-- @if ($post->negotiable == 1)
-                                                                     {{ t('Negotiable') }}
+                                                                    {{ t('Negotiable') }}
 
                                                                 @endif -->
                                                             </span>
@@ -491,19 +496,19 @@
                             </div>
                             <!-- /.tab content -->
 
-                            <!-- <div class="content-footer text-left">
+                        <!-- <div class="content-footer text-left">
                                 @if (auth()->check())
-                                    @if (auth()->user()->id == $post->user_id)
-                                        <a class="btn btn-default" href="{{ \App\Helpers\UrlGen::editPost($post) }}"><i
+                            @if (auth()->user()->id == $post->user_id)
+                                <a class="btn btn-default" href="{{ \App\Helpers\UrlGen::editPost($post) }}"><i
                                                     class="fa fa-pencil-square-o"></i> {{ t('Edit') }}</a>
                                     @else
-                                        {!! genEmailContactBtn($post) !!}
-                                    @endif
-                                @else
-                                    {!! genEmailContactBtn($post) !!}
-                                @endif
-                                {!! genPhoneNumberBtn($post) !!}
-                            </div> -->
+                                {!! genEmailContactBtn($post) !!}
+                            @endif
+                        @else
+                            {!! genEmailContactBtn($post) !!}
+                        @endif
+                        {!! genPhoneNumberBtn($post) !!}
+                                </div> -->
                         </div>
                     </div>
                     <!--/.items-details-wrapper-->
@@ -513,41 +518,42 @@
                 <div class="col-lg-3 page-sidebar-right">
                     <aside>
 
-                                <div class="card card-user-info sidebar-card">
-                                    <span  class="back">
+                        <div class="card card-user-info sidebar-card">
+                                    <span class="back">
                                         <a href="{{ rawurldecode(url()->previous()) }}">
                                             <i class="unir-larrow2"></i>
                                             {{ t('Back') }}</a>
                                     </span>
-                                    @if (auth()->check() and auth()->user()->getAuthIdentifier() == $post->user_id)
-                                    <div class="card-content-cart">
-                                        <!-- <div>{{ t('Manage Ad') }}</div>xx -->
-                                        @if (auth()->user()->id == $post->user_id)
+                            @if (auth()->check() and auth()->user()->getAuthIdentifier() == $post->user_id)
+                                <div class="card-content-cart">
+                                <!-- <div>{{ t('Manage Ad') }}</div>xx -->
+                                @if (auth()->user()->id == $post->user_id)
 
-                                            {!! genPhoneNumberBtn($post, true) !!}
-                                            {!! genEmailContactBtn($post, true) !!}
-                                            <!-- <a href="{{ \App\Helpers\UrlGen::editPost($post) }}"
+                                    {!! genPhoneNumberBtn($post, true) !!}
+                                    {!! genEmailContactBtn($post, true) !!}
+                                    <!-- <a href="{{ \App\Helpers\UrlGen::editPost($post) }}"
                                             class="btn btn-default btn-block message">
                                                 <i class="unir-edit"></i> {{ t('Update the Details') }}
                                             </a>
                                             @if (config('settings.single.publication_form_type') == '1')
-                                                <a href="{{ lurl('posts/' . $post->id . '/photos') }}"
+                                        <a href="{{ lurl('posts/' . $post->id . '/photos') }}"
                                                 class="btn btn-default btn-block message">
                                                     <i class="unir-edit"></i> {{ t('Update Photos') }}
                                                 </a>
                                                 @if (isset($countPackages) and isset($countPaymentMethods) and $countPackages > 0 and $countPaymentMethods > 0)
-                                                    <a href="{{ lurl('posts/' . $post->id . '/payment') }}"
+                                            <a href="{{ lurl('posts/' . $post->id . '/payment') }}"
                                                     class="btn btn-success btn-block">
                                                         <i class="icon-ok-circled2"></i> {{ t('Make It Premium') }}
                                                     </a>
                                                 @endif
-                                            @endif -->
-                                            <div class="block-cell user">
+                                    @endif -->
+                                        <div class="block-cell user">
                                             <div class="cell-media cart-user-photo">
                                                 @if (!empty($userPhoto))
                                                     <img src="{{ $userPhoto }}" alt="{{ $post->contact_name }}">
                                                 @else
-                                                    <img src="{{ url('images/userCard.png') }}" alt="{{ $post->contact_name }}">
+                                                    <img src="{{ url('images/userCard.png') }}"
+                                                         alt="{{ $post->contact_name }}">
                                                 @endif
                                             </div>
                                             <div class="cell-content">
@@ -560,26 +566,26 @@
                                                         {{ $post->contact_name }}
                                                     @endif
 
-                                                @if (isset($user) and !empty($user) and isset($joined) and $joined)
-                                                    <div class="grid-col">
+                                                    @if (isset($user) and !empty($user) and isset($joined) and $joined)
+                                                        <div class="grid-col">
                                                         <div class="col gray">
                                                             <span>{{ t('Joined') }} {{ $joined }}</span>
                                                         </div>
                                                     </div>
-                                                @elseif($post->user_id == 1)
-                                                <div class="grid-col">
+                                                    @elseif($post->user_id == 1)
+                                                        <div class="grid-col">
                                                         <div class="col gray">
                                                             <span>{{ t('Admin') }}</span>
                                                         </div>
-                                                    </div> 
-                                                @else
-                                                    <div class="grid-col">
+                                                    </div>
+                                                    @else
+                                                        <div class="grid-col">
                                                         <div class="col gray">
                                                             <span>{{ t('Not registered user') }} </span>
                                                         </div>
                                                     </div>
                                                 @endif
-                                                
+
                                                 @if (config('plugins.reviews.installed'))
                                                     @if (view()->exists('reviews::ratings-user'))
                                                         @include('reviews::ratings-user')
@@ -587,67 +593,67 @@
                                                 @endif
                                             </div>
                                         </div>
+                                    @else
+                                        {!! genPhoneNumberBtn($post, true) !!}
+                                        {!! genEmailContactBtn($post, true) !!}
+                                    @endif
+                                </div>
+                            @else
+                                <div class="card-content-cart">
+                                    <?php $evActionStyle = 'style="border-top: 0;"'; ?>
+                                    @if (auth()->check())
+                                        @if (auth()->user()->id == $post->user_id)
+                                            <a href="{{ \App\Helpers\UrlGen::editPost($post) }}"
+                                               class="btn btn-default btn-block message">
+                                                <i class="unir-edit"></i> {{ t('Update the Details') }}
+                                            </a>
+                                            @if (config('settings.single.publication_form_type') == '1')
+                                                <a href="{{ lurl('posts/' . $post->id . '/photos') }}"
+                                                   class="btn btn-default btn-block message">
+                                                    <i class="unir-edit"></i> {{ t('Update Photos') }}
+                                                </a>
+                                                @if (isset($countPackages) and isset($countPaymentMethods) and $countPackages > 0 and $countPaymentMethods > 0)
+                                                    <a href="{{ lurl('posts/' . $post->id . '/payment') }}"
+                                                       class="btn btn-success btn-block">
+                                                        <i class="icon-ok-circled2"></i> {{ t('Make It Premium') }}
+                                                    </a>
+                                                @endif
+                                            @endif
                                         @else
                                             {!! genPhoneNumberBtn($post, true) !!}
                                             {!! genEmailContactBtn($post, true) !!}
                                         @endif
-                                    </div>
+                                        <?php
+                                        try {
+                                            if (auth()->user()->can(\App\Models\Permission::getStaffPermissions())) {
+                                                $btnUrl = admin_url('blacklists/add') . '?phone=' . $post->phone;
+
+                                                if (!isDemo($btnUrl)) {
+                                                    $cMsg = trans('admin::messages.confirm_this_action');
+                                                    $cLink = "window.location.replace('" . $btnUrl . "'); window.location.href = '" . $btnUrl . "';";
+                                                    $cHref = "javascript: if (confirm('" . addcslashes($cMsg, "'") . "')) { " . $cLink . " } else { void('') }; void('')";
+
+                                                    $btnText = trans("admin::messages.ban_the_user");
+                                                    // $btnHint = trans("admin::messages.ban_the_user_phone", ['phone' => $post->phone]);
+                                                    // $tooltip = ' data-toggle="tooltip" title="' . $btnHint . '"';
+                                                    $tooltip = ' data-toggle="tooltip"';
+
+                                                    $btnOut = '';
+                                                    $btnOut .= '<a href="' . $cHref . '" class="btn btn-danger btn-block"' . $tooltip . '>';
+                                                    $btnOut .= $btnText;
+                                                    $btnOut .= '</a>';
+
+                                                    echo $btnOut;
+                                                }
+                                            }
+                                        } catch (\Exception $e) {
+                                        }
+                                        ?>
                                     @else
-                                    <div class="card-content-cart">
-                                            <?php $evActionStyle = 'style="border-top: 0;"'; ?>
-                                                @if (auth()->check())
-                                                    @if (auth()->user()->id == $post->user_id)
-                                                        <a href="{{ \App\Helpers\UrlGen::editPost($post) }}"
-                                                        class="btn btn-default btn-block message">
-                                                            <i class="unir-edit"></i> {{ t('Update the Details') }}
-                                                        </a>
-                                                        @if (config('settings.single.publication_form_type') == '1')
-                                                            <a href="{{ lurl('posts/' . $post->id . '/photos') }}"
-                                                            class="btn btn-default btn-block message">
-                                                                <i class="unir-edit"></i> {{ t('Update Photos') }}
-                                                            </a>
-                                                            @if (isset($countPackages) and isset($countPaymentMethods) and $countPackages > 0 and $countPaymentMethods > 0)
-                                                                <a href="{{ lurl('posts/' . $post->id . '/payment') }}"
-                                                                class="btn btn-success btn-block">
-                                                                    <i class="icon-ok-circled2"></i> {{ t('Make It Premium') }}
-                                                                </a>
-                                                            @endif
-                                                        @endif
-                                                    @else
-                                                        {!! genPhoneNumberBtn($post, true) !!}
-                                                        {!! genEmailContactBtn($post, true) !!}
-                                                    @endif
-                                                    <?php
-                                                    try {
-                                                        if (auth()->user()->can(\App\Models\Permission::getStaffPermissions())) {
-                                                            $btnUrl = admin_url('blacklists/add') . '?phone=' . $post->phone;
-
-                                                            if (!isDemo($btnUrl)) {
-                                                                $cMsg = trans('admin::messages.confirm_this_action');
-                                                                $cLink = "window.location.replace('" . $btnUrl . "'); window.location.href = '" . $btnUrl . "';";
-                                                                $cHref = "javascript: if (confirm('" . addcslashes($cMsg, "'") . "')) { " . $cLink . " } else { void('') }; void('')";
-
-                                                                $btnText = trans("admin::messages.ban_the_user");
-                                                                // $btnHint = trans("admin::messages.ban_the_user_phone", ['phone' => $post->phone]);
-                                                                // $tooltip = ' data-toggle="tooltip" title="' . $btnHint . '"';
-                                                                $tooltip = ' data-toggle="tooltip"';
-
-                                                                $btnOut = '';
-                                                                $btnOut .= '<a href="' . $cHref . '" class="btn btn-danger btn-block"' . $tooltip . '>';
-                                                                $btnOut .= $btnText;
-                                                                $btnOut .= '</a>';
-
-                                                                echo $btnOut;
-                                                            }
-                                                        }
-                                                    } catch (\Exception $e) {
-                                                    }
-                                                    ?>
-                                                @else
-                                                    {!! genPhoneNumberBtn($post, true) !!}
-                                                    {!! genEmailContactBtn($post, true) !!}
-                                                @endif
-                                        </div>
+                                        {!! genPhoneNumberBtn($post, true) !!}
+                                        {!! genEmailContactBtn($post, true) !!}
+                                    @endif
+                                </div>
                                 <div class="block-cell user">
                                     <div class="cell-media cart-user-photo">
                                         @if (!empty($userPhoto))
@@ -658,10 +664,10 @@
                                     </div>
 
                                     <?php
-//                                    $userID = DB::select('SELECT DISTINCT(user_id) FROM posts WHERE contact_name = "' . $post->contact_name . '"');
-//                                    $url = str_replace(substr(url()->current(), strripos(url()->current(), '/')), '', url()->current());
-//                                    var_dump($url);
-//                                    var_dump($url . '/users/' . $userID[0]->user_id . '/ads');
+                                    //                                    $userID = DB::select('SELECT DISTINCT(user_id) FROM posts WHERE contact_name = "' . $post->contact_name . '"');
+                                    //                                    $url = str_replace(substr(url()->current(), strripos(url()->current(), '/')), '', url()->current());
+                                    //                                    var_dump($url);
+                                    //                                    var_dump($url . '/users/' . $userID[0]->user_id . '/ads');
                                     ?>
                                     <div class="cell-content">
                                         <span class="name">
@@ -673,26 +679,26 @@
                                                 {{ $post->contact_name }}
                                             @endif
 
-                                        @if (isset($user) and !empty($user) and isset($joined) and $joined)
-                                            <div class="grid-col">
+                                            @if (isset($user) and !empty($user) and isset($joined) and $joined)
+                                                <div class="grid-col">
                                                 <div class="col gray">
                                                     <span>{{ t('Joined') }} {{ $joined }}</span>
                                                 </div>
                                             </div>
-                                        @elseif($post->user_id == 1)
-                                          <div class="grid-col">
+                                            @elseif($post->user_id == 1)
+                                                <div class="grid-col">
                                                 <div class="col gray">
                                                     <span>{{ t('Admin') }}</span>
                                                 </div>
-                                            </div> 
-                                        @else
-                                            <div class="grid-col">
+                                            </div>
+                                            @else
+                                                <div class="grid-col">
                                                 <div class="col gray">
                                                     <span>{{ t('Not registered user') }} </span>
                                                 </div>
                                             </div>
                                         @endif
-                                        
+
                                         @if (config('plugins.reviews.installed'))
                                             @if (view()->exists('reviews::ratings-user'))
                                                 @include('reviews::ratings-user')
@@ -716,13 +722,13 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                    @endif
 
-                        @if (isVerifiedPost($post))
-                            @include('layouts.inc.social.horizontal')
-                        @endif
+                    @if (isVerifiedPost($post))
+                        @include('layouts.inc.social.horizontal')
+                    @endif
 
-                        <!-- <div class="card sidebar-card">
+                    <!-- <div class="card sidebar-card">
                             <div class="card-header">{{ t('Safety Tips for Buyers') }}</div>
                             <div class="card-content">
                                 <div class="card-body text-left">
@@ -732,17 +738,17 @@
                                         <li> {{ t('Pay only after collecting the item') }} </li>
                                     </ul>
                                     <?php $tipsLinkAttributes = getUrlPageByType('tips'); ?>
-                                    @if (!\Illuminate\Support\Str::contains($tipsLinkAttributes, 'href="#"') and !\Illuminate\Support\Str::contains($tipsLinkAttributes, 'href=""'))
-                                        <p>
-                                            <a class="pull-right" {!! $tipsLinkAttributes !!}>
+                    @if (!\Illuminate\Support\Str::contains($tipsLinkAttributes, 'href="#"') and !\Illuminate\Support\Str::contains($tipsLinkAttributes, 'href=""'))
+                        <p>
+                            <a class="pull-right" {!! $tipsLinkAttributes !!}>
                                                 {{ t('Know more') }}
-                                                <i class="fa fa-angle-double-right"></i>
-                                            </a>
-                                        </p>
-                                    @endif
-                                </div>
+                                <i class="fa fa-angle-double-right"></i>
+                            </a>
+                        </p>
+@endif
                             </div>
-                        </div> -->
+                        </div>
+                    </div> -->
                     </aside>
                 </div>
             </div>
@@ -769,7 +775,7 @@
 @endsection
 
 @section('modal_message')
-        @include('post.inc.phone-info')
+    @include('post.inc.phone-info')
 @endsection
 
 @section('after_styles')
@@ -805,27 +811,27 @@
             confirmationSaveSearch: "{!! t('Search saved successfully!') !!}",
             confirmationRemoveSaveSearch: "{!! t('Search deleted successfully!') !!}"
         };
-        
+
         $('.owl-carousel').owlCarousel({
-            loop:true,
+            loop: true,
             dots: true,
-            autoplay:true,
-            autoplayTimeout:3000,
-            responsive:{
-                200:{
-                    items:2,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive: {
+                200: {
+                    items: 2,
                     dotsEach: 2,
                 },
-                700:{
-                    items:3,
+                700: {
+                    items: 3,
                     dotsEach: 3,
                 },
-                930:{
-                    items:4,
+                930: {
+                    items: 4,
                     dotsEach: 3,
                 },
-                1200:{
-                    items:5,
+                1200: {
+                    items: 5,
                     dotsEach: 3,
                 }
             }
@@ -880,37 +886,36 @@
             }
 
 
-            $( ".bx-controls-direction" ).append( "<div class='next' ><i class='unib-rarrow2' ></i></div>" );
-            $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
-            $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
-            $(".product-view-thumb-wrapper .bx-controls .next" ).remove(  );
-            $(".product-view-thumb-wrapper .bx-controls .prev" ).remove(  );
-            
+            $(".bx-controls-direction").append("<div class='next' ><i class='unib-rarrow2' ></i></div>");
+            $(".bx-controls-direction").append("<div class='prev' ><i class='unib-larrow2'></i></div>");
+            $(".bx-controls-direction").append("<div class='prev' ><i class='unib-larrow2'></i></div>");
+            $(".product-view-thumb-wrapper .bx-controls .next").remove();
+            $(".product-view-thumb-wrapper .bx-controls .prev").remove();
+
         });
 
 
-
-        $( ".div.bx-viewport").ready(function() {
+        $(".div.bx-viewport").ready(function () {
             var height = "460px";
-            
-            $(".bx-next").attr("style"," height: " + height + " !important;");
-            $(".bx-prev").attr("style"," height: " + height + " !important;");
+
+            $(".bx-next").attr("style", " height: " + height + " !important;");
+            $(".bx-prev").attr("style", " height: " + height + " !important;");
         });
 
-        $( window ).resize(function() {
-            if( $( document ).width() < 767 ){
+        $(window).resize(function () {
+            if ($(document).width() < 767) {
                 var text = "<?php echo t("Use all links")  ?>";
-                $( "#terms>a" ).text( text);
-            }else{
-                $( "#terms>a" ).text( " <?php echo  t("Terms & Conditions") ?> ");
+                $("#terms>a").text(text);
+            } else {
+                $("#terms>a").text(" <?php echo t("Terms & Conditions") ?> ");
             }
         });
-        
-        if( $(window).width() <= 992){
 
-            $(".footer-content .row").attr("style","padding-bottom: 40px;");
+        if ($(window).width() <= 992) {
 
-            $(".unir-phone.btn.btn-success.phoneBlock.btn-block").on("click", function(){
+            $(".footer-content .row").attr("style", "padding-bottom: 40px;");
+
+            $(".unir-phone.btn.btn-success.phoneBlock.btn-block").on("click", function () {
                 $(".new-button.phoneBtn .btn-user-card").parent("click");
                 console.log("clicked");
             });
@@ -919,69 +924,15 @@
         var modal_userInfo = false;
 
 
-        if( $(window).width() >= 992){   
-
+        if ($(window).width() >= 992) {//убираем функционал звонка с pc
             $(".new-button.phoneBtn .btn-user-card").removeAttr("href");
-            
-            $(".new-button.phoneBtn .btn-user-card").hover(function(){
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color: #29b6f6");
-            });
-
-            $(".new-button.phoneBtn .btn-user-card").mouseleave(function(){
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color: #212121");
-            });
-
-            $(".new-button.phoneBtn .btn-user-card").hover(function () {
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color:#29b6f6");
-            });
-
-            $(".new-button.phoneBtn .btn-user-card").mouseleave(function () {
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color:#212121");
-            });
-
-
-            //click btn  
-            $(".new-button.phoneBtn .phoneBlock").on("click", function(){
-                console.log("clicked btn");
-                if(modal_userInfo == false){
-                    $(".user-info-modal").attr("style","display:block;");
-                    modal_userInfo = true;
-                    $('.menu-overly-mask').addClass('is-visible');
-                }
-            });
-
-            $(".new-button.phoneBtn").on("click",function(){
-                if(modal_userInfo == false){
-                    $(".user-info-modal").attr("style","display:block;");
-                    modal_userInfo = true;
-                    $('.menu-overly-mask').addClass('is-visible');
-                }
-            }); 
-
-            $(".new-button.phoneBtn a").on("click",function(){
-                if(modal_userInfo == false){
-                    $(".user-info-modal").attr("style","display:block;");
-                    modal_userInfo = true;
-                    $('.menu-overly-mask').addClass('is-visible');
-                }
-            }); 
-
-
-            $(".unir-close").on("click", function(){
-                $(".user-info-modal").attr("style","display:none;");
-                modal_userInfo = false;
-                $('.menu-overly-mask').removeClass('is-visible');
-                // console.log("Modal close x ");
-            });
-
         }
 
 
-
-        $(".make-favorite").on("click", function(){
-            $(".right15").on('load',function(){
+        $(".make-favorite").on("click", function () {
+            $(".right15").on('load', function () {
                 // console.log("Ready");
-                $(".make-favorite .right15").attr("style","margin-right: 5px;");
+                $(".make-favorite .right15").attr("style", "margin-right: 5px;");
             });
 
         });
