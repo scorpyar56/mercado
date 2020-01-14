@@ -100,10 +100,10 @@ class ForgotPasswordController extends FrontController
 		try {
             Notification::route('mail', $user->email)->notify(new NewPassword($contactForm));
             $message = t("New password is sent on your email address");
-            flash($message)->success();
+            flash($message,'success');
             return redirect(config('app.locale') . '/');
 		} catch (\Exception $e) {
-            flash($e->getMessage())->error();
+            flash($e->getMessage(),'error');
             return redirect()->back();
         }
         
