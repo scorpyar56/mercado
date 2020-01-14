@@ -152,6 +152,14 @@ return [
     'Reviewed'=>'Reviewed',
     'Declined'=>'Declined',
     'Edited by Admin'=>'Edited by Admin',
+
+    'Reject'=>'Reject',
+    'The ad does not correspond Posting Rules'=>'The ad does not correspond Posting Rules',
+    'The ad does not correspond selected Category or Sub-Category.'=>'The ad does not correspond selected Category or Sub-Category.',
+    'Your ad was rejected.The ad does not correspond Posting Rules.'=>'Your ad was rejected.The ad does not correspond Posting Rules.',
+    'Your ad was rejected.The ad does not correspond selected Category or Sub-Category.'=>'Your ad was rejected.The ad does not correspond selected Category or Sub-Category.',
+    'Your ad was approved.'=>'Your ad was approved.',
+
     'The phone has already been taken.' => 'The phone has already been taken.',
     'Archive' => 'Archive',
     'Spam' => 'Spam',

@@ -394,7 +394,7 @@ class Post extends BaseModel implements Feedable
 	public function scopeUnreviewed($builder)
 	{
 		if (config('settings.single.posts_review_activation')) {
-			return $builder->where('reviewed', 0);
+			return $builder->where('reviewed', 0)->orWhere('reviewed' , 3);
 		} else {
 			return $builder;
 		}

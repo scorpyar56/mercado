@@ -353,6 +353,7 @@ return [
     'Russian Pluralization' => 'Russian Pluralization',
     'Status' => 'Status',
     'Activated' => 'Activated',
+    
     'Unactivated' => 'Unactivated',
     'Posts Stats' => 'Posts Stats',
     'Users Stats' => 'Users Stats',

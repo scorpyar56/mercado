@@ -46,8 +46,10 @@ class InlineRequestController extends Controller
 	 */
 	public function make($table, $field, Request $request)
 	{
+		
 		$primaryKey = $request->input('primaryKey');
 		$reviewedValue = $request->input('value');
+
 		$status = 0;
 		$result = [
 			'table'      => $table,
@@ -188,11 +190,24 @@ class InlineRequestController extends Controller
 			$item->{$field} = $reviewedValue;
 			$item->save();
 			
-			if($item->{$field} > 1){
-				$verdict = t("Reviewed");
+			// if($item->{$field} > 1){
+			// 	$verdict = t("Reviewed");
+			// }
+			// else if($item->{$field} < 1){
+			// 	$verdict = t("Declined");
+			// }
+			// else{
+			// 	$verdict = null;
+			// }
+
+			if($item->{$field} == 2){
+				$verdict = t("Your ad was approved.");
 			}
-			else if($item->{$field} < 1){
-				$verdict = t("Declined");
+			else if($item->{$field} == 0){
+				$verdict = t("Your ad was rejected.The ad does not correspond Posting Rules.");
+			}
+			else if($item->{$field} == 3){
+				$verdict = t("Your ad was rejected.The ad does not correspond selected Category or Sub-Category.");
 			}
 			else{
 				$verdict = null;
