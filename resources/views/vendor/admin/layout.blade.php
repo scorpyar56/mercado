@@ -23,6 +23,8 @@ if (isset($title)) {
     @yield('before_styles')
 	<link href="https://market.unifun.com/css/rus.css" rel="stylesheet">
     <link href="https://market.unifun.com/css/custom.css" rel="stylesheet">
+    <link href="https://market.unifun.com/css/ed.css" rel="stylesheet">
+    <link href="https://market.unifun.com/css/style.css" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/') }}/bootstrap/css/bootstrap.min.css">
@@ -93,16 +95,15 @@ if (isset($title)) {
         <section class="content">
 
         <!-- R.S -->
-        <div class="reject-info-modal" style="display:none">
+        <div class="reject-info-modal " style="display:none">
             <div class="user-modal-content">
                 <div class="modal-header modal-header-dif">
                     <h2 class="modal-title">
                         Rejection reason
                     </h2>
-                    <button type="button" class="close" data-dismiss="modal">
-                        
+                    <button type="button" class="close" data-dismiss="modal">                             
                         <span aria-hidden="true"><i class="unir-close"></i></span>
-                        <span class="sr-only">Close</span>
+                        <span class="sr-only">{{ t('Close') }}</span>
                     </button>
                 </div>
 
@@ -207,6 +208,9 @@ if (isset($title)) {
         });
     </script>
     <script>
+        // R.S
+        var modal_reason = false;
+
         $(document).ready(function()
         {
             /* Send an ajax update request */
@@ -221,7 +225,8 @@ if (isset($title)) {
                 }
             });
 
-            // R.S
+
+
             $( "#rejectReason" ).submit( function( data ) {
                 var value = $(this);
 
@@ -248,7 +253,7 @@ if (isset($title)) {
             //E.K.
             $(document).on('click', '.reviewed-request', function(e)
             {
-                var modal_reason = false;
+
                 
                 e.preventDefault(); /* prevents the submit or reload */
                 
@@ -519,6 +524,16 @@ if (isset($title)) {
 
             return false;
         }
+
+        $(".modal-header.modal-header-dif .close").click( function(){
+            console.log(modal_reason);
+
+            if( modal_reason === true){
+                console.log("close");
+                 $(".reject-info-modal").attr("style", "display:none;");
+                modal_reason = false;
+            }
+        });
 
 		function isDemo()
 		{

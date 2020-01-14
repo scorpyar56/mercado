@@ -365,7 +365,7 @@ class Post extends BaseModel implements Feedable
 		});
 		
 		if (config('settings.single.posts_review_activation')) {
-			$builder->orWhere('reviewed', 0);
+			$builder->orWhere('reviewed', 0)->orWhere("reviewed", 3 );
 		}
 		
 		return $builder;

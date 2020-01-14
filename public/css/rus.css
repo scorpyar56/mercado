@@ -1583,3 +1583,7 @@ input::placeholder {
 .modal-footer > .modal-chose button.btn.btn-dif.btn-grey:hover{
     background-color: #6b8096 !important;
 }
+
+.reject-info-modal .close{
+    margin-left: 50% !important;
+}
