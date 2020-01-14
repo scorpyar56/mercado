@@ -374,6 +374,9 @@ if ($post->category) {
 													</div>
 												</div>
 
+												<!-- terms -->
+												<input id="terms" name="terms" type="checkbox" class="invisible" value="1" checked='checked'>
+
 												<!-- Button  -->
 												<div class="form-group row pt-3 post-submit">
 													<div class="col-md-9 text-center text-center-dif">
