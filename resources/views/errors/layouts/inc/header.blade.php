@@ -260,6 +260,7 @@ if (getSegment(1) != trans('routes.countries')) {
 	$logoLabel = config('settings.app.app_name') . ((!empty(config('country.name'))) ? ' ' . config('country.name') : '');
 }
 ?>
+@include('layouts.inc.modal.login')
 <div class="header">
 	<nav id="navshadow" class="navbar fixed-top navbar-site navbar-light bg-light navbar-expand-md" role="navigation">
 		<div class="container">
