@@ -349,11 +349,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labeledby="#titleTestModal" aria-hidden="true">
+						<div class="modal fade" id="checkEmailModal" tabindex="-1" role="dialog" aria-labeledby="#titleCheckEmailModal" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
 										<div class="modal-header modal-header-dif">
-											<h2 class="modal-title" id="titleTestModal">
+											<h2 class="modal-title" id="titleCheckEmailModal">
 												{{t('Add email')}}
 											</h2>
 											<button type="button" class="close" data-dismiss="modal">
@@ -982,7 +982,7 @@
 				$(window).on('load',function(){
 					var email = document.getElementById("email").value;
 					if(email===""){
-						$('#testModal').modal('show');
+						$('#checkEmailModal').modal('show');
 					}
     			});
 				// $(".btn.btn-dif.btn-grey").hover(function(value){
