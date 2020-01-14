@@ -197,6 +197,15 @@ return [
     'Publish' => 'Publish pt',
     'Add photo' => 'Add photo pt',
     'File' => 'File pt',
+
+    
+    'Reject'=>'Reject',
+    'The ad does not correspond Posting Rules'=>'O anúncio não corresponde às Regras de Publicação.',
+    'The ad does not correspond selected Category or Sub-Category.'=>'O anúncio não corresponde à Categoria ou Subcategoria selecionada.',
+    'Your ad was rejected.The ad does not correspond Posting Rules.'=>'O seu anúncio foi reprovado.O anúncio não corresponde às Regras de Publicação.',
+    'Your ad was rejected.The ad does not correspond selected Category or Sub-Category.'=>'O seu anúncio foi reprovado.O anúncio não corresponde à Categoria ou Subcategoria selecionada.',
+    'Your ad was approved.'=>'O seu anúncio foi aprovado.',
+
     // R.S
 
     'Email' => 'Email',

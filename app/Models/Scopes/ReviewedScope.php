@@ -35,7 +35,7 @@ class ReviewedScope implements Scope
         }
 
         if (config('settings.single.posts_review_activation')) {
-            return $builder->where('reviewed', 1);
+            return $builder->where('reviewed', 1)->orWhere('reviewed', 2);
         }
     
         return $builder;

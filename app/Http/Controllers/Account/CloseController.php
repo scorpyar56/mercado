@@ -63,6 +63,6 @@ class CloseController extends AccountBaseController
             flash($message)->success();
         }
         
-        return redirect(config('app.locale') . '/account');
+        return redirect(config('app.locale') . '/');
     }
 }

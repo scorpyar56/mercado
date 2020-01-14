@@ -121,8 +121,12 @@ function ajaxReviewedDisplay($id, $table, $field, $fieldValue = null)
 
     // Decoration
 
-    if ($fieldValue == 0) {
+    if ($fieldValue == 0 ) {
         $lable = 'Rejected 0';
+        $class = 'red';
+    }
+    if ($fieldValue == 3) {
+        $lable = 'Rejected 3';
         $class = 'red';
     }
     else if($fieldValue == 1){

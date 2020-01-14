@@ -886,13 +886,16 @@ if (isset(auth()->user()->id)) {
             }
 
 
+
             $(".bx-controls-direction").append("<div class='next' ><i class='unib-rarrow2' ></i></div>");
             $(".bx-controls-direction").append("<div class='prev' ><i class='unib-larrow2'></i></div>");
             $(".bx-controls-direction").append("<div class='prev' ><i class='unib-larrow2'></i></div>");
             $(".product-view-thumb-wrapper .bx-controls .next").remove();
             $(".product-view-thumb-wrapper .bx-controls .prev").remove();
 
+
         });
+
 
 
         $(".div.bx-viewport").ready(function () {
@@ -900,6 +903,7 @@ if (isset(auth()->user()->id)) {
 
             $(".bx-next").attr("style", " height: " + height + " !important;");
             $(".bx-prev").attr("style", " height: " + height + " !important;");
+
         });
 
         $(window).resize(function () {
@@ -915,6 +919,7 @@ if (isset(auth()->user()->id)) {
 
             $(".footer-content .row").attr("style", "padding-bottom: 40px;");
 
+
             $(".unir-phone.btn.btn-success.phoneBlock.btn-block").on("click", function () {
                 $(".new-button.phoneBtn .btn-user-card").parent("click");
                 console.log("clicked");
@@ -924,8 +929,10 @@ if (isset(auth()->user()->id)) {
         var modal_userInfo = false;
 
 
+
         if ($(window).width() >= 992) {//убираем функционал звонка с pc
             $(".new-button.phoneBtn .btn-user-card").removeAttr("href");
+
         }
 
 

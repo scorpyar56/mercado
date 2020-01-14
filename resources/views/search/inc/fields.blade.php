@@ -190,7 +190,7 @@ if (!function_exists("createFieldNodeTree")) {
 
             @endif
             @if ($field->type == 'checkbox_multiple' || $field->type == 'checkbox_multiple_or')
-
+                        
                 @if ($field->options->count() > 0)
                 <!-- checkbox_multiple -->
                     <div class="block-title sidebar-header" id="cf-header-{{ $field->tid }}">

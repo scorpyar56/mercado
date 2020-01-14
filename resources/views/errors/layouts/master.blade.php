@@ -35,6 +35,7 @@
 	<link href="{{ url('css/style.css') . getPictureVersion() }}" rel="stylesheet">
 	<link href="{{ url('css/ed.css') . getPictureVersion() }}" rel="stylesheet">
 	<link href="{{ url('css/rus.css') . getPictureVersion() }}" rel="stylesheet">
+	<link href="{{ url('css/drag.css') . getPictureVersion() }}" rel="stylesheet">
 	
 	@yield('after_styles')
 	

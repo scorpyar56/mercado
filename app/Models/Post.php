@@ -365,7 +365,7 @@ class Post extends BaseModel implements Feedable
 		});
 		
 		if (config('settings.single.posts_review_activation')) {
-			$builder->orWhere('reviewed', 0);
+			$builder->orWhere('reviewed', 0)->orWhere("reviewed", 3 );
 		}
 		
 		return $builder;
@@ -375,7 +375,7 @@ class Post extends BaseModel implements Feedable
 	{
 		return $builder->where('archived', 1);
 	}
-	
+
 	public function scopeUnarchived($builder)
 	{
 		return $builder->where('archived', 0);
@@ -385,7 +385,7 @@ class Post extends BaseModel implements Feedable
 	{
 		if (config('settings.single.posts_review_activation')) {
 //			return $builder->where('reviewed', 1);
-                        return $builder->where('reviewed', '>', 0);
+                        return $builder->where("reviewed", 1 )->orWhere("reviewed", 2 );
 		} else {
 			return $builder;
 		}
@@ -394,7 +394,7 @@ class Post extends BaseModel implements Feedable
 	public function scopeUnreviewed($builder)
 	{
 		if (config('settings.single.posts_review_activation')) {
-			return $builder->where('reviewed', 0);
+			return $builder->where('reviewed', 0)->orWhere('reviewed' , 3);
 		} else {
 			return $builder;
 		}

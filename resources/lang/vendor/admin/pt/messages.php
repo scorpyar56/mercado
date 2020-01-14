@@ -350,6 +350,10 @@ return [
     'Russian Pluralization' => 'Russian Pluralization',
     'Status' => 'Status',
     'Activated' => 'Activated',
+
+    'Wrong Category' => 'Wrong Category pt',
+    'Wrong Posting Rules' => 'Wrong Posting Rules pt',
+    
     'Unactivated' => 'Unactivated',
     'Posts Stats' => 'Posts Stats',
     'Users Stats' => 'Users Stats',

@@ -484,7 +484,11 @@ return [
     'Enter the script code (latn, etc.)' => 'Enter the script code (latn, etc.)',
     'Russian Pluralization' => 'Russian Pluralization',
     'Status' => 'Status',
-    'Activated' => 'Activated',
+	'Activated' => 'Activated',
+	
+	'Wrong Category' => 'Wrong Category',
+	'Wrong Posting Rules' => 'Wrong Posting Rules',
+
     'Unactivated' => 'Unactivated',
     'Posts Stats' => 'Posts Stats',
     'Users Stats' => 'Users Stats',
