@@ -119,7 +119,7 @@ class DetailsController extends FrontController
 			$post = Cache::remember($cacheId, $this->cacheExpiration, function () use ($postId) {
 				$post = Post::withoutGlobalScopes([VerifiedScope::class, ReviewedScope::class])
 					->withCountryFix()
-					->unarchived()
+					// ->unarchived()
 					->where('id', $postId)
 					->with([
 						'category' => function ($builder) { $builder->with(['parent']); },

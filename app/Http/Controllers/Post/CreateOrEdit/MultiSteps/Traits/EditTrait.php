@@ -113,6 +113,8 @@ trait EditTrait
      */
     public function postUpdateForm($postIdOrToken, PostRequest $request)
     {
+
+
         // Get Post
         if (getSegment(2) == 'create') {
             if (!session()->has('tmpPostId')) {
@@ -174,13 +176,14 @@ trait EditTrait
 		foreach ($input as $key => $value) {
 			$post->{$key} = $value;
 		}
-                $post->negotiable = $request->input('negotiable');
+        $post->negotiable = $request->input('negotiable');
 		$post->phone_hidden = $request->input('phone_hidden');
 		$post->lat = $city->latitude;
                 $post->lon = $city->longitude;
                 $post->ip_addr = Ip::get();
                 // R.S
-                $post->reviewed = 0;
+                $post->reviewed = 1;
+                $post->archived = 0;
 
         // Email verification key generation
         if ($emailVerificationRequired) {
