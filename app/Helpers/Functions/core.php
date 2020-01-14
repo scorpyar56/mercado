@@ -2924,10 +2924,9 @@ function genEmailContactBtn($post = null, $btnBlock = false, $iconOnly = false)
 			$btnClass = $btnClass . ' btn-block';
 		}
 
-		$out .= '<div class="new-button messageBtn"><a href="' . $btnLink . '" class="btn-user-card" data-toggle="modal">';
+		$out .= '<div class="new-button messageBtn" data-target="#contactUser" data-toggle="modal"><a  class="btn-user-card" >';
 		// $out .= "<img src=" . url('images/menu_light.svg') . " class='sidebar-image'>";
 		$out .= '<i class="unir-mail btn btn-success btn-block"  href="' . $btnLink . '"></i> ';
-		$out .= '';
 		$out .= '<span class="right-from-image" id="chat">  ' . t('Send a message') . '</span></a></div>';
 
 	}
@@ -2951,13 +2950,11 @@ function genPhoneNumberBtn($post, $btnBlock = false)
 	}
 
 	$btnLink = 'tel:' . spacedNumber($post->phone);
-	// $btnLink = 'tel:' . $post->phone;
 
 	$btnAttr = '';
 	$btnClass = ' phoneBlock'; // for the JS showPhone() function
 	$btnHint = t('Click to see');
 	$phone = spacedNumber($post->phone);
-	// $phone = $post->phone;
 	if (config('settings.single.hide_phone_number')) {
 		if (config('settings.single.hide_phone_number') == '1') {
 			$phone = maskPhoneNumber($phone, 3, true);
@@ -2968,7 +2965,7 @@ function genPhoneNumberBtn($post, $btnBlock = false)
 		if (config('settings.single.hide_phone_number') == '3') {
 			$phone = maskPhoneNumber($phone, 0, true);
 		}
-		$btnLink = '#phoneUser';
+		$btnLink = '';
 		$btnAttr = 'data-toggle="tooltip" data-original-title="' . $btnHint . '"';
 		$btnClass = $btnClass . ' tooltipHere';
 	} else {
@@ -2995,9 +2992,8 @@ function genPhoneNumberBtn($post, $btnBlock = false)
 	}
 
 	// Generate the Phone Number button
-	$out .= '<div class="new-button phoneBtn"><a class="btn-user-card" href="' . $btnLink . '" >';
+	$out .= '<div class="new-button phoneBtn" data-toggle="modal" data-target="#phoneModal"><a class="btn-user-card" href="' . $btnLink . '" >';
 	$out .= '<i class="unir-phone btn btn-success' . $btnClass . $btnAttr . '"> </i>';
-	// $out .= '<span class="right-from-image">' . $phone . '</span>';
 
 	$out .= '<span class="right-from-image" id="call">'. spacedNumber($phone) . '</span></a></div>';
 
