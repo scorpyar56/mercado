@@ -187,9 +187,10 @@ Route::group([
 | The translated front-end routes
 |
 */
+
 Route::group([
 	'namespace'  => 'App\Http\Controllers',
-	'middleware' => ['locale'],
+	'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'locale'],
 	'prefix'     => LaravelLocalization::setLocale(),
 ], function ($router) {
 	Route::group(['middleware' => ['web', 'install.checker']], function ($router) {
