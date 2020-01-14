@@ -349,7 +349,28 @@
 								</div>
 							</div>
 						</div>
+						<div class="modal fade" id="checkEmailModal" tabindex="-1" role="dialog" aria-labeledby="#titleCheckEmailModal" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+										<div class="modal-header modal-header-dif">
+											<h2 class="modal-title" id="titleCheckEmailModal">
+												{{t('Add email')}}
+											</h2>
+											<button type="button" class="close" data-dismiss="modal">
+												{{--					<span aria-hidden="true">&times;</span>--}}
+												<span aria-hidden="true"><i class="unir-close"></i></span>
+												<span class="sr-only">{{ t('Close') }}</span>
+											</button>
+										</div>
 
+									<div class="modal-body modal-body-dif modal-body-user">
+										<div class="modal-text">
+											{{t('if you forget password we send it on email')}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
 					{{--					<div class="inner-box default-inner-box">--}}
 					{{--						<div class="row">--}}
@@ -957,7 +978,13 @@
 					$('.menu-overly-mask').removeClass('is-visible');
 					modal_userInfo = false;
 				});
-
+				
+				$(window).on('load',function(){
+					var email = document.getElementById("email").value;
+					if(email===""){
+						$('#checkEmailModal').modal('show');
+					}
+    			});
 				// $(".btn.btn-dif.btn-grey").hover(function(value){
 				// 	console.log(value);
 				// 	// value. = ("bgcolr","#6b8096 !important");
