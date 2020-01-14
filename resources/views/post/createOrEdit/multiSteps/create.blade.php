@@ -427,8 +427,17 @@
 																		<polyline points="4 8 6 10 11 5"></polyline>
 																	</svg>
 																</div>
+																<script>
+																	$('#terms').click(function () {
+																		if ($(this).is(':checked') == false) {
+																			$('#nextStepBtn').attr('disabled', 'disabled');
+																		} else {
+																			$('#nextStepBtn').removeAttr('disabled');
+																		}
+																	});
+																</script>
 															@else
-																<input id="terms" name="terms" type="checkbox" class="invisible" value="1" checked='checked'>
+																<input id="terms" name="terms" type="checkbox" class="invisible" value="1" checked="checked">
 															@endif
 															{!! t('I have read and agree to the <a :attributes>Terms of Use</a>', ['attributes' => getUrlPageByType('terms')]) !!}
 														</label>
@@ -438,7 +447,11 @@
 												<!-- Button  -->
 												<div class="form-group row pt-3 post-submit" >
 													<div class="col-md-9 text-center">
-														<button id="nextStepBtn" class="btn btn-primary btn-lg btn-dif btn-green"> {{ t('Submit') }} </button>
+													@if (auth()->check())
+														<button id="nextStepBtn" class="btn btn-primary btn-lg btn-dif btn-green" > {{ t('Submit') }} </button>
+													@else
+														<button id="nextStepBtn" class="btn btn-primary btn-lg btn-dif btn-green" disabled="disabled"> {{ t('Submit') }} </button>
+													@endif
 													</div>
 												</div>
 											</div>
