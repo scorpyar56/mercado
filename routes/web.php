@@ -20,7 +20,7 @@
 |
 */
 Route::group(['namespace' => 'App\Http\Controllers', 'middleware' => ['web']], function () {
-	Route::get('upgrade', 'UpgradeController@version');
+    Route::get('upgrade', 'UpgradeController@version');
 });
 
 
@@ -33,19 +33,19 @@ Route::group(['namespace' => 'App\Http\Controllers', 'middleware' => ['web']], f
 |
 */
 Route::group([
-	'namespace'  => 'App\Http\Controllers',
-	'middleware' => ['web', 'install.checker'],
-	'prefix'     => 'install',
+    'namespace' => 'App\Http\Controllers',
+    'middleware' => ['web', 'install.checker'],
+    'prefix' => 'install',
 ], function () {
-	Route::get('/', 'InstallController@starting');
-	Route::get('site_info', 'InstallController@siteInfo');
-	Route::post('site_info', 'InstallController@siteInfo');
-	Route::get('system_compatibility', 'InstallController@systemCompatibility');
-	Route::get('database', 'InstallController@database');
-	Route::post('database', 'InstallController@database');
-	Route::get('database_import', 'InstallController@databaseImport');
-	Route::get('cron_jobs', 'InstallController@cronJobs');
-	Route::get('finish', 'InstallController@finish');
+    Route::get('/', 'InstallController@starting');
+    Route::get('site_info', 'InstallController@siteInfo');
+    Route::post('site_info', 'InstallController@siteInfo');
+    Route::get('system_compatibility', 'InstallController@systemCompatibility');
+    Route::get('database', 'InstallController@database');
+    Route::post('database', 'InstallController@database');
+    Route::get('database_import', 'InstallController@databaseImport');
+    Route::get('cron_jobs', 'InstallController@cronJobs');
+    Route::get('finish', 'InstallController@finish');
 });
 
 
@@ -58,9 +58,9 @@ Route::group([
 |
 */
 Route::group([
-    'namespace'  => 'App\Http\Controllers\Admin',
+    'namespace' => 'App\Http\Controllers\Admin',
     'middleware' => ['web', 'install.checker'],
-    'prefix'     => config('larapen.admin.route_prefix', 'admin'),
+    'prefix' => config('larapen.admin.route_prefix', 'admin'),
 ], function ($router) {
     // Auth
     Route::auth();
@@ -163,19 +163,19 @@ Route::group([
 |
 */
 Route::group([
-	'namespace'  => 'App\Http\Controllers',
-	'middleware' => ['web', 'install.checker'],
+    'namespace' => 'App\Http\Controllers',
+    'middleware' => ['web', 'install.checker'],
 ], function ($router) {
-	// FILES
-	Route::get('file', 'FileController@show');
+    // FILES
+    Route::get('file', 'FileController@show');
 
-	// SEO
-	Route::get('sitemaps.xml', 'SitemapsController@index');
+    // SEO
+    Route::get('sitemaps.xml', 'SitemapsController@index');
 
-	// Impersonate (As admin user, login as an another user)
-	Route::group(['middleware' => 'auth'], function ($router) {
-		Route::impersonate();
-	});
+    // Impersonate (As admin user, login as an another user)
+    Route::group(['middleware' => 'auth'], function ($router) {
+        Route::impersonate();
+    });
 });
 
 
@@ -189,259 +189,257 @@ Route::group([
 */
 
 Route::group([
-	'namespace'  => 'App\Http\Controllers',
-	'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'locale'],
-	'prefix'     => LaravelLocalization::setLocale(),
+    'namespace' => 'App\Http\Controllers',
+    'middleware' => [],
+    'prefix' => LaravelLocalization::setLocale(),
 ], function ($router) {
-	Route::group(['middleware' => ['web', 'install.checker']], function ($router) {
-		// HOMEPAGE
-		Route::get('/', 'HomeController@index');
-		Route::get(LaravelLocalization::transRoute('routes.countries'), 'CountriesController@index');
+    Route::group(['middleware' => ['web','install.checker']], function ($router) {
+        // HOMEPAGE
+        Route::get('/', 'HomeController@index');
+        Route::get(LaravelLocalization::transRoute('routes.countries'), 'CountriesController@index');
 
 
-		// AUTH
-		Route::group(['middleware' => ['guest', 'prevent.back.history']], function ($router) {
-			// Registration Routes...
-			Route::get(LaravelLocalization::transRoute('routes.register'), 'Auth\RegisterController@showRegistrationForm');
-			Route::post(LaravelLocalization::transRoute('routes.register'), 'Auth\RegisterController@register');
-			// R.S.
-			Route::get(LaravelLocalization::transRoute('verification/code/{phone}'), 'Auth\RegisterController@codeVerification');
-			Route::post(LaravelLocalization::transRoute('verification/code/{phone}'), 'Auth\RegisterController@verifyCode');
-			Route::get(LaravelLocalization::transRoute('resending/verification/code/{phone}'), 'Auth\RegisterController@resendCode');
-			Route::post('/end/registration/', 'Auth\RegisterController@endRegistration');
-			Route::get('/end/registration/{phone}', 'Auth\RegisterController@lastRecords');
-			Route::get('register/finish', 'Auth\RegisterController@finish');
+        // AUTH
+        Route::group(['middleware' => ['guest', 'prevent.back.history']], function ($router) {
+            // Registration Routes...
+            Route::get(LaravelLocalization::transRoute('routes.register'), 'Auth\RegisterController@showRegistrationForm');
+            Route::post(LaravelLocalization::transRoute('routes.register'), 'Auth\RegisterController@register');
+            // R.S.
+            Route::get(LaravelLocalization::transRoute('verification/code/{phone}'), 'Auth\RegisterController@codeVerification');
+            Route::post(LaravelLocalization::transRoute('verification/code/{phone}'), 'Auth\RegisterController@verifyCode');
+            Route::get(LaravelLocalization::transRoute('resending/verification/code/{phone}'), 'Auth\RegisterController@resendCode');
+            Route::post('/end/registration/', 'Auth\RegisterController@endRegistration');
+            Route::get('/end/registration/{phone}', 'Auth\RegisterController@lastRecords');
+            Route::get('register/finish', 'Auth\RegisterController@finish');
 
 
+            // Authentication Routes...
+            Route::get(LaravelLocalization::transRoute('routes.login'), 'Auth\LoginController@showLoginForm');
+            Route::post(LaravelLocalization::transRoute('routes.login'), 'Auth\LoginController@login');
+
+            // Forgot Password Routes...
+            Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+            Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+
+            // Reset Password using Token
+            Route::get('password/token', 'Auth\ForgotPasswordController@showTokenRequestForm');
+            Route::post('password/token', 'Auth\ForgotPasswordController@sendResetToken');
+
+            // Reset Password using Link (Core Routes...)
+            Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+            Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+            // Social Authentication
+            $router->pattern('provider', 'facebook|linkedin|twitter|google');
+            Route::get('auth/{provider}', 'Auth\SocialController@redirectToProvider');
+            Route::get('auth/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
+        });
+
+        // Email Address or Phone Number verification
+        $router->pattern('field', 'email|phone');
+        Route::get('verify/user/{id}/resend/email', 'Auth\RegisterController@reSendVerificationEmail');
+        Route::get('verify/user/{id}/resend/sms', 'Auth\RegisterController@reSendVerificationSms');
+        Route::get('verify/user/{field}/{token?}', 'Auth\RegisterController@verification');
+        Route::post('verify/user/{field}/{token?}', 'Auth\RegisterController@verification');
+
+        // User Logout
+        Route::get(LaravelLocalization::transRoute('routes.logout'), 'Auth\LoginController@logout');
 
 
-			// Authentication Routes...
-			Route::get(LaravelLocalization::transRoute('routes.login'), 'Auth\LoginController@showLoginForm');
-			Route::post(LaravelLocalization::transRoute('routes.login'), 'Auth\LoginController@login');
+        // POSTS
+        Route::group(['namespace' => 'Post'], function ($router) {
+            $router->pattern('id', '[0-9]+');
+            // $router->pattern('slug', '.*');
+            $router->pattern('slug', '^(?=.*)((?!\/).)*$');
 
-			// Forgot Password Routes...
-			Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
-			Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+            // SingleStep Post creation
+            Route::group(['namespace' => 'CreateOrEdit\SingleStep'], function ($router) {
+                Route::get('create', 'CreateController@getForm');
+                Route::post('create', 'CreateController@postForm');
+                Route::get('create/finish', 'CreateController@finish');
 
-			// Reset Password using Token
-			Route::get('password/token', 'Auth\ForgotPasswordController@showTokenRequestForm');
-			Route::post('password/token', 'Auth\ForgotPasswordController@sendResetToken');
+                // Payment Gateway Success & Cancel
+                Route::get('create/payment/success', 'CreateController@paymentConfirmation');
+                Route::get('create/payment/cancel', 'CreateController@paymentCancel');
 
-			// Reset Password using Link (Core Routes...)
-			Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-			Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+                // Email Address or Phone Number verification
+                $router->pattern('field', 'email|phone');
+                Route::get('verify/post/{id}/resend/email', 'CreateController@reSendVerificationEmail');
+                Route::get('verify/post/{id}/resend/sms', 'CreateController@reSendVerificationSms');
+                Route::post('verify/post/{field}/{token?}', 'CreateController@verification');
+                Route::post('verify/post/{field}/{token?}', 'CreateController@verification');
+            });
 
-			// Social Authentication
-			$router->pattern('provider', 'facebook|linkedin|twitter|google');
-			Route::get('auth/{provider}', 'Auth\SocialController@redirectToProvider');
-			Route::get('auth/{provider}/callback', 'Auth\SocialController@handleProviderCallback');
-		});
+            // MultiSteps Post creation
+            Route::group(['namespace' => 'CreateOrEdit\MultiSteps'], function ($router) {
+                Route::get('posts/create/{tmpToken?}', 'CreateController@getForm');
+                Route::post('posts/create', 'CreateController@postForm');
+                // R.S
+                Route::get('posts/create/{tmpToken}/register', 'CreateController@wantToRegsiter');
+                Route::post('posts/create/{tmpToken}', 'CreateController@refuseToRegisterPostForm');
+                Route::get('posts/create/{tmpToken}/code/check', 'CreateController@codeCheck');
+                Route::post('posts/create/{tmpToken}/code/check', 'CreateController@searcPostsByUserId');
 
-		// Email Address or Phone Number verification
-		$router->pattern('field', 'email|phone');
-		Route::get('verify/user/{id}/resend/email', 'Auth\RegisterController@reSendVerificationEmail');
-		Route::get('verify/user/{id}/resend/sms', 'Auth\RegisterController@reSendVerificationSms');
-		Route::get('verify/user/{field}/{token?}', 'Auth\RegisterController@verification');
-		Route::post('verify/user/{field}/{token?}', 'Auth\RegisterController@verification');
+                Route::put('posts/create/{tmpToken}', 'CreateController@postForm');
+                Route::get('posts/create/{tmpToken}/photos', 'PhotoController@getForm');
+                Route::post('posts/create/{tmpToken}/photos', 'PhotoController@postForm');
+                Route::post('posts/create/{tmpToken}/photos/{id}/delete', 'PhotoController@delete');
+                Route::get('posts/create/{tmpToken}/payment', 'PaymentController@getForm');
+                Route::post('posts/create/{tmpToken}/payment', 'PaymentController@postForm');
+                Route::get('posts/create/{tmpToken}/finish', 'CreateController@finish');
 
-		// User Logout
-		Route::get(LaravelLocalization::transRoute('routes.logout'), 'Auth\LoginController@logout');
+                // Payment Gateway Success & Cancel
+                Route::get('posts/create/{tmpToken}/payment/success', 'PaymentController@paymentConfirmation');
+                Route::get('posts/create/{tmpToken}/payment/cancel', 'PaymentController@paymentCancel');
 
+                // Email Address or Phone Number verification
+                $router->pattern('field', 'email|phone');
+                Route::get('verify/post/{id}/resend/email', 'CreateController@reSendVerificationEmail');
+                Route::get('verify/post/{id}/resend/sms', 'CreateController@reSendVerificationSms');
+                Route::get('verify/post/{field}/{token?}', 'CreateController@verification');
+                Route::post('verify/post/{field}/{token?}', 'CreateController@verification');
+            });
 
-		// POSTS
-		Route::group(['namespace' => 'Post'], function ($router) {
-			$router->pattern('id', '[0-9]+');
-			// $router->pattern('slug', '.*');
-			$router->pattern('slug', '^(?=.*)((?!\/).)*$');
+            Route::group(['middleware' => 'auth'], function ($router) {
+                $router->pattern('id', '[0-9]+');
 
-			// SingleStep Post creation
-			Route::group(['namespace' => 'CreateOrEdit\SingleStep'], function ($router) {
-				Route::get('create', 'CreateController@getForm');
-				Route::post('create', 'CreateController@postForm');
-				Route::get('create/finish', 'CreateController@finish');
+                // SingleStep Post edition
+                Route::group(['namespace' => 'CreateOrEdit\SingleStep'], function ($router) {
+                    Route::get('edit/{id}', 'EditController@getForm');
+                    Route::put('edit/{id}', 'EditController@postForm');
 
-				// Payment Gateway Success & Cancel
-				Route::get('create/payment/success', 'CreateController@paymentConfirmation');
-				Route::get('create/payment/cancel', 'CreateController@paymentCancel');
+                    // Payment Gateway Success & Cancel
+                    Route::get('edit/{id}/payment/success', 'EditController@paymentConfirmation');
+                    Route::get('edit/{id}/payment/cancel', 'EditController@paymentCancel');
+                });
 
-				// Email Address or Phone Number verification
-				$router->pattern('field', 'email|phone');
-				Route::get('verify/post/{id}/resend/email', 'CreateController@reSendVerificationEmail');
-				Route::get('verify/post/{id}/resend/sms', 'CreateController@reSendVerificationSms');
-				Route::post('verify/post/{field}/{token?}', 'CreateController@verification');
-				Route::post('verify/post/{field}/{token?}', 'CreateController@verification');
-			});
+                // MultiSteps Post edition
+                Route::group(['namespace' => 'CreateOrEdit\MultiSteps'], function ($router) {
+                    Route::get('posts/{id}/edit', 'EditController@getForm');
+                    Route::put('posts/{id}/edit', 'EditController@postForm');
+                    Route::get('posts/{id}/photos', 'PhotoController@getForm');
+                    Route::post('posts/{id}/photos', 'PhotoController@postForm');
+                    Route::post('posts/{token}/photos/{id}/delete', 'PhotoController@delete');
+                    Route::get('posts/{id}/payment', 'PaymentController@getForm');
+                    Route::post('posts/{id}/payment', 'PaymentController@postForm');
 
-			// MultiSteps Post creation
-			Route::group(['namespace' => 'CreateOrEdit\MultiSteps'], function ($router) {
-				Route::get('posts/create/{tmpToken?}', 'CreateController@getForm');
-				Route::post('posts/create', 'CreateController@postForm');
-				// R.S
-				Route::get('posts/create/{tmpToken}/register', 'CreateController@wantToRegsiter');
-				Route::post('posts/create/{tmpToken}', 'CreateController@refuseToRegisterPostForm');
-				Route::get('posts/create/{tmpToken}/code/check', 'CreateController@codeCheck');
-				Route::post('posts/create/{tmpToken}/code/check', 'CreateController@searcPostsByUserId');
+                    // Payment Gateway Success & Cancel
+                    Route::get('posts/{id}/payment/success', 'PaymentController@paymentConfirmation');
+                    Route::get('posts/{id}/payment/cancel', 'PaymentController@paymentCancel');
+                });
+            });
 
-				Route::put('posts/create/{tmpToken}', 'CreateController@postForm');
-				Route::get('posts/create/{tmpToken}/photos', 'PhotoController@getForm');
-				Route::post('posts/create/{tmpToken}/photos', 'PhotoController@postForm');
-				Route::post('posts/create/{tmpToken}/photos/{id}/delete', 'PhotoController@delete');
-				Route::get('posts/create/{tmpToken}/payment', 'PaymentController@getForm');
-				Route::post('posts/create/{tmpToken}/payment', 'PaymentController@postForm');
-				Route::get('posts/create/{tmpToken}/finish', 'CreateController@finish');
+            // Post's Details
+            Route::get(LaravelLocalization::transRoute('routes.post'), 'DetailsController@index');
 
-				// Payment Gateway Success & Cancel
-				Route::get('posts/create/{tmpToken}/payment/success', 'PaymentController@paymentConfirmation');
-				Route::get('posts/create/{tmpToken}/payment/cancel', 'PaymentController@paymentCancel');
+            // Contact Post's Author
+            Route::post('posts/{id}/contact', 'DetailsController@sendMessage');
 
-				// Email Address or Phone Number verification
-				$router->pattern('field', 'email|phone');
-				Route::get('verify/post/{id}/resend/email', 'CreateController@reSendVerificationEmail');
-				Route::get('verify/post/{id}/resend/sms', 'CreateController@reSendVerificationSms');
-				Route::get('verify/post/{field}/{token?}', 'CreateController@verification');
-				Route::post('verify/post/{field}/{token?}', 'CreateController@verification');
-			});
+            // Send report abuse
+            Route::get('posts/{id}/report', 'ReportController@showReportForm');
+            Route::post('posts/{id}/report', 'ReportController@sendReport');
 
-			Route::group(['middleware' => 'auth'], function ($router) {
-				$router->pattern('id', '[0-9]+');
+            // // Send unban request R.S
+            Route::get('unban/{phone}/request', 'UnbanController@showRequestForm');
+            Route::post('unban/{phone}/request', 'UnbanController@sendRequest');
 
-				// SingleStep Post edition
-				Route::group(['namespace' => 'CreateOrEdit\SingleStep'], function ($router) {
-					Route::get('edit/{id}', 'EditController@getForm');
-					Route::put('edit/{id}', 'EditController@postForm');
-
-					// Payment Gateway Success & Cancel
-					Route::get('edit/{id}/payment/success', 'EditController@paymentConfirmation');
-					Route::get('edit/{id}/payment/cancel', 'EditController@paymentCancel');
-				});
-
-				// MultiSteps Post edition
-				Route::group(['namespace' => 'CreateOrEdit\MultiSteps'], function ($router) {
-					Route::get('posts/{id}/edit', 'EditController@getForm');
-					Route::put('posts/{id}/edit', 'EditController@postForm');
-					Route::get('posts/{id}/photos', 'PhotoController@getForm');
-					Route::post('posts/{id}/photos', 'PhotoController@postForm');
-					Route::post('posts/{token}/photos/{id}/delete', 'PhotoController@delete');
-					Route::get('posts/{id}/payment', 'PaymentController@getForm');
-					Route::post('posts/{id}/payment', 'PaymentController@postForm');
-
-					// Payment Gateway Success & Cancel
-					Route::get('posts/{id}/payment/success', 'PaymentController@paymentConfirmation');
-					Route::get('posts/{id}/payment/cancel', 'PaymentController@paymentCancel');
-				});
-			});
-
-			// Post's Details
-			Route::get(LaravelLocalization::transRoute('routes.post'), 'DetailsController@index');
-
-			// Contact Post's Author
-			Route::post('posts/{id}/contact', 'DetailsController@sendMessage');
-
-			// Send report abuse
-			Route::get('posts/{id}/report', 'ReportController@showReportForm');
-			Route::post('posts/{id}/report', 'ReportController@sendReport');
-
-			// // Send unban request R.S
-			Route::get('unban/{phone}/request', 'UnbanController@showRequestForm');
-			Route::post('unban/{phone}/request', 'UnbanController@sendRequest');
-
-		});
+        });
 
 
-		// ACCOUNT
-		Route::group(['middleware' => ['auth', 'banned.user', 'prevent.back.history'], 'namespace' => 'Account'], function ($router) {
-			$router->pattern('id', '[0-9]+');
+        // ACCOUNT
+        Route::group(['middleware' => ['auth', 'banned.user', 'prevent.back.history'], 'namespace' => 'Account'], function ($router) {
+            $router->pattern('id', '[0-9]+');
 
-			// Users
-			Route::get('account', 'EditController@index');
-			Route::group(['middleware' => 'impersonate.protect'], function () {
-				Route::put('account', 'EditController@updateDetails');
-				Route::put('account/settings', 'EditController@updateSettings');
-				Route::put('account/preferences', 'EditController@updatePreferences');
-				Route::post('account/{id}/photo', 'EditController@updatePhoto');
-				Route::post('account/{id}/photo/delete', 'EditController@deletePhoto');
-			});
-			Route::get('account/close', 'CloseController@index');
-			Route::group(['middleware' => 'impersonate.protect'], function () {
-				Route::post('account/close', 'CloseController@submit');
-			});
+            // Users
+            Route::get('account', 'EditController@index');
+            Route::group(['middleware' => 'impersonate.protect'], function () {
+                Route::put('account', 'EditController@updateDetails');
+                Route::put('account/settings', 'EditController@updateSettings');
+                Route::put('account/preferences', 'EditController@updatePreferences');
+                Route::post('account/{id}/photo', 'EditController@updatePhoto');
+                Route::post('account/{id}/photo/delete', 'EditController@deletePhoto');
+            });
+            Route::get('account/close', 'CloseController@index');
+            Route::group(['middleware' => 'impersonate.protect'], function () {
+                Route::post('account/close', 'CloseController@submit');
+            });
 
-			// Posts
-			Route::get('account/saved-search', 'PostsController@getSavedSearch');
-			$router->pattern('pagePath', '(my-posts|archived|favourite|pending-approval|saved-search)+');
-			Route::get('account/{pagePath}', 'PostsController@getPage');
-			Route::get('account/my-posts/{id}/offline', 'PostsController@getMyPosts');
-			Route::get('account/archived/{id}/repost', 'PostsController@getArchivedPosts');
-			Route::get('account/{pagePath}/{id}/delete', 'PostsController@destroy');
-			Route::post('account/{pagePath}/delete', 'PostsController@destroy');
+            // Posts
+            Route::get('account/saved-search', 'PostsController@getSavedSearch');
+            $router->pattern('pagePath', '(my-posts|archived|favourite|pending-approval|saved-search)+');
+            Route::get('account/{pagePath}', 'PostsController@getPage');
+            Route::get('account/my-posts/{id}/offline', 'PostsController@getMyPosts');
+            Route::get('account/archived/{id}/repost', 'PostsController@getArchivedPosts');
+            Route::get('account/{pagePath}/{id}/delete', 'PostsController@destroy');
+            Route::post('account/{pagePath}/delete', 'PostsController@destroy');
 
-			// Conversations
-			Route::get('account/conversations', 'ConversationsController@index');
-			Route::get('account/conversations/{id}/delete', 'ConversationsController@destroy');
-			Route::post('account/conversations/delete', 'ConversationsController@destroy');
-			Route::post('account/conversations/{id}/reply', 'ConversationsController@reply');
-			$router->pattern('msgId', '[0-9]+');
-			Route::get('account/conversations/{id}/messages', 'ConversationsController@messages');
-			Route::get('account/conversations/{id}/messages/{msgId}/delete', 'ConversationsController@destroyMessages');
-			Route::post('account/conversations/{id}/messages/delete', 'ConversationsController@destroyMessages');
+            // Conversations
+            Route::get('account/conversations', 'ConversationsController@index');
+            Route::get('account/conversations/{id}/delete', 'ConversationsController@destroy');
+            Route::post('account/conversations/delete', 'ConversationsController@destroy');
+            Route::post('account/conversations/{id}/reply', 'ConversationsController@reply');
+            $router->pattern('msgId', '[0-9]+');
+            Route::get('account/conversations/{id}/messages', 'ConversationsController@messages');
+            Route::get('account/conversations/{id}/messages/{msgId}/delete', 'ConversationsController@destroyMessages');
+            Route::post('account/conversations/{id}/messages/delete', 'ConversationsController@destroyMessages');
 
-			// Transactions
-			Route::get('account/transactions', 'TransactionsController@index');
-		});
-
-
-		// AJAX
-		Route::group(['prefix' => 'ajax'], function ($router) {
-			Route::get('countries/{countryCode}/admins/{adminType}', 'Ajax\LocationController@getAdmins');
-			Route::get('countries/{countryCode}/admins/{adminType}/{adminCode}/cities', 'Ajax\LocationController@getCities');
-			Route::get('countries/{countryCode}/cities/{id}', 'Ajax\LocationController@getSelectedCity');
-			Route::post('countries/{countryCode}/cities/autocomplete', 'Ajax\LocationController@searchedCities');
-			Route::post('countries/{countryCode}/admin1/cities', 'Ajax\LocationController@getAdmin1WithCities');
-			Route::post('category/sub-categories', 'Ajax\CategoryController@getSubCategories');
-                        Route::post('category/sub-categories-new', 'Ajax\CategoryController@getSubCategoriesNew');
-                        Route::post('category/sub-categories-dif', 'Ajax\CategoryController@getSubCategoriesDif');
-			Route::post('category/custom-fields', 'Ajax\CategoryController@getCustomFields');
-			Route::post('save/post', 'Ajax\PostController@savePost');
-			Route::post('save/search', 'Ajax\PostController@saveSearch');
-			Route::post('post/phone', 'Ajax\PostController@getPhone');
-			Route::post('post/pictures/reorder', 'Ajax\PostController@picturesReorder');
-			Route::post('messages/check', 'Ajax\ConversationController@checkNewMessages');
-		});
+            // Transactions
+            Route::get('account/transactions', 'TransactionsController@index');
+        });
 
 
-		// FEEDS
-		Route::feeds();
+        // AJAX
+        Route::group(['prefix' => 'ajax'], function ($router) {
+            Route::get('countries/{countryCode}/admins/{adminType}', 'Ajax\LocationController@getAdmins');
+            Route::get('countries/{countryCode}/admins/{adminType}/{adminCode}/cities', 'Ajax\LocationController@getCities');
+            Route::get('countries/{countryCode}/cities/{id}', 'Ajax\LocationController@getSelectedCity');
+            Route::post('countries/{countryCode}/cities/autocomplete', 'Ajax\LocationController@searchedCities');
+            Route::post('countries/{countryCode}/admin1/cities', 'Ajax\LocationController@getAdmin1WithCities');
+            Route::post('category/sub-categories', 'Ajax\CategoryController@getSubCategories');
+            Route::post('category/sub-categories-new', 'Ajax\CategoryController@getSubCategoriesNew');
+            Route::post('category/sub-categories-dif', 'Ajax\CategoryController@getSubCategoriesDif');
+            Route::post('category/custom-fields', 'Ajax\CategoryController@getCustomFields');
+            Route::post('save/post', 'Ajax\PostController@savePost');
+            Route::post('save/search', 'Ajax\PostController@saveSearch');
+            Route::post('post/phone', 'Ajax\PostController@getPhone');
+            Route::post('post/pictures/reorder', 'Ajax\PostController@picturesReorder');
+            Route::post('messages/check', 'Ajax\ConversationController@checkNewMessages');
+        });
 
 
-		// Country Code Pattern
-		$countryCodePattern = implode('|', array_map('strtolower', array_keys(getCountries())));
-		$router->pattern('countryCode', $countryCodePattern);
+        // FEEDS
+        Route::feeds();
 
 
-		// XML SITEMAPS
-		Route::get('{countryCode}/sitemaps.xml', 'SitemapsController@site');
-		Route::get('{countryCode}/sitemaps/pages.xml', 'SitemapsController@pages');
-		Route::get('{countryCode}/sitemaps/categories.xml', 'SitemapsController@categories');
-		Route::get('{countryCode}/sitemaps/cities.xml', 'SitemapsController@cities');
-		Route::get('{countryCode}/sitemaps/posts.xml', 'SitemapsController@posts');
+        // Country Code Pattern
+        $countryCodePattern = implode('|', array_map('strtolower', array_keys(getCountries())));
+        $router->pattern('countryCode', $countryCodePattern);
 
 
-		// STATICS PAGES
-		Route::get(LaravelLocalization::transRoute('routes.page'), 'PageController@index');
-		Route::get(LaravelLocalization::transRoute('routes.contact'), 'PageController@contact');
-		Route::post(LaravelLocalization::transRoute('routes.contact'), 'PageController@contactPost');
-		Route::get(LaravelLocalization::transRoute('routes.sitemap'), 'SitemapController@index');
+        // XML SITEMAPS
+        Route::get('{countryCode}/sitemaps.xml', 'SitemapsController@site');
+        Route::get('{countryCode}/sitemaps/pages.xml', 'SitemapsController@pages');
+        Route::get('{countryCode}/sitemaps/categories.xml', 'SitemapsController@categories');
+        Route::get('{countryCode}/sitemaps/cities.xml', 'SitemapsController@cities');
+        Route::get('{countryCode}/sitemaps/posts.xml', 'SitemapsController@posts');
 
-		// DYNAMIC URL PAGES
-		$router->pattern('id', '[0-9]+');
-		$router->pattern('username', '[a-zA-Z0-9]+');
-		Route::get(LaravelLocalization::transRoute('routes.search'), 'Search\SearchController@index');
-		Route::get(LaravelLocalization::transRoute('routes.search-user'), 'Search\UserController@index');
-		Route::get('user/{id}/posts', 'Search\UserController@searchPostsByUserId');
-		Route::get(LaravelLocalization::transRoute('routes.search-username'), 'Search\UserController@profile');
-		Route::get(LaravelLocalization::transRoute('routes.search-tag'), 'Search\TagController@index');
-		Route::get(LaravelLocalization::transRoute('routes.search-city'), 'Search\CityController@index');
-		Route::get(LaravelLocalization::transRoute('routes.search-subCat'), 'Search\CategoryController@index')->where('subCatSlug', '.*');
-		Route::get(LaravelLocalization::transRoute('routes.search-cat'), 'Search\CategoryController@index');
-	});
+
+        // STATICS PAGES
+        Route::get(LaravelLocalization::transRoute('routes.page'), 'PageController@index');
+        Route::get(LaravelLocalization::transRoute('routes.contact'), 'PageController@contact');
+        Route::post(LaravelLocalization::transRoute('routes.contact'), 'PageController@contactPost');
+        Route::get(LaravelLocalization::transRoute('routes.sitemap'), 'SitemapController@index');
+
+        // DYNAMIC URL PAGES
+        $router->pattern('id', '[0-9]+');
+        $router->pattern('username', '[a-zA-Z0-9]+');
+        Route::get(LaravelLocalization::transRoute('routes.search'), 'Search\SearchController@index');
+        Route::get(LaravelLocalization::transRoute('routes.search-user'), 'Search\UserController@index');
+        Route::get('user/{id}/posts', 'Search\UserController@searchPostsByUserId');
+        Route::get(LaravelLocalization::transRoute('routes.search-username'), 'Search\UserController@profile');
+        Route::get(LaravelLocalization::transRoute('routes.search-tag'), 'Search\TagController@index');
+        Route::get(LaravelLocalization::transRoute('routes.search-city'), 'Search\CityController@index');
+        Route::get(LaravelLocalization::transRoute('routes.search-subCat'), 'Search\CategoryController@index')->where('subCatSlug', '.*');
+        Route::get(LaravelLocalization::transRoute('routes.search-cat'), 'Search\CategoryController@index');
+    });
 });
