@@ -189,9 +189,9 @@ Route::group([
 */
 
 Route::group([
-    'namespace' => 'App\Http\Controllers',
-    'middleware' => [],
-    'prefix' => LaravelLocalization::setLocale(),
+	'namespace'  => 'App\Http\Controllers',
+	'middleware' => [],
+	'prefix'     => LaravelLocalization::setLocale(),
 ], function ($router) {
     Route::group(['middleware' => ['web','install.checker']], function ($router) {
         // HOMEPAGE

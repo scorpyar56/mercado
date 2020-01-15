@@ -4,7 +4,7 @@ $(document).ready(function ()
 
     sidebarDirection = {left: '-251px'};
     sidebarDirectionClose = {left: '0'};
-	
+
 	// NAVBAR MAIN
 	$(".navbar-toggle").click(function () {
 		$('.mobile-filter-sidebar.xxx').addClass('is-display')
@@ -35,7 +35,7 @@ $(document).ready(function ()
 		}
 	}
 	navbarShadow();
-	  
+
 	$(window).scroll(function() {
 		navbarShadow();
 	});
@@ -43,7 +43,7 @@ $(document).ready(function ()
 
 	var navbarSite = $('#navshadow');
 	var helpBlock = $('.help-block');
-	
+
 
 	var stickyScroller = function () {
 		var intialscroll = 0;
@@ -71,10 +71,10 @@ $(document).ready(function ()
 	$(function () {
 		var location = window.location.href;
 		var cur_url = '/' + location.split('/').pop();
-	 
+
 		$('div.help-block h4').each(function () {
 			var link = $(this).find('a').attr('href');
-	 
+
 			if (location == link) {
 				$(this).find('a').addClass('current');
 			}
@@ -102,7 +102,7 @@ $(document).ready(function ()
             $('.nice-select.niceselecter.select-sort-by > .list').css('display', 'unset');
         }
 	});
-	
+
 	$('.owner-phone > div.input-group > input#phone').keypress(function(e) {
 		e = e['originalEvent']['key'];
 		if (/\+/.test($(this).val())) {
@@ -128,17 +128,17 @@ $(document).ready(function ()
         }
 	});
 
-	$('#term .checkbox').on('click', function() {
-		let flag = $('terms').val();
-		if (flag == 0) {
-			$('terms').val(1);
-			$('terms').attr('checked', 'checked');
-		}
-		else {
-			$('terms').val(0);
-			$('terms').attr('checked', '');
-		}
-	})
+	$('#showNegotiable').click(function () {
+		var fieldQueryString = $('#negotiableQueryString').val();
+		let val = $(this).prop('checked') ? 1 : 0;
+
+			if (fieldQueryString != '') {
+				fieldQueryString = fieldQueryString + '&';
+			}
+			fieldQueryString = fieldQueryString + 'showNegotiable=' + val;
+		var searchUrl = baseUrl + '?' + fieldQueryString;
+		redirect(searchUrl);
+	});
 
 	let sort_by_text = $('li a.link-bold').text();
 	$('.dropdown-toggle span#mobileCurrent').text(sort_by_text);
@@ -150,21 +150,21 @@ $(document).ready(function ()
 	 var catCollapse = $('.cat-collapse');
 
 	 $(window).bind('resize load', function () {
- 
+
 		 if ($(this).width() < 767) {
 			 catCollapse.collapse('hide');
 			 catCollapse.on('show.bs.collapse', function () {
 				 $(this).prev('.cat-title').find('.icon-down-open-big').addClass("active-panel");
 			 });
- 
+
 			 catCollapse.on('hide.bs.collapse', function () {
 				 $(this).prev('.cat-title').find('.icon-down-open-big').removeClass("active-panel");
 			 });
- 
+
 		 } else {
 			 $('#bd-docs-nav').collapse('show');
 			 catCollapse.collapse('show');
 		 }
- 
+
 	 });
 });

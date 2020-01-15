@@ -271,6 +271,7 @@ return [
     'Price' => 'Price',
     'e.i. 15000' => 'eg 15000',
     'Negotiable' => 'Negotiable',
+    'Show negotiable ads' => 'Show negotiable ads',
     'Pictures' => 'Pictures',
     'Your resume' => 'Your resume',
     'Resume format' => 'Format : pdf, doc, docx, odt, rtf, jpg, png',
