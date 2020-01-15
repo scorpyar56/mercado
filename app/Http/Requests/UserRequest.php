@@ -188,15 +188,15 @@ class UserRequest extends Request
 			];
 			
 			// Phone
-			if (config('settings.sms.phone_verification') == 1) {
-				if ($this->filled('phone')) {
+			// if (config('settings.sms.phone_verification') == 1) {
+			// 	if ($this->filled('phone')) {
 					$countryCode = $this->input('country_code', config('country.code'));
 					if ($countryCode == 'UK') {
 						$countryCode = 'GB';
 					}
 					$rules['phone'][] = 'phone:' . $countryCode;
-				}
-			}
+				// }
+			// }
 			if (isEnabledField('phone')) {
 				// if (isEnabledField('phone') && isEnabledField('email')) {
 				// 	$rules['phone'][] = 'required_without:email';
