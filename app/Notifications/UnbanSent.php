@@ -29,9 +29,8 @@ class UnbanSent extends Notification implements ShouldQueue
 	protected $request;
 	protected $route;
 	
-	public function __construct($route , $request)
+	public function __construct( $request)
 	{
-		$this->route = $route;	
 		$this->request = $request;
 	}
 	
@@ -42,13 +41,14 @@ class UnbanSent extends Notification implements ShouldQueue
 	
 	public function toMail($notifiable)
 	{	
+
 		// R.S.
 		return (new MailMessage)
-			->replyTo($this->route, $this->route)
+			->replyTo($this->request->email, trans('mail.post_unban_request'))
 			->subject(trans('mail.post_unban_request', [
 				'appName'     => config('app.name')
 			]))
-			->line(trans('mail.Unban Request'))
-			->line(nl2br($this->request));
+			->line($this->request->message)
+			->line(trans('mail.Unban Request'));
 	}
 }

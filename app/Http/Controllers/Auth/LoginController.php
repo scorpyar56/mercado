@@ -26,6 +26,9 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Torann\LaravelMetaTags\Facades\MetaTag;
 use App\Models\Blacklist;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\UnbanSent;
+use App\Helpers\ArrayHelper;
 
 class LoginController extends FrontController
 {
@@ -132,10 +135,10 @@ class LoginController extends FrontController
 		// Auth the User
 		if (auth()->attempt($credentials)) {
 			$user = User::find(auth()->user()->getAuthIdentifier());
-			
+
 			// R.S
 			//If userphone is in black list redirect to login page
-			if(Blacklist::where('entry', $request->phone)){
+			if(Blacklist::where('entry', $request->phone)->count() != 0){
 				return redirect(config('app.locale') . "/");
 			}
 

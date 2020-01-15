@@ -97,6 +97,8 @@ class BlacklistController extends PanelController
 
 		// Get email address
 		$phone = request()->get('phone');
+	
+
 
 		// Get previous URL
 		$previousUrl = url()->previous();
@@ -135,6 +137,7 @@ class BlacklistController extends PanelController
 			if (!empty($banned) ) {
 				// Delete the banned user related to the phone address
 				$user = User::where('phone', $banned->entry)->get();
+				
 
 				// Add the phone address to the blacklist
 
@@ -153,6 +156,7 @@ class BlacklistController extends PanelController
 				}
 			} 
 			else {
+
 				// Add the phone address to the blacklist
 				$banned = new Blacklist();
 				$banned->type = 'email';
