@@ -1591,3 +1591,7 @@ input::placeholder {
 .grid-col .col.gray{
     text-transform: none;
 }
+
+.currecyPost{
+    margin-left: 8px;
+}

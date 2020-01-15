@@ -140,7 +140,7 @@ class Number
 		if (config('selectedCurrency.in_left') == 1) {
 			$number = config('selectedCurrency.symbol') . $number;
 		} else {
-			$number = $number . ' ' . config('selectedCurrency.symbol');
+			$number = $number . ' ' . "<span class='currecyPost'>" . config('selectedCurrency.symbol') . "<span>" ;
 		}
 		
 		// Remove decimal value if it's null
