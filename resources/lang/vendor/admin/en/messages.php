@@ -1219,6 +1219,7 @@ NOTE: Before configuring your Twitter app in the script, you have to change its 
 	'ban_the_user_email' => 'Ban the email address: :email',
 	'no_action_is_performed' => 'No action is performed.',
 	'email_address_banned_successfully' => 'The email address :email has been banned.',
+	'phone_address_banned_successfully' => 'The phone number :phone has been banned.',
 	'upload_files_sep_value' => '<h3>Files</h3>',
 	'upload_images_sep_value' => '<h3>Images</h3>',
 	'min_image_size_label' => 'Min Image Size',

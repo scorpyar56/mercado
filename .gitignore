@@ -3,3 +3,4 @@
 /storage/framework/
 /storage/logs/
 /vendor/
+.vscode/sftp.json
