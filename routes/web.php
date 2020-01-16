@@ -81,7 +81,7 @@ Route::group([
         Route::get('languages/sync_files', 'LanguageController@syncFilesLines');
         Route::get('permissions/create_default_entries', 'PermissionController@createDefaultEntries');
         Route::get('blacklists/add', 'BlacklistController@banUserByPhone');
-
+        Route::get('blacklists/{id}/unban', 'BlacklistController@delBannedPhone')->where("id","(.*)");  
         // CRUD
         CRUD::resource('advertisings', 'AdvertisingController');
 

@@ -71,6 +71,26 @@ class BlacklistController extends PanelController
 				'placeholder' => trans('admin::messages.Entry'),
 			],
 		]);
+		$entity = $this->xPanel->getModel()->find(request()->segment(3));
+		if (!empty($entity)) {
+
+			if (!empty($entity->entry)) {
+				$btnUrl = admin_url('blacklists/') . "/" . $entity->id . "/unban";
+				
+				$btnText = trans("admin::messages.unban_the_user");
+				$tooltip = 'data-button-type="delete"';
+				
+				$btnLink = '<a id="deleteBtn" href="' . $btnUrl . '" class="btn btn-danger"' . $tooltip . '>' . $btnText . '</a>';
+				$this->xPanel->addField([
+					'name'              => 'unban_button',
+					'type'              => 'custom_html',
+					'value'             => $btnLink,
+					'wrapperAttributes' => [
+						'style' => 'text-align:center;',
+					],
+				], 'update');
+			}
+		}
 	}
 	
 	public function store(StoreRequest $request)
@@ -185,5 +205,43 @@ class BlacklistController extends PanelController
 			flash("You can't ban Admin.")->error();
 		}
 		return redirect()->back();
+	}
+
+		/**
+	 * Ban user by email address (from link)
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
+	public function delBannedPhone($id)
+	{
+
+		$banned = Blacklist::where('type', 'email')->where('id', $id)->first();
+
+		// Get previous URL
+		$previousUrl = url()->previous();
+
+		if(	!empty($banned)){
+			$phone = $banned->entry;
+
+			Blacklist::where('type', 'email')->where('id', $id)->delete();
+
+			$message = trans("admin::messages.phone_address_unbanned_successfully", ['phone' => $phone]);
+			
+			if (isFromAdminPanel($previousUrl)) {
+				Alert::success($message)->flash();
+			} else {
+				flash($message)->success();
+			}
+			return redirect(admin_url('blacklists/'));
+		}
+		else{
+			$message = trans("admin::messages.phone_address_unbanned_error");
+			if (isFromAdminPanel($previousUrl)) {
+				Alert::success($message)->flash();
+			} else {
+				flash($message)->success();
+			}
+			return redirect(admin_url('blacklists/'));
+		}
 	}
 }
