@@ -189,7 +189,7 @@ if (!function_exists("createFieldNodeTree")) {
                 <div style="clear:both"></div>
 
             @endif
-            @if ($field->type == 'checkbox_multiple' || $field->type == 'checkbox_multiple_or')
+            @if ($field->type == 'checkbox_multiple' || $field->type == 'checkbox_multiple_or' || $field->type == 'checkbox_like_checkbox')
                         
                 @if ($field->options->count() > 0)
                 <!-- checkbox_multiple -->
