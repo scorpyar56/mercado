@@ -393,11 +393,26 @@ class DetailsController extends FrontController
 			if ($cat->tid == $cat->parent_id) {
 				$similarCatIds[] = $cat->tid;
 			} else {
-				if (!empty($cat->parent_id)) {
-					$similarCatIds = Category::trans()->where('parent_id', $cat->parent_id)->get()->keyBy('tid')->keys()->toArray();
-					$similarCatIds[] = (int)$cat->parent_id;
+				// if (!empty($cat->parent_id)) {
+				// 	$similarCatIds = Category::trans()->where('parent_id', $cat->parent_id)->get()->keyBy('tid')->keys()->toArray();
+				// 	$similarCatIds[] = (int)$cat->parent_id;
+				// } else {
+				// 	$similarCatIds[] = (int)$cat->tid;
+				// }
+				if (!empty($cat->tid)) {
+					$similarCatIds = Category::trans()->where('id', $cat->tid)->get()->keyBy('tid')->keys()->toArray();
+					// $similarCatIds[] = (int)$cat->tid;
+					$lim = DB::select("SELECT COUNT(id) as ids FROM posts WHERE category_id = $similarCatIds[0]");
+					if ($lim[0]->ids < $limit) {
+						$sql = "SELECT id from categories WHERE parent_id = $cat->parent_id";
+						$sqlResult = DB::select($sql);
+						foreach ($sqlResult as $key => $value) {
+							$similarCatsByParentId[] = (int)$value->id;
+						}
+						$similarCatIds = array_unique(array_merge($similarCatIds, $similarCatsByParentId));
+					}
 				} else {
-					$similarCatIds[] = (int)$cat->tid;
+					$similarCatIds[] = (int)$cat->parent_id;
 				}
 			}
 		}
@@ -415,6 +430,7 @@ class DetailsController extends FrontController
 //				$reviewedCondition = ' AND tPost.reviewed = 1';
                                 $reviewedCondition = ' AND tPost.reviewed > 0';
 			}
+				// ORDER BY tPost.id DESC
 			$sql = 'SELECT tPost.* ' . '
 				FROM ' . DBTool::table('posts') . ' AS tPost
 				WHERE tPost.country_code = :countryCode ' . $similarPostSql . '
@@ -422,7 +438,6 @@ class DetailsController extends FrontController
 					AND tPost.archived!=1
 					AND tPost.deleted_at IS NULL ' . $reviewedCondition . '
 					AND tPost.id != :currentPostId
-				ORDER BY tPost.id DESC
 				LIMIT 0,' . (int)$limit;
 			$bindings = [
 				'countryCode'   => config('country.code'),
@@ -430,12 +445,22 @@ class DetailsController extends FrontController
 			];
 
 			$cacheId = 'posts.similar.category.' . $cat->tid . '.post.' . $currentPostId;
-			$posts = Cache::remember($cacheId, $this->cacheExpiration, function () use ($sql, $bindings) {
+			$posts = Cache::remember($cacheId, $this->cacheExpiration, function () use ($sql, $bindings, $cat) {
 				try {
 					$posts = DB::select(DB::raw($sql), $bindings);
 				} catch (\Exception $e) {
 					return [];
 				}
+
+				foreach ($posts as $key => $value) {
+					if ($value->category_id == $cat->tid) {
+						$test[] = $value;
+					} else {
+						$add[] = $value;
+					}
+				}
+	
+				$posts = array_merge($posts, $add);
 
 				return $posts;
 			});
@@ -450,7 +475,7 @@ class DetailsController extends FrontController
 			})->toArray();
 
 			// Randomize the Posts
-			$posts = collect($posts)->shuffle()->toArray();
+			// $posts = collect($posts)->shuffle()->toArray();
 
 			// Featured Area Data
 			$featured = [
