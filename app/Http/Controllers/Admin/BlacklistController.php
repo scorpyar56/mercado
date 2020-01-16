@@ -51,13 +51,10 @@ class BlacklistController extends PanelController
 			'type'  => 'checkbox',
 			'orderable' => false,
 		]);
-		$this->xPanel->addColumn([
-			'name'  => 'type',
-			'label' => trans("admin::messages.Type"),
-		]);
+
 		$this->xPanel->addColumn([
 			'name'  => 'entry',
-			'label' => trans("admin::messages.Entry"),
+			'label' => trans("admin::messages.Phone"),
 		]);
 		
 		// FIELDS

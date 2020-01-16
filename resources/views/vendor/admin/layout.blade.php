@@ -21,9 +21,72 @@ if (isset($title)) {
     </title>
 
     @yield('before_styles')
-	<link href="https://market.unifun.com/css/rus.css" rel="stylesheet">
-    <link href="https://market.unifun.com/css/custom.css" rel="stylesheet">
-    <link href="https://market.unifun.com/css/ed.css" rel="stylesheet">
+    <style>
+        .user-info-modal, .reject-info-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000000;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .user-modal-content {
+            padding: 0;
+            border-radius: .3rem;
+        }
+        .user-modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            width: 30%;
+        }
+        .modal-header.modal-header-dif {
+            display: flex;
+            align-items: center;
+            background: #f7f9f9;
+            border: none;
+            padding: 8px 30px 8px 30px;
+            height: 80px;
+        }
+        .modal-header.modal-header-dif > h2{
+            font-weight: bold;
+        }
+        .modal-header .close {
+            margin-top: -2px;
+        }
+        .reject-info-modal .close {
+            margin-left: 50% !important;
+        }
+        button.close {
+            -webkit-appearance: none;
+            padding: 0;
+            cursor: pointer;
+            background: 0 0;
+            border: 0;
+        }
+        .close {
+            float: right;
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            filter: alpha(opacity=20);
+            opacity: .2;
+        }
+        .modal-body.modal-body-user {
+            padding-bottom: 16px;
+        }
+        .modal-body.modal-body-dif {
+            padding: 16px 30px 0 30px;
+        }
+    </style>
+
     <link href="https://market.unifun.com/css/style.css" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
