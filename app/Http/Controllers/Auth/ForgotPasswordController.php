@@ -80,7 +80,7 @@ class ForgotPasswordController extends FrontController
         $user = !is_null(User::where("phone", $request->input("phone"))->first())  ? User::where("phone", $request->input("phone"))->first() : null;
 
         if( is_null($user['deleted_at'])){
-            flash(t('User is deleted.'))->error();
+            flash(t('User is deleted.'),'error');
             return redirect()->back();
         }
 
@@ -154,23 +154,23 @@ class ForgotPasswordController extends FrontController
         $user = User::where('phone', $request->input('phone'))->first();
 
         if($user['name'] == NULL && $user['password'] == NULL && isset($user['phone'])){
-            flash(t('Please complete your registration.'))->error();
+            flash(t('Please complete your registration.'),'error');
             return false;
         }
 
         if( is_null($user['deleted_at'])){
-            flash(t('User is deleted.'))->error();
+            flash(t('User is deleted.'),'error');
             return false;
         }
 
         if (empty($user)){
-            flash(t('The entered value is not registered with us.'))->error();
+            flash(t('The entered value is not registered with us.'),'error');
             return false;
         }
         
 		//If userphone is in black list redirect
 		if(Blacklist::where('entry', $request->input('phone'))->first() != NULL){
-            flash(t('This number is banned.'))->error();            
+            flash(t('This number is banned.'),'error');
 			return false;
 		}
 
@@ -204,7 +204,7 @@ class ForgotPasswordController extends FrontController
                 return redirect()->back();
             }
         } catch (\Exception $e) {
-            flash($e->getMessage())->error();
+            flash($e->getMessage(),'error');
         }
 		return true;
 	}

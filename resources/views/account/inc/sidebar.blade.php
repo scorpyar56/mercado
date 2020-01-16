@@ -3,7 +3,7 @@
         <div class="modal-content modal-content-dif">
 
             <div class="modal-header modal-header-dif">
-                <h1 class="modal-title"> {{ t('Close account') }} </h1>
+                <h2 class="modal-title"> {{ t('Close account') }} </h2>
 
                 <button type="button" class="close" data-dismiss="modal">
                     <span aria-hidden="true"><i class="unir-close"></i></span>
