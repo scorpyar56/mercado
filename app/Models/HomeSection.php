@@ -354,7 +354,6 @@ class HomeSection extends BaseModel
 				'filename'  => 'banner1-',
 				'orientate' => true,
 			];
-			// var_dump($value);die();
 			$value = $this->upload($value, $bannerImage);
 			
 		}
@@ -437,8 +436,8 @@ class HomeSection extends BaseModel
 
 		$this->attributes['value'] = json_encode($value);
 	}
-	
-	// Set Upload
+
+	//Set Upload whith svg support
 	public function upload($value, $params)
 	{
 		$disk = StorageDisk::getDisk();
@@ -465,19 +464,39 @@ class HomeSection extends BaseModel
 			
 			// Set null in the database column
 			$value[$attribute_name] = null;
+			return $value;
+		}
+
+		// For files svg+xml
+
+		// Get file extension
+		$extension = getUploadedFileExtension($value[$attribute_name]);
+		if (empty($extension)) {
+			$extension = 'jpg';
+		}
+
+		if(preg_match('/(svg\+xml)$/i',$extension) == 1){
+			$extension = substr($extension, 0, 3);
+
+			// Generate a filename.
+			$filename = uniqid($params['filename']) . '.' . $extension;
+
+			//Prepare base64 to 
+			$decodebase64 = base64_decode(substr($value[$attribute_name], 26));
+
+			//Upload SVG to storage
+			$write = $disk->put($destination_path."/".$filename , $decodebase64);
+
+			// Save the path to the database
+			$value[$attribute_name] = $destination_path . '/' . $filename;
 			
 			return $value;
+
 		}
 		
 		// If laravel request->file('filename') resource OR base64 was sent, store it in the db
 		try {
 			if (fileIsUploaded($value[$attribute_name])) {
-				// Get file extension
-				$extension = getUploadedFileExtension($value[$attribute_name]);
-				if (empty($extension)) {
-					$extension = 'jpg';
-				}
-				
 				// Check if 'Auto Orientate' is enabled
 				$autoOrientateIsEnabled = false;
 				if (isset($params['orientate']) && $params['orientate']) {
@@ -529,7 +548,6 @@ class HomeSection extends BaseModel
 					}
 				}
 			}
-			
 			return $value;
 		} catch (\Exception $e) {
 			Alert::error($e->getMessage())->flash();

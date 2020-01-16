@@ -35,12 +35,12 @@ if (getSegment(1) != trans('routes.countries')) {
 			<div class="navbar-identity">
 				{{-- Logo --}}
 				<a href="{{ lurl('/') }}" class="navbar-brand logo logo-title">
-					<img src="/storage/app/logo/mercado_logo.png"
+					<img src="/storage/app/logo/mercado_logo.svg"
 						 alt="{{ strtolower(config('settings.app.app_name')) }}" class="tooltipHere main-logo" title="" data-placement="bottom"
 						 data-toggle="tooltip"
 {{--						 style="margin-top: calc(80px / 2 - 26.94px / 2)"--}}
 						 />
-					<img src="/storage/app/logo/mercado_logo_mobile.png"
+					<img src="/storage/app/logo/mercado_logo_mobile.svg"
 						 alt="{{ strtolower(config('settings.app.app_name')) }}" class="tooltipHere main-logo-mob" title="" data-placement="bottom"
 						 data-toggle="tooltip"
 {{--						 style="margin-top: calc(80px / 2 - 26.94px / 2)"--}}

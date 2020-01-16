@@ -165,7 +165,7 @@
 					}
 					file = files[0];
 					
-					if (/^image\/\w+$/.test(file.type)) {
+					if (/^image\/.+$/.test(file.type)) { 
 						fileReader.readAsDataURL(file);
 						fileReader.onload = function () {
 							$uploadImage.val("");
@@ -206,7 +206,7 @@
 							}
 						};
 					} else {
-						alert("Please choose an image file.");
+						alert("Please choose an image file."); 
 					}
 				});
 				

@@ -174,7 +174,7 @@
                         }
                         file = files[0];
 
-                        if (/^image\/\w+$/.test(file.type)) {
+                        if (/^image\/.+$/.test(file.type)) {
                             $hiddenFilename.val(file.name);
                             fileReader.readAsDataURL(file);
                             fileReader.onload = function () {
@@ -216,7 +216,7 @@
                                 }
                             };
                         } else {
-                            alert("Please choose an image file.");
+                            alert("Please choose an image file."); 
                         }
                     });
 
