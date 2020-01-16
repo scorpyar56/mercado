@@ -52,24 +52,24 @@
 
 @section('after_scripts')
 	@parent
+
 		<script>
-			var owl = $('.owl-carousel');
-			owl.owlCarousel({
+			$('.owl-carousel').owlCarousel({
 				items:1,
 				loop:true,
 				margin:0,
 				dots: false,
 				autoplay:true,
 				autoplayTimeout:4000,
-				autoplayHoverPause:true,
+				autoplayHoverPause:true
 			});
-			
 			if($(document).width() >= 575){
 				$("#mobileBanner").attr("style", "display: none;");
-
 			}
 			else{
 				$("#desktopBanner").attr("style", "display: none;");
 			}
+
 		</script>
+
 @endsection

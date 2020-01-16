@@ -813,14 +813,17 @@ if (isset(auth()->user()->id)) {
         };
 
         $('.owl-carousel').owlCarousel({
+            // items:2,
             loop: true,
             dots: true,
             autoplay: true,
             autoplayTimeout: 3000,
+            autoWidth:true,
             responsive: {
                 200: {
                     items: 2,
                     dotsEach: 2,
+                    autoWidth:false,
                 },
                 700: {
                     items: 3,
@@ -884,7 +887,6 @@ if (isset(auth()->user()->id)) {
             if (lastTab) {
                 $('[href="' + lastTab + '"]').tab('show');
             }
-
             $( ".bx-controls-direction" ).append( "<div class='next' ><i class='unib-rarrow2' ></i></div>" );
             $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
             $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
@@ -896,8 +898,8 @@ if (isset(auth()->user()->id)) {
 
         $(".div.bx-viewport").ready(function () {
             var height = "460px";
-            $(".bx-next").attr("style"," height: " + height + " !important;");
-            $(".bx-prev").attr("style"," height: " + height + " !important;");
+            $(".bx-next").attr("style", " height: " + height + " !important;");
+            $(".bx-prev").attr("style", " height: " + height + " !important;");
         });
 
         $(window).resize(function () {
@@ -908,8 +910,9 @@ if (isset(auth()->user()->id)) {
                 $("#terms>a").text(" <?php echo t("Terms & Conditions") ?> ");
             }
         });
+        
+        if ($(window).width() <= 992) {
 
-        if( $(window).width() <= 992){
             $(".footer-content .row").attr("style", "padding-bottom: 40px;");
 
 
@@ -925,44 +928,6 @@ if (isset(auth()->user()->id)) {
 
         if ($(window).width() >= 992) {//убираем функционал звонка с pc
             $(".new-button.phoneBtn .btn-user-card").removeAttr("href");
-
-            $(".new-button.phoneBtn .btn-user-card").hover(function(){
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color: #29b6f6");
-            });
-
-            $(".new-button.phoneBtn .btn-user-card").mouseleave(function(){
-                $(".new-button.phoneBtn .btn-user-card").attr("style","color: #212121");
-            });
-
-
-
-
-            //click btn
-            $(".new-button.phoneBtn .phoneBlock").on("click", function(){
-                console.log("clicked btn");
-                if(modal_userInfo == false){
-                    $(".user-info-modal").attr("style","display:block;");
-                    modal_userInfo = true;
-                    $('.menu-overly-mask').addClass('is-visible');
-                }
-            });
-
-            $(".new-button.phoneBtn").on("click",function(){
-                if(modal_userInfo == false){
-                    $(".user-info-modal").attr("style","display:block;");
-                    modal_userInfo = true;
-                    $('.menu-overly-mask').addClass('is-visible');
-                }
-            });
-
-            $(".new-button.phoneBtn a").on("click",function(){
-                if(modal_userInfo == false){
-                    $(".user-info-modal").attr("style","display:block;");
-                    modal_userInfo = true;
-                    $('.menu-overly-mask').addClass('is-visible');
-                }
-            });
-
 
             $(".unir-close").on("click", function(){
                 $(".user-info-modal").attr("style","display:none;");
@@ -1017,7 +982,6 @@ if (isset(auth()->user()->id)) {
                 return lgSettings;
             }
         }
-
 
     </script>
 @endsection
