@@ -178,7 +178,9 @@ class Category extends BaseModel
 		if (isFromAdminPanel()) {
 			return $this->hasManyThrough(Post::class, Category::class, 'parent_id', 'category_id');
 		} else {
-			return $this->hasManyThrough(Post::class, Category::class, 'parent_id', 'category_id')->where('country_code', config('country.code'));
+			return $this->hasManyThrough(Post::class, Category::class, 'parent_id', 'category_id')
+			->where('country_code', config('country.code'))
+			->where("archived", "!=", 1);
 		}
 	}
 	
@@ -187,7 +189,7 @@ class Category extends BaseModel
 		if (isFromAdminPanel()) {
 			return $this->hasMany(Post::class, 'category_id');
 		} else {
-			return $this->hasMany(Post::class, 'category_id')->where('country_code', config('country.code'));
+			return $this->hasMany(Post::class, 'category_id')->where('country_code', config('country.code'))->whereIn("reviewed",[1,2]);
 		}
 	}
 	
