@@ -327,6 +327,7 @@ class Category extends BaseModel
 	*/
 	public function setPictureAttribute($value)
 	{
+
 		$disk = StorageDisk::getDisk();
 		$skin = config('settings.style.app_skin', 'skin-default');
 		$attribute_name = 'picture';
@@ -347,22 +348,45 @@ class Category extends BaseModel
 			
 			return false;
 		}
-		
+
 		// Check the image file
 		if ($value == url('/')) {
 			$this->attributes[$attribute_name] = null;
 			
 			return false;
 		}
+
+		// For files svg+xml
+		
+		// Get file extension
+		$extension = getUploadedFileExtension($value);
+
+		if (empty($extension)) {
+			$extension = 'jpg';
+		}
+
+
+		if(preg_match('/(svg\+xml)$/i',$extension) == 1){
+			$extension = substr($extension, 0, 3);
+
+			// Generate a filename.
+			$filename = md5($value . time()) . '.' . $extension;
+
+			//Prepare base64 to 
+			$decodebase64 = base64_decode(substr($value, 26));
+
+			//Upload SVG to storage
+			$disk->put($destination_path."/".$filename , $decodebase64);
+
+			// Save the path to the database
+			$this->attributes[$attribute_name] = $destination_path . '/' . $filename;
+			
+			return true;
+		}
 		
 		// If laravel request->file('filename') resource OR base64 was sent, store it in the db
 		try {
 			if (fileIsUploaded($value)) {
-				// Get file extension
-				$extension = getUploadedFileExtension($value);
-				if (empty($extension)) {
-					$extension = 'jpg';
-				}
 				
 				// Image quality
 				$imageQuality = config('settings.upload.image_quality', 90);
