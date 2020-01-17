@@ -128,7 +128,7 @@ class CategoryController extends FrontController
             $subCats = $this->createCategoryTree($languageCode, $parentId, $selectedSubCat);
 
             return $subCats;
-        });
+		});
 
         // If SubCategories are still not found, Show an error message
         if (count($subCats) <= 0) {

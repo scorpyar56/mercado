@@ -6,7 +6,6 @@ $fullUrlNoParams = current($tmpExplode);
 
 function buildList($list)
 {
-
     $result = '<ul class="list-unstyled">';
     foreach ($list as $l) {
 

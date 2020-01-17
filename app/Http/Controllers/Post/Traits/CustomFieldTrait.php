@@ -110,11 +110,23 @@ trait CustomFieldTrait
                         'languageCode' => $languageCode,
                         'errors'       => $errors,
                         'oldInput'     => $oldInput,
-                    ]);
+					]);
+					// $view .= "<script>
+					// 			$('.select2-selection.select2-selection--single').on('click', function () {
+					// 				console.log('here');
+					// 				if ($(this).find('.unir-rarrow2.icon').hasClass('rotate-arrow')) {
+					// 					$('.select2-selection.select2-selection--single>.unir-rarrow2.icon').removeClass('rotate-arrow');
+					// 					// $(this).find('.unir-rarrow2.icon').removeClass('rotate-arrow');
+					// 				} else {
+					// 					$('.select2-selection.select2-selection--single>.unir-rarrow2.icon').removeClass('rotate-arrow');
+					// 					$(this).find('.unir-rarrow2.icon').addClass('rotate-arrow');
+					// 				}
+					// 			});
+					// 		</script>";
                     $html = $view->render();
                 }
 				// TODO: END Changes
-				
+
 		return $html;
 	}
 

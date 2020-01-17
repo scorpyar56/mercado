@@ -351,37 +351,38 @@
 													</div>
 													<div class="form-group row required owner-phone">
 														<div class="col-md-9 col-sm-9">
-																<!-- start test -->
-															<!-- <div class="input-group-prepend">
-																		<span id="phoneCountry" class="input-group-text">{!! getPhoneIcon(config('country.code')) !!}</span>
-																	</div> -->
-																<!-- end test -->
 
-																<input id="phone" name="phone"
-																	placeholder="{{ t('Phone Number') }}"
-																	class="form-control input-md{{ $phoneError }}" type="text"
-																	value="{{ phoneFormat(old('phone', $formPhone), old('country', config('country.code'))) }}"
-																		{{ $editable }}
-																>
-																@if (auth()->check())
-																	<div class="input-group-append">
-																		<div class="input-group-check check-phone flex-align">
-																			<div class="cntr">
-																				<label for="phoneHidden" class="label-cbx">
-																				<input id="phoneHidden" name="phone_hidden" type="checkbox" class="invisible" value="1" {{ (old('phone_hidden')=='1') ? 'checked="checked"' : '' }}>
-																				<div class="checkbox">
-																					<svg width="14px" height="14px" viewBox="0 0 14 14">
-																					<path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
-																					<polyline points="4 8 6 10 11 5"></polyline>
-																					</svg>
-																				</div>
-																				{{ t('Hide') }}
-																				</label>
+															<!-- start test -->
+														<!-- <div class="input-group-prepend">
+																	<span id="phoneCountry" class="input-group-text">{!! getPhoneIcon(config('country.code')) !!}</span>
+																</div> -->
+															<!-- end test -->
+
+															<input id="phone" name="phone"
+																placeholder="{{ t('Phone Number') }}"
+																class="form-control input-md{{ $phoneError }}" type="text"
+																value="{{ phoneFormat(old('phone', $formPhone), old('country', config('country.code'))) }}"
+																	{{ $editable }}
+															>
+															@if (auth()->check())
+																<div class="input-group-append">
+																	<div class="input-group-check check-phone flex-align">
+																		<div class="cntr">
+																			<label for="phoneHidden" class="label-cbx">
+																			<input id="phoneHidden" name="phone_hidden" type="checkbox" class="invisible" value="1" {{ (old('phone_hidden')=='1') ? 'checked="checked"' : '' }}>
+																			<div class="checkbox">
+																				<svg width="14px" height="14px" viewBox="0 0 14 14">
+																				<path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+																				<polyline points="4 8 6 10 11 5"></polyline>
+																				</svg>
 																			</div>
+																			{{ t('Hide') }}
+																			</label>
 																		</div>
 																	</div>
-																@endif
-															</div>
+																</div>
+															@endif
+														</div>
 													</div>
 												<!-- </div> -->
 

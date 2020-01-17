@@ -81,28 +81,6 @@ $(document).ready(function ()
 		});
 	});
 
-//	E.K
-	$('.select2-selection.select2-selection--single').on('click', function () {
-		if ($(this).find('.unir-rarrow2.icon').hasClass('rotate-arrow')) {
-			$('.select2-selection.select2-selection--single>.unir-rarrow2.icon').removeClass('rotate-arrow');
-			// $(this).find('.unir-rarrow2.icon').removeClass('rotate-arrow');
-		} else {
-			$('.select2-selection.select2-selection--single>.unir-rarrow2.icon').removeClass('rotate-arrow');
-			$(this).find('.unir-rarrow2.icon').addClass('rotate-arrow');
-		}
-	});
-
-    $('.nice-select.niceselecter.select-sort-by').on('click', function () {
-        if ($(this).find('.unir-rarrow2.icon').hasClass('rotate-arrow')) {
-            $('.nice-select.niceselecter.select-sort-by>.unir-rarrow2.icon').removeClass('rotate-arrow');
-			$('.nice-select.niceselecter.select-sort-by > .list').css('display', 'none');
-        } else {
-            $('.nice-select.niceselecter.select-sort-by>.unir-rarrow2.icon').removeClass('rotate-arrow');
-            $(this).find('.unir-rarrow2.icon').addClass('rotate-arrow');
-            $('.nice-select.niceselecter.select-sort-by > .list').css('display', 'unset');
-        }
-	});
-
 	$('.owner-phone > div.input-group > input#phone').keypress(function(e) {
 		e = e['originalEvent']['key'];
 		if (/\+/.test($(this).val())) {
@@ -115,18 +93,6 @@ $(document).ready(function ()
 			}
 		}
 	})
-
-	$(document).mouseup(function (a) {
-		var el = $('.select2-selection.select2-selection--single');
-        var elSort = $('.nice-select.niceselecter.select-sort-by');
-		if (el.has(a.target).length === 0){
-			$('.select2-selection.select2-selection--single > .unir-rarrow2.icon').removeClass('rotate-arrow');
-		}
-		if (elSort.has(a.target).length === 0){
-            $('.nice-select.niceselecter.select-sort-by > .unir-rarrow2.icon').removeClass('rotate-arrow');
-			$('.nice-select.niceselecter.select-sort-by > .list').css('display', 'none');
-        }
-	});
 
 	$('#showNegotiable').click(function () {
 		var fieldQueryString = $('#negotiableQueryString').val();
