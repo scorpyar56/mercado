@@ -20,7 +20,7 @@
 	<div class="main-container">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 page-content">
+				<div class="col-md-8 page-content">
 					@if (isset($errors) and $errors->any())
 						<div class="col-xl-12" style="padding-left:0px;">
 							<div class="alert alert-danger">
@@ -115,6 +115,21 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="col-md-4 d-none d-md-block page-content">
+					<div class="help-block sticky-top">
+						<h3 class="title-3 py-3">{{ t('Help links') }}</h3>
+						<div class="text-content text-left from-wysiwyg">
+							<h4><a href="{{ lurl('page/terms-of-use')}}">{{ t('Terms of Use') }}</a></h4>
+							<h4><a href="{{ lurl('page/privacy-policy')}}">{{ t('Privacy Policy') }}</a></h4>
+							<h4><a href="{{ lurl('page/posting-rules')}}">{{ t('Posting Rules') }}</a></h4>
+							<h4><a href="{{ lurl('page/tips')}}">{{ t('Tips for Users') }}</a></h4>
+							<h4><a href="{{ lurl('page/faq')}}">{{ t('FAQ') }}</a></h4>
+							<h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</div>

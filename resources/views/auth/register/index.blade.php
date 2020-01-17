@@ -110,11 +110,11 @@
 									{!! csrf_field() !!}
 
 										<div class="col-xl-12 col-xl-12-dif">
-											<div class="ads-header">
+											<!-- <div class="ads-header">
 												<h3>
 													<strong>{{ t('User information') }}</strong>
 												</h3>
-											</div>
+											</div> -->
 
 											<div class="inner-ads-box">
 												<!-- name -->

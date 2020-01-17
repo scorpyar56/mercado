@@ -175,7 +175,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-6 col-xs-12 col-xxs-12 cab-cel cel-dif cab-cel-bl">
+						<div class="col-md-6 col-xs-12 col-xxs-12 cab-cel cel-dif cab-cel-bl cal-acc">
 							<div class="card card-default col-xl-12-dif">
 								<div class="ads-header">
 									<h3>
@@ -191,8 +191,8 @@
 
 										<!-- gender_id -->
 										<?php $genderIdError = (isset($errors) and $errors->has('gender_id')) ? ' is-invalid' : ''; ?>
+										<label class="col-4 col-form-label">{{ t('Gender') }}</label>
 										<div class="form-group flex-block required">
-											<label class="col-4 col-form-label">{{ t('Gender') }}</label>
 											<div style="display: flex; align-items: center;" class="col-8">
 												@if ($genders->count() > 0)
 													@foreach ($genders as $gender)
@@ -218,8 +218,8 @@
 
 										<!-- name -->
 										<?php $nameError = (isset($errors) and $errors->has('name')) ? ' is-invalid' : ''; ?>
+										<label class="col-4 col-form-label">{{ t('Name') }} <sup>*</sup></label>
 										<div class="form-group flex-block required">
-											<label class="col-4 col-form-label">{{ t('Name') }} <sup>*</sup></label>
 											<div class="col-8">
 												<input name="name" type="text" class="form-control{{ $nameError }}" placeholder="" value="{{ old('name', $user->name) }}">
 											</div>
@@ -227,8 +227,9 @@
 
 										<!-- phone -->
 										<?php $phoneError = (isset($errors) and $errors->has('phone')) ? ' is-invalid' : ''; ?>
+										<label for="phone" class="col-4 col-form-label">{{ t('Phone') }} <sup>*</sup></label>
 										<div class="form-group flex-block required">
-											<label for="phone" class="col-4 col-form-label">{{ t('Phone') }} <sup>*</sup></label>
+
 											<div class="input-group col-8">
 												<input id="phone" name="phone" type="text" class="form-control{{ $phoneError }}"
 													   placeholder="{{ (!isEnabledField('email')) ? t('Mobile Phone Number') : t('Phone Number') }}"
@@ -256,7 +257,7 @@
 							</div>
 						</div>
 
-						<div class="col-md-6 col-xs-12 col-xxs-12 cab-cel cel-last cab-cel-br">
+						<div class="col-md-6 col-xs-12 col-xxs-12 cab-cel cel-last cab-cel-br cal-acc">
 							<div class="card card-default col-xl-12-dif">
 								<div class="ads-header">
 									<h3>
@@ -292,8 +293,8 @@
 
 										<!-- password -->
 										<?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
+										<label class="col-4 col-form-label">{{ t('New Password') }}</label>
 										<div class="form-group flex-block">
-											<label class="col-4 col-form-label">{{ t('New Password') }}</label>
 											<div class="col-8">
 												<input id="password" name="password" type="password" class="form-control{{ $passwordError }}" placeholder="{{ t('Password') }}">
 											</div>
@@ -301,8 +302,8 @@
 
 										<!-- password_confirmation -->
 										<?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
+										<label class="col-4 col-form-label">{{ t('Confirm Password') }}</label>
 										<div class="form-group flex-block">
-											<label class="col-4 col-form-label">{{ t('Confirm Password') }}</label>
 											<div class="col-8">
 												<input id="password_confirmation" name="password_confirmation" type="password"
 													   class="form-control{{ $passwordError }}" placeholder="{{ t('Confirm Password') }}">
@@ -321,7 +322,7 @@
 
 						</div>
 
-						<div class="col-md-12 col-xs-12 col-xxs-12 cab-cel-email cab-cel-bl">
+						<div class="col-md-12 col-xs-12 col-xxs-12 cab-cel-email cab-cel-bl cal-acc">
 							<div class="card card-default col-xl-12-dif">
 								<div class="panel-collapse {{ (old('panel')=='settingsPanel') ? 'show' : '' }} inner-ads-box" id="settingsPanel">
 									<form name="settings" class="form-horizontal" role="form" method="POST" action="{{ lurl('account/settings') }}">

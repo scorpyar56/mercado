@@ -320,10 +320,10 @@
 												@if (auth()->check())
 													<input id="contact_name" name="contact_name" type="hidden" value="{{ auth()->user()->name }}">
 												@else
+													<div class="col-md-2 col-sm-3 name">
+																<label for="contact_name">{{ t('Your name') }} <sup>*</sup></label>
+													</div>
 													<div class="form-group row required owner-contact-name">
-														<div class="col-md-2 col-sm-3">
-															<label for="contact_name">{{ t('Your name') }} <sup>*</sup></label>
-														</div>
 														<div class="col-md-9 col-sm-9">
 															<input id="contact_name" name="contact_name" placeholder="{{ t('Your name') }}"
 																   class="form-control input-md{{ $contactNameError }}" type="text" value="{{ old('contact_name') }}">
@@ -345,41 +345,45 @@
 												$phoneError = (isset($errors) and $errors->has('phone')) ? ' is-invalid' : '';
 												$editable = auth()->check() ? 'readonly' : '';
 												?>
-												<div class="form-group row required owner-phone">
-													<label class="col-md-2 col-form-label" for="phone">{{ t('Phone Number') }}</label>
-													<div class="input-group col-md-9">
-														<!-- start test -->
-													<!-- <div class="input-group-prepend">
-																<span id="phoneCountry" class="input-group-text">{!! getPhoneIcon(config('country.code')) !!}</span>
-															</div> -->
-														<!-- end test -->
-
-														<input id="phone" name="phone"
-															   placeholder="{{ t('Phone Number') }}"
-															   class="form-control input-md{{ $phoneError }}" type="text"
-															   value="{{ phoneFormat(old('phone', $formPhone), old('country', config('country.code'))) }}"
-																{{ $editable }}
-														>
-														@if (auth()->check())
-															<div class="input-group-append">
-																<div class="input-group-check check-phone flex-align">
-																	<div class="cntr">
-																		<label for="phoneHidden" class="label-cbx">
-																		<input id="phoneHidden" name="phone_hidden" type="checkbox" class="invisible" value="1" {{ (old('phone_hidden')=='1') ? 'checked="checked"' : '' }}>
-																		<div class="checkbox">
-																			<svg width="14px" height="14px" viewBox="0 0 14 14">
-																			<path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
-																			<polyline points="4 8 6 10 11 5"></polyline>
-																			</svg>
-																		</div>
-																		{{ t('Hide') }}
-																		</label>
-																	</div>
-																</div>
-															</div>
-														@endif
+												<!-- <div class="form-group row required owner-phone"> -->
+													<div class="col-md-2 col-sm-3 phone">
+														<label class="col-form-label name" for="phone">{{ t('Phone Number') }}</label>
 													</div>
-												</div>
+													<div class="form-group row required owner-phone">
+														<div class="col-md-9 col-sm-9">
+																<!-- start test -->
+															<!-- <div class="input-group-prepend">
+																		<span id="phoneCountry" class="input-group-text">{!! getPhoneIcon(config('country.code')) !!}</span>
+																	</div> -->
+																<!-- end test -->
+
+																<input id="phone" name="phone"
+																	placeholder="{{ t('Phone Number') }}"
+																	class="form-control input-md{{ $phoneError }}" type="text"
+																	value="{{ phoneFormat(old('phone', $formPhone), old('country', config('country.code'))) }}"
+																		{{ $editable }}
+																>
+																@if (auth()->check())
+																	<div class="input-group-append">
+																		<div class="input-group-check check-phone flex-align">
+																			<div class="cntr">
+																				<label for="phoneHidden" class="label-cbx">
+																				<input id="phoneHidden" name="phone_hidden" type="checkbox" class="invisible" value="1" {{ (old('phone_hidden')=='1') ? 'checked="checked"' : '' }}>
+																				<div class="checkbox">
+																					<svg width="14px" height="14px" viewBox="0 0 14 14">
+																					<path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+																					<polyline points="4 8 6 10 11 5"></polyline>
+																					</svg>
+																				</div>
+																				{{ t('Hide') }}
+																				</label>
+																			</div>
+																		</div>
+																	</div>
+																@endif
+															</div>
+													</div>
+												<!-- </div> -->
 
 												@if (!auth()->check())
 													@if (in_array(config('settings.single.auto_registration'), [1, 2]))
@@ -469,13 +473,11 @@
 					<div class="help-block sticky-top">
 						<h3 class="title-3 py-3">{{ t('Help links') }}</h3>
 						<div class="text-content text-left from-wysiwyg">
-							<h4><a href="{{ lurl('page/terms-conditions')}}">{{ t('Terms and Conditions') }}</a></h4>
-							<h4><a href="{{ lurl('page/about')}}">{{ t('About Mercado.gratis') }}</a></h4>
-							<h4><a href="{{ lurl('page/account')}}">{{ t('Managing Account & Ads') }}</a></h4>
-							<h4><a href="{{ lurl('page/safety')}}">{{ t('Safety Tips') }}</a></h4>
-							<h4><a href="{{ lurl('page/fastsell')}}">{{ t('How to sell fast') }}</a></h4>
-							<h4><a href="{{ lurl('page/report')}}">{{ t('Report a suspicious user or add') }}</a></h4>
-							<h4><a href="{{ lurl('page/fraudvictim')}}">{{ t('If you become a victim of fraud') }}</a></h4>
+							<h4><a href="{{ lurl('page/terms-of-use')}}">{{ t('Terms of Use') }}</a></h4>
+							<h4><a href="{{ lurl('page/privacy-policy')}}">{{ t('Privacy Policy') }}</a></h4>
+							<h4><a href="{{ lurl('page/posting-rules')}}">{{ t('Posting Rules') }}</a></h4>
+							<h4><a href="{{ lurl('page/tips')}}">{{ t('Tips for Users') }}</a></h4>
+							<h4><a href="{{ lurl('page/faq')}}">{{ t('FAQ') }}</a></h4>
 							<h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
 						</div>
 					</div>

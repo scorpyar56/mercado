@@ -497,7 +497,7 @@ button.go-button{
 .fa.fa-chevron-down{
     position: absolute !important;
     right: 9px !important;
-    padding: 10px 0px 10px 10px;
+    padding: 10px 0px 10px 0;
     font-size: 10px;
 }
 
@@ -1126,11 +1126,11 @@ a.sell-your-item-cart{
 }
 
 .input-group-check.check-phone{
-    padding: 6px 48px 6px 12px;
+    padding: 6px 68px 6px 12px;
 }
 
 .form-group.row.required.terms-conditions{
-    margin: 25px 0px 10px 0px;
+    margin: 10px 0px 10px 0px;
 }
 
 .form-group.row.required.terms-conditions > .col-md-9{ 
@@ -1595,3 +1595,78 @@ input::placeholder {
 .currecyPost{
     margin-left: 8px;
 }
+
+#signupForm > .col-xl-12.col-xl-12-dif{
+    border: unset;
+}
+
+#signupForm .col-md-2{
+    max-width: unset;
+    flex: unset;
+    text-align: left !important;
+}
+
+#signupForm .inner-ads-box{
+    padding: unset;
+}
+
+.inner-ads-box .col-md-2.col-sm-3.name,
+.inner-ads-box .col-md-2.col-sm-3.phone{
+    padding: unset !important;
+}
+
+.form-group.row.required.owner-phone > .col-md-9.col-sm-9{
+    display: inline-flex;
+}
+
+.cab-cel.cel-dif.cal-acc,
+.cab-cel.cel-last.cal-acc{
+    height: 375px;
+}
+
+.cab-cel.cel-dif.cal-acc .col-4.col-form-label{
+    text-align: left;
+}
+
+.cab-cel.cel-dif.cal-acc .flex-block,
+.cab-cel.cel-last.cal-acc .form-group{
+    margin: unset;
+}
+
+.cab-cel.cel-dif.cal-acc .offset-4{
+    padding: 15px 15px;
+    left: 0px;
+    float: left;
+    width: unset;
+    margin-left: unset;
+    flex: unset;
+}
+
+.cab-cel.cel-last.cal-acc .col-4{
+    text-align: left;
+    padding: 7 15px;
+}
+
+.cab-cel.cel-last.cal-acc .supp{
+    height: 63px;
+}
+.cab-cel.cel-last.cal-acc .offset-4{
+    padding: 15px 15px;
+}
+
+.cab-cel-email.cab-cel-bl.cal-acc .email-btn{
+    padding: 0 60px;
+}
+
+#userPanel.inner-ads-box,
+#settingsPanel.inner-ads-box{
+    padding: 5px;
+}
+
+#settingsPanel .line-small{
+    padding: 7px 10px 5px 15px !important;
+}
+
+
+
+
