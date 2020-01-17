@@ -427,13 +427,12 @@ if ($post->category) {
 							<div class="help-block sticky-top">
 								<h3 class="title-3 py-3">{{ t('Help links') }}</h3>
 								<div class="text-content text-left from-wysiwyg">
-									<h4><a href="{{ lurl('page/about')}}">{{ t('About Mercado.gratis') }}</a></h4>
-									<h4><a href="{{ lurl('page/account')}}">{{ t('Managing Account & Ads') }}</a></h4>
-									<h4><a href="{{ lurl('page/safety')}}">{{ t('Safety Tips') }}</a></h4>
-									<h4><a href="{{ lurl('page/fastsell')}}">{{ t('How to sell fast') }}</a></h4>
-									<h4><a href="{{ lurl('page/report')}}">{{ t('Report a suspicious user or add') }}</a></h4>
-									<h4><a href="{{ lurl('page/fraudvictim')}}">{{ t('If you become a victim of fraud') }}</a></h4>
-									<h4><a href="{{ lurl('page/terms-conditions')}}">{{ t('Terms and Conditions') }}</a></h4>
+									<h4><a href="{{ lurl('page/terms-of-use')}}">{{ t('Terms of Use') }}</a></h4>
+									<h4><a href="{{ lurl('page/privacy-policy')}}">{{ t('Privacy Policy') }}</a></h4>
+									<h4><a href="{{ lurl('page/posting-rules')}}">{{ t('Posting Rules') }}</a></h4>
+									<h4><a href="{{ lurl('page/tips')}}">{{ t('Tips for Users') }}</a></h4>
+									<h4><a href="{{ lurl('page/faq')}}">{{ t('FAQ') }}</a></h4>
+									<h4><a href="{{ lurl('sitemap')}}">{{ t('Sitemap') }}</a></h4>
 									<h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
 								</div>
 							</div>

@@ -906,6 +906,9 @@ ul.navbar-mobile > a{
     div.price-min, div.price-max{
         display: inherit;
     }
+    .btn-cat-collapsed{
+        right: 15px;
+    }
 }
 .contact-form .form-horizontal{
     margin-top: 10px;
@@ -1329,7 +1332,8 @@ div.filter-content .form-check .cntr{
     margin: 3px 0px;
 }
 .cat-title p {
-    font-size: 18px;
+    font-size: 15px;
+    font-weight: 500;
 }
 .custom-upfile{
     position: absolute;
@@ -1407,4 +1411,20 @@ li.remTicks:after{
 div.from-wysiwyg h3{
     font-size: 16px;
     padding-bottom: 5px;
+}
+span.btn-cat-collapsed[aria-expanded="false"] > span{
+    display: inline-block;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+span.btn-cat-collapsed[aria-expanded="true"] > span{
+    display: inline-block;
+    -webkit-transform: rotate(90deg) !important;
+    -moz-transform: rotate(90deg) !important;
+    -ms-transform: rotate(90deg) !important;
+    -o-transform: rotate(90deg) !important;
+    transform: rotate(90deg) !important;
 }

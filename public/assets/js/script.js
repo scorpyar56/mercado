@@ -195,7 +195,6 @@ $(document).ready(function ()
 		e.preventDefault();
 		gridView(this);
 		createCookie('listing_display_mode', '.grid-view', 7);
-		console.log('grid');
 	});
 
 	$('.compact-view').click(function (e) { /* use a class, since your ID gets mangled */
@@ -266,23 +265,23 @@ $(document).ready(function ()
 		'lessText': langLayout.hideMaxListItems.lessText
 	});
 
-	/* Bootstrap Collapse + jQuery hideMaxListItem fix on mobile */
-	$('.btn-cat-collapsed').click(function () {
-		var targetSelector = $(this).data('target');
-		var isExpanded = $(this).attr('aria-expanded');
+	// /* Bootstrap Collapse + jQuery hideMaxListItem fix on mobile */
+	// $('.btn-cat-collapsed').click(function () {
+	// 	var targetSelector = $(this).data('target');
+	// 	var isExpanded = $(this).attr('aria-expanded');
 
-		if (typeof isExpanded === 'undefined') {
-			return false;
-		}
+	// 	if (typeof isExpanded === 'undefined') {
+	// 		return false;
+	// 	}
 
-		$(targetSelector).toggle('slow');
+	// 	$(targetSelector).toggle('slow');
 
-		if (isExpanded === 'true') {
-			$('.cat-list ' + targetSelector).next('.maxlist-more').hide();
-		} else {
-			$('.cat-list ' + targetSelector).next('.maxlist-more').show();
-		}
-	});
+	// 	if (isExpanded === 'true') {
+	// 		$('.cat-list ' + targetSelector).next('.maxlist-more').hide();
+	// 	} else {
+	// 		$('.cat-list ' + targetSelector).next('.maxlist-more').show();
+	// 	}
+	// });
 
 
 	$(function () {
@@ -591,7 +590,6 @@ function gridView(selecter) {
 	}
 
 	createCookie('listing_display_mode', '.grid-view', 7);
-	console.log('grid');
 }
 
 function compactView(selecter) {

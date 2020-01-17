@@ -52,7 +52,7 @@
 									<span class="title-2 title-2-dif" style="font-weight: bold;">{{ t('Sitemap') }}</span>
 								</h2> -->
 								<h2 style="padding-left:15px; padding: 15px 0;">
-									<span style="font-size:24px" class="title-3">{{ t('Sitemap') }}</span>
+									<span style="font-size:20px" class="title-3">{{ t('Sitemap') }}</span>
 								</h2>
 								<div class="col-xl-12" style="padding-left: 0; padding-right: 0;">
 									<div class="list-categories-children styled">
@@ -68,7 +68,7 @@
 														
 														<div class="cat-list">
 															<h3 class="cat-title rounded cat-title-dif" >
-																<a href="{{ \App\Helpers\UrlGen::category($iCat) }}" style="display:flex;align-items:center;margin-top:5px;margin-bottom:5px;color: #212121">
+																<a href="{{ \App\Helpers\UrlGen::category($iCat) }}" style="display:inline-flex;align-items:center;margin-top:5px;margin-bottom:5px;color: #212121">
 																	{{--																	<i class="{{ $iCat->icon_class ?? 'icon-ok' }}"></i>--}}
 {{--																	<i><img style="height: 30px; display:inline-block; padding-right: 5px" src="storage/{{ $iCat->picture }}"></i>--}}
 																	<i><img style="height: 30px; display:inline-block; padding-right: 15px" src="{{ url('storage').'/'.$iCat->picture }}"></i>
@@ -80,9 +80,9 @@
 																		  data-toggle="collapse"
 																		  data-target=".cat-id-{{ $iCat->id . $randomId }}"
 																		  aria-expanded="false"
-																		  style="margin-top: 1.3vh;"
+																		  style="margin-top: 10px;"
 																	>
-																		<span class="icon-down-open-big"></span>
+																		<span class="unir-rarrow2"></span>
 																	</span>
 																@endif
 															</h3>

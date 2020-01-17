@@ -50,11 +50,6 @@
 												</h3>
 											</div>
 
-											<?= $_COOKIE["laravel_session"]; ?><br><br>
-											<?= json_encode($tmpSession); ?><br><br>
-											<?= json_encode($errors); ?><br><br>
-											<?= json_encode($tmpTmpToken); ?><br><br>
-
 											<div class="inner-ads-box">
 												<!-- parent_id -->
 												<?php $parentIdError = (isset($errors) and $errors->has('category_id')) ? ' is-invalid' : ''; ?>
@@ -484,6 +479,7 @@
 							<h4><a href="{{ lurl('page/posting-rules')}}">{{ t('Posting Rules') }}</a></h4>
 							<h4><a href="{{ lurl('page/tips')}}">{{ t('Tips for Users') }}</a></h4>
 							<h4><a href="{{ lurl('page/faq')}}">{{ t('FAQ') }}</a></h4>
+							<h4><a href="{{ lurl('sitemap')}}">{{ t('Sitemap') }}</a></h4>
 							<h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
 						</div>
 					</div>
