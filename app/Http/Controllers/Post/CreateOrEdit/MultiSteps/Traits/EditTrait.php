@@ -64,7 +64,7 @@ trait EditTrait
                 ])->orderBy('lft')->get();
                 return $categories;
             });
-            view()->share('categories', $categories);   
+            view()->share('categories', $categories);
         }
 
         if (empty($post)) {

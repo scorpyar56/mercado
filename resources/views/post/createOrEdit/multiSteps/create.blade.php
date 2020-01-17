@@ -50,6 +50,11 @@
 												</h3>
 											</div>
 
+											<?= $_COOKIE["laravel_session"]; ?><br><br>
+											<?= json_encode($tmpSession); ?><br><br>
+											<?= json_encode($errors); ?><br><br>
+											<?= json_encode($tmpTmpToken); ?><br><br>
+
 											<div class="inner-ads-box">
 												<!-- parent_id -->
 												<?php $parentIdError = (isset($errors) and $errors->has('category_id')) ? ' is-invalid' : ''; ?>

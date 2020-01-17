@@ -150,7 +150,7 @@ function buildList($list)
                                 </label>
                                     <input type="hidden" id="negotiableQueryString" value="{!! httpBuildQuery(request()->except(['page', 'showNegotiable'])) !!}">
                                     <script>
-                                        var baseUrl = '<?php echo e($fullUrlNoParams); ?>';
+                                    var baseUrl = '<?php echo e($fullUrlNoParams); ?>';
                                     </script>
                             </div>
                         </form>
