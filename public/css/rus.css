@@ -1416,7 +1416,7 @@ a.sell-your-item-cart{
 .inner-ads-box .btn.btn-default.btn-secondary.kv-hidden.fileinput-cancel.fileinput-cancel-button:hover{
     background-color: #6b8096 !important;
 }
-
+textarea::placeholder,
 input::placeholder {
     color: #90a4ae!important;
 }

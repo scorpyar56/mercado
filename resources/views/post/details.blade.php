@@ -887,11 +887,11 @@ if (isset(auth()->user()->id)) {
             if (lastTab) {
                 $('[href="' + lastTab + '"]').tab('show');
             }
-            $( ".bx-controls-direction" ).append( "<div class='next' ><i class='unib-rarrow2' ></i></div>" );
-            $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
-            $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
-            $(".product-view-thumb-wrapper .bx-controls .next" ).remove(  );
             $(".product-view-thumb-wrapper .bx-controls .prev" ).remove(  );
+            $(".product-view-thumb-wrapper .bx-controls .next" ).remove(  );
+            $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
+            $( ".bx-controls-direction" ).append( "<div class='prev' ><i class='unib-larrow2'></i></div>" );
+            $( ".bx-controls-direction" ).append( "<div class='next' ><i class='unib-rarrow2' ></i></div>" );
         });
 
 
@@ -912,7 +912,6 @@ if (isset(auth()->user()->id)) {
         });
         
         if ($(window).width() <= 992) {
-
             $(".footer-content .row").attr("style", "padding-bottom: 40px;");
 
 
