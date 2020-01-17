@@ -150,7 +150,7 @@ function buildList($list)
                                 </label>
                                     <input type="hidden" id="negotiableQueryString" value="{!! httpBuildQuery(request()->except(['page', 'showNegotiable'])) !!}">
                                     <script>
-                                    var baseUrl = '<?php echo e($fullUrlNoParams); ?>';
+                                        var baseUrl = '<?php echo e($fullUrlNoParams); ?>';
                                     </script>
                             </div>
                         </form>
@@ -236,9 +236,30 @@ function buildList($list)
             <!-- City -->
             <div class="block-title has-arrow sidebar-header sidebar-location">
                 <h5><strong>{{ t('Locations') }}</strong></h5>
-            </div>
+            </div> 
             <div class="block-content list-filter locations-list">
                 <ul class="browse-list list-unstyled long-list">
+                    <?php
+                        $countAds = 0;
+                        foreach ($cities as $city){
+                            $countAds += $ads[$city->name][0]->ads;
+                        }
+                    ?>
+                    <li>
+                        @if ((request()->input('location')==NULL))
+                            <strong>
+                                <a href="https://market.unifun.com/en/search" title="All Cities">
+                                    <span class="title">All Cities</span>
+                                    <span class="count">{{ '(' . $countAds . ')'}}</span>
+                                </a>
+                            </strong>
+                        @else
+                            <a href="https://market.unifun.com/en/search" title="All Cities">
+                                    <span class="title">All Cities</span>
+                                <span class="count">{{ '(' . $countAds . ')'}}</span>
+                            </a>
+                        @endif
+                    </li>
                     @if (isset($cities) and $cities->count() > 0)
                         @foreach ($cities as $city)
                             <?php
