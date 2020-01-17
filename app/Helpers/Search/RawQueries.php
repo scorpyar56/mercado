@@ -169,7 +169,7 @@ class RawQueries
 
 		// Check reviewed posts
 		if (config('settings.single.posts_review_activation')) {
-			$this->arrSql->where['tPost.reviewed'] = " > 0";
+			$this->arrSql->where['tPost.reviewed'] = " IN(1,2)";
 		}
 
 		// Priority settings
