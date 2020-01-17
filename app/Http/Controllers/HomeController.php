@@ -434,7 +434,6 @@ class HomeController extends FrontController
 				$categories = collect([]);
 				$subCategories = collect([]);
 			}
-			
 			view()->share('categories', $categories);
 			view()->share('subCategories', $subCategories);
 			
@@ -461,7 +460,6 @@ class HomeController extends FrontController
 					}
 				}
 			}
-			// var_dump($categories);
 
 
 			if (isset($value['type_of_display']) && $value['type_of_display'] == 'c_picture_icon') {
@@ -472,6 +470,7 @@ class HomeController extends FrontController
 				$maxRowsPerCol = ($maxRowsPerCol > 0) ? $maxRowsPerCol : 1; // Fix array_chunk with 0
 				$categories = $categories->chunk($maxRowsPerCol);
 			}
+				// var_dump($categories);
 				view()->share('categories', $categories);
 
 		}

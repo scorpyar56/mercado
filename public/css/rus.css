@@ -1667,6 +1667,8 @@ input::placeholder {
     padding: 7px 10px 5px 15px !important;
 }
 
-
+.make-grid .item-list{
+    width: 25% !important;
+}
 
 

@@ -135,7 +135,7 @@ class BaseController extends FrontController
                 FROM ' . DBTool::table('posts') . ' as a
                 INNER JOIN ' . DBTool::table('categories') . ' as sc ON sc.id=a.category_id AND sc.active=1
                 INNER JOIN ' . DBTool::table('categories') . ' as c ON c.id=sc.parent_id AND c.active=1
-                WHERE a.country_code = :countryCode AND (a.verified_email=1 AND a.verified_phone=1) AND a.archived!=1 AND a.deleted_at IS NULL
+                WHERE a.country_code = :countryCode AND (a.verified_email=1 AND a.verified_phone=1) AND (a.reviewed IN(1,2)) AND a.archived!=1 AND a.deleted_at IS NULL
                 GROUP BY c.id';
             $sql = 'SELECT cat.id, SUM(total) as total' . '
                 FROM ((' . $sql1 . ') UNION ALL (' . $sql2 . ')) cat
