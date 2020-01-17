@@ -813,29 +813,24 @@ if (isset(auth()->user()->id)) {
         };
 
         $('.owl-carousel').owlCarousel({
-            // items:2,
             loop: true,
-            dots: true,
+            dots: false,
             autoplay: true,
             autoplayTimeout: 3000,
             autoWidth:true,
             responsive: {
                 200: {
                     items: 2,
-                    dotsEach: 2,
                     autoWidth:false,
                 },
                 700: {
                     items: 3,
-                    dotsEach: 3,
                 },
                 930: {
                     items: 4,
-                    dotsEach: 3,
                 },
                 1200: {
                     items: 5,
-                    dotsEach: 3,
                 }
             }
         });
