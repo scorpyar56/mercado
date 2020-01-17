@@ -129,7 +129,7 @@
                         <li>
                             <a class="navbar-list-item {!! ($pagePath=='pending-approval') ? 'active' : '' !!}" href="{{ lurl('account/pending-approval') }}">
                                 {{--							<i class="icon-hourglass"></i> {{ t('Pending approval') }}&nbsp;--}}
-                                <i class="unir-clock sidebar-icon"></i> {{ t('Pending approval') }}
+                                <i class="unir-clock sidebar-icon"></i> {{ t('Rejected ads') }}
                                 <span class="badge badge-pill badge-dif">
 							{{ isset($countPendingPosts) ? \App\Helpers\Number::short($countPendingPosts) : 0 }}
 						</span>

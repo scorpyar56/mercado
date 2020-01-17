@@ -346,6 +346,7 @@ return [
     'Archived ads' => 'Archived ads',
     'Favourite ads' => 'Favourite ads',
     'Pending approval' => 'Pending approval',
+    'Rejected ads' => 'Rejected ads',
     'Posts' => 'Posts',
     'Ads' => 'Ads',
     'Select' => 'Select',

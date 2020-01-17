@@ -322,6 +322,7 @@ return [
     'Archived ads' => 'Anúncios arquivados',
     'Favourite ads' => 'Anúncios favoritos',
     'Pending approval' => 'Anúncios pendentes',
+    'Rejected ads' => 'Reprovado anúncios',
     'Posts' => 'Publicados',
     'Ads' => 'Anúncios',
     'Select' => 'Selecione',
