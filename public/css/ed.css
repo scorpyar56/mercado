@@ -389,7 +389,7 @@ div.text-center-dif {
     padding: 0;
 }
 
-.main-container > .container {
+.main-container > .container > .row {
     flex-grow: 1;
 }
 
@@ -794,7 +794,8 @@ a.btn.btn-rep {
 }
 
 .select2-container--open .unir-rarrow2.icon,
-.open .unir-rarrow2.icon {
+.open .unir-rarrow2.icon,
+.show .unir-rarrow2.icon {
     -webkit-transform: rotate(90deg) !important;
     -moz-transform: rotate(90deg) !important;
     -ms-transform: rotate(90deg) !important;

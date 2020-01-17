@@ -367,32 +367,32 @@
 			// }
 		});
 
-		$(".unir-rarrow2.icon").on("click",function(){
-			if($('.mobile-dropdown .unir-rarrow2').attr("style") !='transform: rotate(90deg);' ){
-				console.log('xxx');
-				$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(90deg);");
-			}
-			else {
-				console.log('aaa');
-				$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(0deg);");
-			}
-		});
+		// $(".unir-rarrow2.icon").on("click",function(){
+		// 	if($('.mobile-dropdown .unir-rarrow2').attr("style") !='transform: rotate(90deg);' ){
+		// 		console.log('xxx');
+		// 		$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(90deg);");
+		// 	}
+		// 	else {
+		// 		console.log('aaa');
+		// 		$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(0deg);");
+		// 	}
+		// });
 		
-		$("#mobileCurrent").on("click",function(){
-			if($('.mobile-dropdown .unir-rarrow2').attr("style") !='transform: rotate(90deg);' ){
-				console.log('xxx');
-				$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(90deg);");
-			}
-			else {
-				console.log('aaa');
-				$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(0deg);");
-			}
-		});
+		// $("#mobileCurrent").on("click",function(){
+		// 	if($('.mobile-dropdown .unir-rarrow2').attr("style") !='transform: rotate(90deg);' ){
+		// 		console.log('xxx');
+		// 		$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(90deg);");
+		// 	}
+		// 	else {
+		// 		console.log('aaa');
+		// 		$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(0deg);");
+		// 	}
+		// });
 
-		$('.dropdown-menu').on("click", function(){
-			console.log('list');
-			$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(0deg);");
-		});
+		// $('.dropdown-menu').on("click", function(){
+		// 	console.log('list');
+		// 	$('.mobile-dropdown .unir-rarrow2').attr("style", "transform: rotate(0deg);");
+		// });
 
 		@if (config('settings.optimization.lazy_loading_activation') == 1)
 		$(document).ready(function () {
