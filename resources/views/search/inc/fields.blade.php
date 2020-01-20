@@ -136,7 +136,7 @@ if (!function_exists("createFieldNodeTree")) {
                                    max="{{ $maxv}}"
                             >
                         </div>
-                        <div class="form-group col-sm-3 no-padding">
+                        <div class="form-group col-sm-3 auto-width no-padding">
                             <button class="btn btn-default pull-right btn-block-xs go-button"
                                     type="submit"><span>{{ t('GO') }}</span></button>
                         </div>

@@ -110,7 +110,7 @@ function buildList($list)
                             $maxv = number_format(request()->get('maxPrice') ?? $placeholderValue[0]->max, 0);
                             $maxv = str_replace(",", "", $maxv);
                             ?>
-                            <div style="display: flex; align-items: center">
+                            <div class="flex-display">
                                 <div class="form-group col-sm-4 no-padding">
                                     <input type="number" id="minPrice"
                                         name="minPrice" class="form-control"
@@ -122,7 +122,7 @@ function buildList($list)
                                         name="maxPrice" class="form-control"
                                         value="{{ $maxv }}" min="{{ round($placeholderValue[0]->min) }}">
                                 </div>
-                                <div class="form-group col-sm-3 no-padding">
+                                <div class="form-group col-sm-3 auto-width no-padding">
                                     <button class="btn btn-default pull-right btn-block-xs go-button"
                                             type="submit">{{ t('GO') }}</button>
                                 </div>

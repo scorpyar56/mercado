@@ -37,8 +37,14 @@
     align-items: center;
 }
 
-.flex-display .form-group {
+
+.flex-display .form-group,
+.form-inline .form-group {
     margin-bottom: 0 !important;
+}
+
+.form-inline .form-group {
+    margin-top: 0 !important;
 }
 
 .col-xl-12.col-xl-12-dif {
