@@ -52,7 +52,9 @@ body{
 .block-content.list-filter {
     border-bottom: 1px solid rgb(221, 221, 221);
 }
-.link-bold {font-weight: bold;}
+.mobile-filter-bar .dropdown-menu>li a.link-bold {
+    color: #fff;
+}
 .favorite-custom {
     /* background: #ff0707; */
     border: 0 none;

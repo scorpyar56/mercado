@@ -107,7 +107,12 @@ $(document).ready(function ()
 	});
 
 	let sort_by_text = $('li a.link-bold').text();
-	if (sort_by_text.length > 0) $('.dropdown-toggle span#mobileCurrent').text(sort_by_text);
+	if (sort_by_text.length > 0) {
+		$('.dropdown-toggle span#mobileCurrent').text(sort_by_text);
+	} else {
+		$('ul.dropdown-menu li a').first().addClass('link-bold');
+	}
+	$('ul.dropdown-menu li a.link-bold').parent().css('backgroundColor', '#0096e8');
 
 	/*=======================================================================================
 	 cat-collapse Homepage Category Responsive view
