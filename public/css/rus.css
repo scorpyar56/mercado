@@ -1669,8 +1669,35 @@ input::placeholder {
 
 
 @media (min-width: 765px) {
+
     #postsList .item-list.item-inline{
         width: 25% !important;
     }
 }
+
+
+@media (max-width: 765px) {
+
+    .cab-cel.cel-dif.cal-acc .offset-4,
+    .cab-cel.cel-last.cal-acc .offset-4{
+        float: right;
+        flex: auto;
+        padding: 25px 10px 10px 10px;
+        margin-left: 33.333333% !important;
+    }
+
+    .cab-cel-email.cab-cel-bl.cal-acc .email-btn{
+        float: right;
+        flex: auto;
+        padding: 0px 10px 10px 10px;
+        margin-left: 33.333333% !important;
+    }
+    
+
+    .cab-cel.cel-last.cal-acc{
+        height: 310px !important;
+    }
+
+}
+
 
