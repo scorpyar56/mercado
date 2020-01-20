@@ -28,6 +28,19 @@
     padding: 0;
 }
 
+.auto-width {
+    width: auto;
+}
+
+.flex-display {
+    display: flex !important;
+    align-items: center;
+}
+
+.flex-display .form-group {
+    margin-bottom: 0 !important;
+}
+
 .col-xl-12.col-xl-12-dif {
     padding: 0 !important;
     border: 1px solid #CFD8DC;
@@ -766,23 +779,31 @@ a.btn.btn-rep {
 /*    display: none;*/
 /*}*/
 
-.unir-rarrow2.icon {
+.unir-rarrow2.icon,
+i.unir-rarrow2 {
     width: 10px;
     height: 10px;
     font-size: 10px;
-    position: absolute;
     top: calc(50% - 10px / 2);
-    right: 15px;
+    right: 15px; 
     -webkit-transition: transform .2s;
     -moz-transition: transform .2s;
     -ms-transition: transform .2s;
     -o-transition: transform .2s;
     transition: transform .2s;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    -webkit-transform: rotate(90deg) !important;
+    -moz-transform: rotate(90deg) !important;
+    -ms-transform: rotate(90deg) !important;
+    -o-transform: rotate(90deg) !important;
+    transform: rotate(90deg) !important;
+}
+
+.unir-rarrow2.icon {
+    position: absolute;
+}
+
+i.unir-rarrow2 {
+    position: relative;
 }
 
 .modal.modal-dif {
@@ -795,20 +816,29 @@ a.btn.btn-rep {
 
 .select2-container--open .unir-rarrow2.icon,
 .open .unir-rarrow2.icon,
-.show .unir-rarrow2.icon {
-    -webkit-transform: rotate(90deg) !important;
-    -moz-transform: rotate(90deg) !important;
-    -ms-transform: rotate(90deg) !important;
-    -o-transform: rotate(90deg) !important;
-    transform: rotate(90deg) !important;
+.show .unir-rarrow2.icon,
+.show i.unir-rarrow2 {
+    -webkit-transform: rotate(-90deg) !important;
+    -moz-transform: rotate(-90deg) !important;
+    -ms-transform: rotate(-90deg) !important;
+    -o-transform: rotate(-90deg) !important;
+    transform: rotate(-90deg) !important;
 }
 
 .fa.fa-chevron-right {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.fa.fa-chevron-down {
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    transform: rotate(-180deg);
 }
 
 /*.badge-dif-imp.badge-dif-imp-header {*/

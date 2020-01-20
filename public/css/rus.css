@@ -497,7 +497,7 @@ button.go-button{
 .fa.fa-chevron-down{
     position: absolute !important;
     right: 9px !important;
-    padding: 10px 0px 10px 0;
+    padding: 10px 5px;
     font-size: 10px;
 }
 
@@ -524,7 +524,7 @@ button.go-button{
 .sidebar-modern-inner .block-title{
     background-color: #f7f9f9;
     border-bottom: solid 3px rgb(255, 255, 255);
-    padding: 9px 9px 9px 13px;
+    padding: 9px 13px;
 }
 
 .customFields{
@@ -1675,7 +1675,6 @@ input::placeholder {
     }
 }
 
-
 @media (max-width: 765px) {
 
     .cab-cel.cel-dif.cal-acc .offset-4,
@@ -1699,5 +1698,4 @@ input::placeholder {
     }
 
 }
-
 
