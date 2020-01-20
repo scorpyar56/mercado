@@ -400,7 +400,8 @@ class DetailsController extends FrontController
 				// 	$similarCatIds[] = (int)$cat->tid;
 				// }
 				if (!empty($cat->tid)) {
-					$similarCatIds = Category::trans()->where('id', $cat->tid)->get()->keyBy('tid')->keys()->toArray();
+					// trans()->
+					$similarCatIds = Category::where('id', $cat->tid)->get()->keyBy('tid')->keys()->toArray();
 					// $similarCatIds[] = (int)$cat->tid;
 					$lim = DB::select("SELECT COUNT(id) as ids FROM posts WHERE category_id = $similarCatIds[0]");
 					if ($lim[0]->ids < $limit) {
@@ -454,13 +455,13 @@ class DetailsController extends FrontController
 
 				foreach ($posts as $key => $value) {
 					if ($value->category_id == $cat->tid) {
-						$test[] = $value;
+						$mainCat[] = $value;
 					} else {
-						$add[] = $value;
+						$addCat[] = $value;
 					}
 				}
-	
-				$posts = array_merge($posts, $add);
+				
+				if (!empty($mainCat) && !empty($addCat)) $posts = array_merge($mainCat, $addCat);
 
 				return $posts;
 			});

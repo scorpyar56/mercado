@@ -812,13 +812,9 @@ if (isset(auth()->user()->id)) {
             confirmationRemoveSaveSearch: "{!! t('Search deleted successfully!') !!}"
         };
 
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoWidth:true,
-            responsive: {
+        var resp, loop = true;
+        if (carouselItems > 5) {
+            resp = {
                 200: {
                     items: 2,
                     autoWidth:false,
@@ -832,7 +828,67 @@ if (isset(auth()->user()->id)) {
                 1200: {
                     items: 5,
                 }
+            };
+        } else if (carouselItems > 4) {
+            resp = {
+                200: {
+                    items: 2,
+                    autoWidth:false,
+                },
+                700: {
+                    items: 3,
+                },
+                930: {
+                    items: 4,
+                },
+                1200: {
+                    loop: false,
+                }
             }
+        } else if (carouselItems > 3) {
+            resp = {
+                200: {
+                    items: 2,
+                    autoWidth:false,
+                },
+                700: {
+                    items: 3,
+                },
+                930: {
+                    loop: false,
+                },
+                1200: {
+                    loop: false,
+                }
+            }
+        } else if (carouselItems > 2) {
+            resp = {
+                200: {
+                    items: 2,
+                    autoWidth:false,
+                },
+                700: {
+                    loop: false,
+                },
+                930: {
+                    loop: false,
+                },
+                1200: {
+                    loop: false,
+                }
+            }
+        } else {
+            resp = {}
+            loop = false;
+        }
+        $('.owl-carousel').owlCarousel({
+            items: carouselItems,
+            loop: loop,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoWidth:true,
+            responsive: resp,
         });
 
         $(document).ready(function () {
