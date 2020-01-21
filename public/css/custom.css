@@ -1327,8 +1327,12 @@ span.unir-check1{
 .treeview ul.list-group li{
     margin: 3px 0px;
 }
-div.filter-content .form-check .cntr{
+div.filter-content .form-check .cntr,
+.form-inline .cntr{
     margin: 5px 0px;
+}
+.form-inline .cntr label.checkbox {
+    display: unset;
 }
 .form-check .radio{
     margin: 3px 0px;

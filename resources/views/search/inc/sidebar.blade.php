@@ -127,11 +127,11 @@ function buildList($list)
                                             type="submit">{{ t('GO') }}</button>
                                 </div>
                             </div>
-                            <div class="cntr" style="float: left; margin-top: 5px">
+                            <div class="cntr" style="float: left;">
                                 <?php
                                     $value = request()->get('showNegotiable') ?? '1';
                                 ?>
-                                <label class="checkbox mb-0 label-cbx" id="neg" for="showNegotiable" style="margin-top: 5px">
+                                <label class="checkbox mb-0 label-cbx" id="neg" for="showNegotiable">
                                     <input
                                         id="showNegotiable"
                                         name="showNegotiable"
