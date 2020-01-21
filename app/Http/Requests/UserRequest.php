@@ -170,7 +170,8 @@ class UserRequest extends Request
 					'max:' . config('larapen.core.passwordLength.max', 60),
 					// 'dumbpwd',
 					'confirmed'
-				]
+				],
+				'email'     => ['email', new EmailRule(), new BlacklistEmailRule(), new BlacklistDomainRule()],
 			];
 		} else {
 			// Check if these fields has changed

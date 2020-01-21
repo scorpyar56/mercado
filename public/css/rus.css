@@ -1626,7 +1626,7 @@ input::placeholder {
 
 .cab-cel.cel-dif.cal-acc,
 .cab-cel.cel-last.cal-acc{
-    height: 375px;
+    height: 385px;
 }
 
 .cab-cel.cel-dif.cal-acc .col-4.col-form-label{
@@ -1650,6 +1650,7 @@ input::placeholder {
 .cab-cel.cel-last.cal-acc .col-4{
     text-align: left;
     padding: 7 15px;
+    max-width: 75%;
 }
 
 .cab-cel.cel-last.cal-acc .supp{
@@ -1699,11 +1700,19 @@ input::placeholder {
     
 
     .cab-cel.cel-last.cal-acc{
-        height: 310px !important;
+        height: 390px !important;
     }
 
 }
 
 .cab-cel.cel-dif.cal-acc .col-4.col-form-label.required > sup{
     color: #dc3545;
+}
+
+.main-container.pers-home .collapse:not(.show){
+    display: block !important;
+}
+
+.cab-cel.cel-dif.cal-acc .form-group.flex-block.gender{
+    height: 40px;
 }

@@ -15,7 +15,7 @@
 
 @section('content')
 	@include('common.spacer')
-	<div class="main-container">
+	<div class="main-container pers-home">
 
 		<div class="user-info-modal">
 			<div class="user-modal-content">
@@ -191,8 +191,8 @@
 
 										<!-- gender_id -->
 										<?php $genderIdError = (isset($errors) and $errors->has('gender_id')) ? ' is-invalid' : ''; ?>
-										<label class="col-4 col-form-label">{{ t('Gender') }}</label>
-										<div class="form-group flex-block required">
+										<label class="col-4 col-form-label required">{{ t('Gender') }}</label>
+										<div class="form-group flex-block gender required">
 											<div style="display: flex; align-items: center;" class="col-8">
 												@if ($genders->count() > 0)
 													@foreach ($genders as $gender)
@@ -218,21 +218,21 @@
 
 										<!-- name -->
 										<?php $nameError = (isset($errors) and $errors->has('name')) ? ' is-invalid' : ''; ?>
-										<label class="col-4 col-form-label">{{ t('Name') }} <sup>*</sup></label>
+										<label class="col-4 col-form-label required">{{ t('Name') }} <sup>*</sup></label>
 										<div class="form-group flex-block required">
-											<div class="col-8">
+											<div class="col-12">
 												<input name="name" type="text" class="form-control{{ $nameError }}" placeholder="" value="{{ old('name', $user->name) }}">
 											</div>
 										</div>
 
 										<!-- phone -->
 										<?php $phoneError = (isset($errors) and $errors->has('phone')) ? ' is-invalid' : ''; ?>
-										<label for="phone" class="col-4 col-form-label">{{ t('Phone') }} <sup>*</sup></label>
+										<label for="phone" class="col-4 col-form-label required">{{ t('Phone') }} <sup>*</sup></label>
 										<div class="form-group flex-block required">
 
-											<div class="input-group col-8">
+											<div class="input-group col-12">
 												<input id="phone" name="phone" type="text" class="form-control{{ $phoneError }}"
-													   placeholder="{{ (!isEnabledField('email')) ? t('Mobile Phone Number') : t('Phone Number') }}"
+													   placeholder="{{ (!isEnabledField('phone')) ? t('Mobile Phone Number') : t('Phone Number') }}"
 													   value="{{ phoneFormat(old('phone', $user->phone), old('country_code', $user->country_code)) }}">
 
 												{{--                                                    <div class="input-group-append">--}}
@@ -261,7 +261,7 @@
 							<div class="card card-default col-xl-12-dif">
 								<div class="ads-header">
 									<h3>
-										<a>{{ t('Change password') }}</a>
+										<a>{{ t('Privacy') }}</a>
 									</h3>
 								</div>
 								<div class="panel-collapse {{ (old('panel')=='settingsPanel') ? 'show' : '' }} inner-ads-box" id="settingsPanel">
@@ -289,13 +289,26 @@
 											</div>
 										@endif
 
-										<div class="supp"></div>
+										<!-- <div class="supp"></div> -->
+										<!-- email -->
+										<?php $emailError = (isset($errors) and $errors->has('email')) ? ' is-invalid' : ''; ?>
+										<label class="col-4 col-form-label">
+											{{ t('Add email') }}
+											
+										</label>
+										<div class="form-group flex-block">
+											<div class="col-12">
+													<input id="email" name="email" type="email" autocomplete="off"
+														class="form-control{{ $emailError }}" placeholder="{{ t('Your Email') }} {{ t('if you forget password we send it on email') }}" 
+														value="{{ old('email', $user->email) }}">
+											</div>
+										</div>
 
 										<!-- password -->
 										<?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
 										<label class="col-4 col-form-label">{{ t('New Password') }}</label>
 										<div class="form-group flex-block">
-											<div class="col-8">
+											<div class="col-12">
 												<input id="password" name="password" type="password" class="form-control{{ $passwordError }}" placeholder="{{ t('Password') }}">
 											</div>
 										</div>
@@ -304,7 +317,7 @@
 										<?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
 										<label class="col-4 col-form-label">{{ t('Confirm Password') }}</label>
 										<div class="form-group flex-block">
-											<div class="col-8">
+											<div class="col-12">
 												<input id="password_confirmation" name="password_confirmation" type="password"
 													   class="form-control{{ $passwordError }}" placeholder="{{ t('Confirm Password') }}">
 											</div>
@@ -319,10 +332,9 @@
 									</form>
 								</div>
 							</div>
-
 						</div>
 
-						<div class="col-md-12 col-xs-12 col-xxs-12 cab-cel-email cab-cel-bl cal-acc">
+						<!-- <div class="col-md-12 col-xs-12 col-xxs-12 cab-cel-email cab-cel-bl cal-acc">
 							<div class="card card-default col-xl-12-dif">
 								<div class="panel-collapse {{ (old('panel')=='settingsPanel') ? 'show' : '' }} inner-ads-box" id="settingsPanel">
 									<form name="settings" class="form-horizontal" role="form" method="POST" action="{{ lurl('account/settings') }}">
@@ -349,7 +361,7 @@
 									</form>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="modal fade" id="checkEmailModal" tabindex="-1" role="dialog" aria-labeledby="#titleCheckEmailModal" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content">
