@@ -1074,6 +1074,11 @@ a.sell-your-item-cart{
 .nice-select {
     transition: none;
     -webkit-transition: none;
+    width: 195px;
+}
+
+.tab-filter .select-sort-by {
+    margin-top: 9px;
 }
 
 .nice-select .list{
