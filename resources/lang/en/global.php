@@ -102,7 +102,8 @@ return [
 	'Signin' => 'Signin',
 	'Sign In' => 'Sign In',
 	'Login' => 'Login',
-	'Log In' => 'Login',
+    'Log In' => 'Login',
+    'Or' => 'or', 
 	'Logout' => 'Logout',
 	'Log Out' => 'Log Out',
 	'Signout' => 'Signout',
@@ -334,7 +335,7 @@ return [
     'Log in' => 'Login',
     'Log in to :app_name' => 'Log in to :app_name',
     'The Email Address or Password don\'t match.' => 'The Email Address or Password don\'t match.',
-    'You have been logged out.' => 'You have been logged out.',
+    'You have been logged out.' => 'You have been logged out',
     
     'Sign Up on :app_name !' => 'Sign Up on :app_name !',
     'Your account has been created.' => 'Your account has been created.',

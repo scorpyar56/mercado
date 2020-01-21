@@ -108,7 +108,7 @@ if (getSegment(1) != trans('routes.countries')) {
 							@endif
 						</li>
 						<li class="nav-item">
-							<a style="color: #888888 !important; padding: 14px 0px;" class="nav-link">or</a>
+							<a style="color: #888888 !important; padding: 14px 0px;" class="nav-link">{{ t('Or') }}</a>
 						</li>
 						<li class="nav-item">
 							<a href="{{ lurl(trans('routes.register')) }}" class="nav-link"> {{ t('Register') }}</a>
