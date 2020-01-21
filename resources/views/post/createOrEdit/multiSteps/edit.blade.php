@@ -175,7 +175,7 @@ if ($post->category) {
 													<div class="col-md-9">
 														<input id="title" name="title" placeholder="{{ t('Ad title') }}" class="form-control input-md{{ $titleError }}"
 															   type="text" value="{{ old('title', $post->title) }}">
-														<small id="" class="form-text text-muted">{{ t('A great title from 10 to 55 characters.') }}</small>
+														<small id="input-feedback" class="form-text text-muted"></small>
 													</div>
 												</div>
 
@@ -540,6 +540,27 @@ if ($post->category) {
 				return false;
 			}
 		}
+	</script>
+
+	
+	<script>
+		$(document).ready(function() {
+			var text_max = 55;
+			$('#input-feedback').html('A great title from 10 to 55 characters');
+
+			$('#title').keyup(function() {
+				var text_length = $('#title').val().length;
+				var text_remaining = text_max - text_length;
+
+				if (text_length === 0) {
+					$('#input-feedback').html('A great title from 10 to 55 characters');
+				} else if (text_length > text_max) {
+					$('#input-feedback').html('Too many characters');
+				} else {
+					$('#input-feedback').html(text_remaining + ' characters left');
+				}
+			});
+		});
 	</script>
 
 	<script src="{{ url('assets/js/app/d.select.category.js') . vTime() }}"></script>

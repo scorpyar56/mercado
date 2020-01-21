@@ -541,8 +541,7 @@ if (!function_exists("createFieldNodeTree")) {
             <!-- text -->
             <div class="ns-form-group {{ $requiredClass }} {{ $errorClass }}">
                 <label class="ns-form-label {{ $errorClass }} {{ $errorClass }}"
-                       for="{{
-                    $fieldId }}">
+                       for="{{ $fieldId }}">
                     {{ $field->name }}
                     @if ($field->required == 1)
                         <sup>*</sup>
@@ -554,10 +553,29 @@ if (!function_exists("createFieldNodeTree")) {
                            type="text"
                            placeholder="{{ $field->name }}"
                            class="form-control input-md{{ $errorClass }}"
-                           value="{{ $defaultValue }}">
-                    <small id=""
-                           class="form-text text-muted">{!! $field->help !!}</small>
+                           value="{{ $defaultValue }}"
+                           data-special="{{ $field->max }}"
+                           onkeyup="leftCharacters(this);">  
+                           <!-- {{ $field->max }} -->
+                    <!-- <small id="" class="form-text text-muted">{!! $field->help !!}</small> -->
+                    <small id="custom-input-feedback" class="form-text text-muted">{{ $field->max }} {{ t('characters left') }}</small>
                 </div>
+                <script>
+                    function leftCharacters(d){
+                        var smallTag = $(d).parent().children('small').prevObject[0].lastElementChild,
+                            text_max = d.getAttribute("data-special"),
+                            text_length = $(smallTag)[0].previousElementSibling.selectionEnd,
+                            text_remaining = text_max - text_length;
+
+                        if (text_length === 0) {
+                            $(smallTag).html(text_max + "{{ t('characters left') }}");
+                        } else if (text_length > text_max) {
+                            $(smallTag).html('Too many characters');
+                        } else {
+                            $(smallTag).html(text_remaining + "{{ t('characters left') }}");
+                        }
+                    }
+                </script>
             </div>
 
         @endif
