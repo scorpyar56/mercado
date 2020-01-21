@@ -324,7 +324,7 @@ return [
     'My account' => 'My account',
     'My account on :app_name' => 'My account on :app_name',
     
-    'Your message has sent successfully to :contact_name.' => 'Your message has sent successfully to :contact_name.',
+    'Your message has sent successfully to :contact_name.' =>  'The message has been successfully sent to :contact_name.',
     'Your report has sent successfully to us. Thank you!' => 'Your report has sent successfully to us. Thank you!',
     'Your unban request has sent successfully to us. Thank you!' =>     'Your unban request has sent successfully to us. Thank you!',
     
@@ -740,8 +740,8 @@ return [
     'within' => 'within',
     'of' => 'of',
     'from' => 'from',
-    'Post saved in favorites successfully!' => 'Post saved in favorites successfully!',
-    'Post deleted from favorites successfully!' => 'Post deleted from favorites successfully!',
+    'Post saved in favorites successfully!' => 'Added to favorites!',
+    'Post deleted from favorites successfully!' => 'Removed from favorites successfully!',
     'An activation link has been sent to you to verify your email address.' => 'An activation link has been sent to you to verify your email address.',
     'An activation code has been sent to you to verify your phone number.' => 'An activation code has been sent to you to verify your phone number.',
     'The activation link has been sent to you to verify your email address.' => 'The activation link has been sent to you to verify your email address.',
@@ -789,7 +789,7 @@ return [
     'Error on user\'s login.' => 'Error on user\'s login.',
     'The activation link has been sent to the user to verify his email address.' => 'The activation link has been sent to the user to verify his email address.',
     'The activation code has been sent to the user to verify his phone number.' => 'The activation code has been sent to the user to verify his phone number.',
-    'The :field is required.' => 'The :field is required.',
+    'The :field is required.' => 'Field ":field" is required.',
     'The :field is required. And cannot be 0.' => 'The :field is required. And cannot be 0.',
     'The file of :field must be in the good format.' => 'The file of :field must be in the good format.',
 	'The file size of :field may not be lower than :min.' => 'The file size of :field may not be lower than :min.',
