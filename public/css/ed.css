@@ -408,10 +408,6 @@ div.text-center-dif {
     padding: 0;
 }
 
-.main-container > .container > .row {
-    flex-grow: 1;
-}
-
 .margin-none {
     margin: 0;
 }

@@ -712,7 +712,8 @@
 			<!--/.container-->
 		</div>
 		<!-- /.main-container -->
-		@endsection
+	</div>
+@endsection
 
 		@section('after_styles')
 			<link href="{{ url('assets/plugins/bootstrap-fileinput/css/fileinput.min.css') }}" rel="stylesheet">
