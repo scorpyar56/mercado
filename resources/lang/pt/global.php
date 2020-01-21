@@ -314,6 +314,13 @@ return [
     // 'No deletion is done. Please try again.' => 'Nenhuma remoção está concluída. Por favor, tente novamente.',
     'No ads selected for archiving.' => 'Não anúncios selecionado para arquivamento.',
     'Archiving completed successfully.' => 'Arquivamento concluído com sucesso.',
+    'Removed from favorites successfully.' => 'Removido dos favoritos com sucesso.',
+    'No ads selected for removing from favorites.' => 'Não anúncios selecionado para remover dos favoritos.',
+    'Selected ads have been deleted.'=>'Os anúncios selecionados foram removidos.',
+    'No ads selected for deleting from archive.'=>'Não anúncios selecionado para remover do arquivo.',
+    'No сonversations selected for deletion.' => 'Não conversas selecionada para remover.',
+    'Selected сonversations have been deleted.' => 'Os conversas selecionados foram removidos.',
+
     'Your account details has updated successfully.' => 'Os detalhes da sua conta foram atualizados com sucesso.',
     'Your details account has updated successfully.' => 'Sua conta de detalhes atualizou com sucesso.',
     'Your settings account has updated successfully.' => 'A sua conta de configurações foi atualizada com sucessos',

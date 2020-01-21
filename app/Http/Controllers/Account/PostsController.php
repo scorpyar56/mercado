@@ -405,23 +405,36 @@ class PostsController extends AccountBaseController
 		
 		// Confirmation
 		if ($nb == 0) {
-			flash(t("No ads selected for archiving."))->error();
+			if ($pagePath == "my-posts") {
+				flash(t("No ads selected for archiving."))->error();
+			}
+			elseif($pagePath == "favourite"){
+				flash(t("No ads selected for removing from favorites."))->error();
+			}
+			elseif($pagePath == "archived"){
+				flash(t("No ads selected for deleting from archive."))->error();
+			}
 		} else {
 			$count = count($ids);
 			if ($pagePath == "archived") {
-                            if ($count > 1) {
-                                $message = t("x :entities has been deleted successfully.", ['entities' => t('ads'), 'count' => $count]);
-                            } else {
-                                $message = t("1 :entity has been deleted successfully.", ['entity' => t('ad')]);
-                            }
-                        } else {
-                            // if ($count > 1) {
-                            //     $message = t("x :entities has been archived successfully.", ['entities' => t('ads'), 'count' => $count]);
-                            // } else {
-                            //     $message = t("1 :entity has been archived successfully.", ['entity' => t('ad')]);
-							// }
-							$message = t("Archiving completed successfully.");
-                        }
+				// if ($count > 1) {
+				// 	$message = t("x :entities has been deleted successfully.", ['entities' => t('ads'), 'count' => $count]);
+				// } else {
+				// 	$message = t("1 :entity has been deleted successfully.", ['entity' => t('ad')]);
+				// }
+					$message = t("Selected ads have been deleted.");
+			}
+			else if($pagePath == "favourite"){
+				$message = t("Removed from favorites successfully.");
+			} 
+			else {
+				// if ($count > 1) {
+				//     $message = t("x :entities has been archived successfully.", ['entities' => t('ads'), 'count' => $count]);
+				// } else {
+				//     $message = t("1 :entity has been archived successfully.", ['entity' => t('ad')]);
+				// }
+				$message = t("Archiving completed successfully.");
+			}
 
 			flash($message)->success();
 		}

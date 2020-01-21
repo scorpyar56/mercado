@@ -289,14 +289,15 @@ class ConversationsController extends AccountBaseController
 		
 		// Confirmation
 		if ($nb == 0) {
-			flash(t("No deletion is done. Please try again."))->error();
+			flash(t("No сonversations selected for deletion."))->error();
 		} else {
-			$count = count($ids);
-			if ($count > 1) {
-				flash(t("x :entities has been deleted successfully.", ['entities' => t('messages'), 'count' => $count]))->success();
-			} else {
-				flash(t("1 :entity has been deleted successfully.", ['entity' => t('message')]))->success();
-			}
+			// $count = count($ids);
+			// if ($count > 1) {
+			// 	flash(t("x :entities has been deleted successfully.", ['entities' => t('messages'), 'count' => $count]))->success();
+			// } else {
+			// 	flash(t("1 :entity has been deleted successfully.", ['entity' => t('message')]))->success();
+			// }
+				flash(t("Selected сonversations have been deleted."))->success();
 		}
 		
 		return back();
@@ -354,7 +355,7 @@ class ConversationsController extends AccountBaseController
 		
 		// Confirmation
 		if ($nb == 0) {
-			flash(t("No deletion is done. Please try again."))->error();
+			flash(t("No сonversations selected for deletion."))->error();
 		} else {
 			$count = count($ids);
 			if ($count > 1) {

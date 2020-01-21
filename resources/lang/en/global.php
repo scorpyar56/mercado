@@ -332,6 +332,12 @@ return [
     // 'No deletion is done. Please try again.' => 'No deletion is done. Please try again.',
     'No ads selected for archiving.' => 'No ads selected for archiving.',
     'Archiving completed successfully.' => 'Archiving completed successfully.',
+    'Removed from favorites successfully.' => 'Removed from favorites successfully.',
+    'No ads selected for removing from favorites.' => 'No ads selected for removing from favorites.',
+    'Selected ads have been deleted.'=>'Selected ads have been deleted.',
+    'No ads selected for deleting from archive.'=>'No ads selected for deleting from archive.',
+    'No сonversations selected for deletion.' => 'No сonversations selected for deletion.',
+    'Selected сonversations have been deleted.' => 'Selected сonversations have been deleted.',
     'Your account details has updated successfully.' => 'Your account details has updated successfully.',
     
     'Your details account has updated successfully.' => 'Your details account has updated successfully.',
