@@ -101,7 +101,7 @@
                                     class="unir-cards">&nbsp;</i>{{ t('FAQ') }}</a>
                             <a href="{{ lurl('sitemap')}}"><i style="font-size: 13.6px;"
                                     class="unir-list">&nbsp;</i>{{ t('Sitemap') }}</a>
-                            <a href="{{ lurl('contact')}}"><i class="unir-mail">&nbsp;</i>{{ t('Contact Us') }}</a>
+                            <a href="{{ lurl('contact-us')}}"><i class="unir-mail">&nbsp;</i>{{ t('Contact Us') }}</a>
                         </ul>
                 </li>
                 @else
@@ -166,7 +166,7 @@
                                     class="unir-search">&nbsp;</i>{{ t('FAQ') }}</a>
                             <a href="{{ lurl('sitemap')}}"><i style="font-size: 13.6px;"
                                     class="unir-list">&nbsp;</i>{{ t('Sitemap') }}</a>
-                            <a href="{{ lurl('contact')}}"><i class="unir-mail">&nbsp;</i>{{ t('Contact Us') }}</a>
+                            <a href="{{ lurl('contact-us')}}"><i class="unir-mail">&nbsp;</i>{{ t('Contact Us') }}</a>
                         </ul>
                 </li>
                 @endif

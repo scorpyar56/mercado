@@ -426,8 +426,8 @@ Route::group([
 
         // STATICS PAGES
         Route::get(LaravelLocalization::transRoute('routes.page'), 'PageController@index');
-        Route::get(LaravelLocalization::transRoute('routes.contact'), 'PageController@contact');
-        Route::post(LaravelLocalization::transRoute('routes.contact'), 'PageController@contactPost');
+        Route::get(LaravelLocalization::transRoute('routes.contact-us'), 'PageController@contact');
+        Route::post(LaravelLocalization::transRoute('routes.contact-us'), 'PageController@contactPost');
         Route::get(LaravelLocalization::transRoute('routes.sitemap'), 'SitemapController@index');
 
         // DYNAMIC URL PAGES

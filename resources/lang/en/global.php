@@ -117,6 +117,7 @@ return [
     'Female' => 'Female',
     'Mr' => 'Mr',
     'Mrs' => 'Mrs',
+    'Name' => 'Name',
     'First Name' => 'First Name',
     'Last Name' => 'Last Name',
     'You are a' => 'You are a',
@@ -243,7 +244,7 @@ return [
     'Register' => 'Registration',
     
     'Your message has been sent to our moderators' => 'Your message has been sent to our moderators.',
-    'Your message has been sent to our moderators. Thank you' => 'Your message has been sent to our moderators. Thank you.',
+    'Your message has been sent to our moderators. Thank you' => 'The message has been successfully sent to our moderators.',
     
     'Post a Free Classified' => 'Post a Free Classified',
     'Do you have something to sell, to rent, any service to offer or a job offer? Post it at :app_name, its free, local, easy, reliable and super fast!' => 'Do you have something to sell, to rent, any service to offer or a job offer? Post it at :app_name, its free, for local business and very easy to use!',
@@ -407,7 +408,7 @@ return [
     'Reason' => 'Reason',
     'Select a reason' => 'Select a reason',
     'Your E-mail' => 'Your E-mail',
-    'Message' => 'Message',
+    'Message' => 'Message...',
     'Cancel' => 'Cancel',
     'Send Report' => 'Send',
     'Send request' => 'Send request',
@@ -637,6 +638,7 @@ return [
     'To launch your website for several countries you need to activate these countries.' => 'To launch your website for several countries you need to activate these countries.',
     'By disabling or removing a country the ads of this country (also) will be deleted.' => 'By disabling or removing a country the ads of this country (also) will be deleted.',
 
+    'Attach files' => 'Attach files',
     'Contact' => 'Contact Us',
     'Contact us' => 'Contact us',
     'Contact Us' => 'Contact Us',

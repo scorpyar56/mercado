@@ -10,7 +10,7 @@ return [
     'page' => 'page/{slug}',
     't-page' => 'page',
     'v-page' => 'page/:slug',
-    'contact' => 'contact',
+    'contact-us' => 'contact-us',
     'sitemap' => 'sitemap',
     'v-sitemap' => 'sitemap',
     'search' => 'search',

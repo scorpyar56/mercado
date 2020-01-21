@@ -59,7 +59,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                     <h2 class="py-3" style="padding-top:30px !important;">
                         <span class="title-3">{{ t('Contact Us') }}</span>
                     </h2>
-                    <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{ lurl(trans('routes.contact')) }}">
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data" action="{{ lurl(trans('routes.contact-us')) }}">
                         {!! csrf_field() !!}
                         <fieldset>
                             <div class="row">
@@ -67,7 +67,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                                     <?php $firstNameError = (isset($errors) and $errors->has('first_name')) ? ' is-invalid' : ''; ?>
                                     <div class="form-group required">
                                         <input id="first_name" name="first_name" type="text"
-                                            placeholder="{{ t('First Name') }}"
+                                            placeholder="{{ t('Name') }}"
                                             class="form-control{{ $firstNameError }}" value="{{ old('first_name') }}">
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                                 <div class="col-md-12">
                                     <?php $phoneError = (isset($errors) and $errors->has('phone')) ? ' is-invalid' : ''; ?>
                                     <div class="form-group required">
-                                        <input id="phone" name="phone" type="text" placeholder="{{ t('Phone Number') }}"
+                                        <input id="phone" name="phone" type="text" placeholder="{{ t('Phone') }}"
                                             class="form-control{{ $phoneError }}" value="{{ old('phone') }}">
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                                     <?php $emailError = (isset($errors) and $errors->has('email')) ? ' is-invalid' : ''; ?>
                                     <div class="form-group required">
                                         <input id="email" name="email" type="text"
-                                            placeholder="{{ t('Email Address') }}" class="form-control{{ $emailError }}"
+                                            placeholder="{{ t('E-mail') }}" class="form-control{{ $emailError }}"
                                             value="{{ old('email') }}">
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                                     <div class="mb10">
                                         <!-- <input name="file" id="file" type="file"  class="form-control{{ $failError }}"> -->
                                         <div class="button-wrap">
-                                            <label class ="custom-button-upfile btn-grey" for="file"> Attach file </label>
+                                            <label class ="custom-button-upfile btn-grey" for="file">{{ t('Attach files') }}</label>
                                             <input class="custom-upfile" id="file" name="file" type="file" class="form-control{{ $failError }}">
                                             <div id="fileName"></div>
                                             <small style="display:block;" class="text-muted">
@@ -153,7 +153,7 @@ if (!isset($languageCode) or empty($languageCode)) {
                         <h4><a href="{{ lurl('page/tips')}}">{{ t('Tips for Users') }}</a></h4>
                         <h4><a href="{{ lurl('page/faq')}}">{{ t('FAQ') }}</a></h4>
                         <h4><a href="{{ lurl('sitemap')}}">{{ t('Sitemap') }}</a></h4>
-                        <h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
+                        <h4><a href="{{ lurl('contact-us')}}">{{ t('Contact Us') }}</a></h4>
                     </div>
                 </div>
             </div>

@@ -199,7 +199,7 @@ class Country
 					'register',
 					'posts',
 					trans('routes.t-page'),
-					trans('routes.contact'),
+					trans('routes.contact-us'),
 					trans('routes.sitemap'),
 					'verify',
 				]) &&

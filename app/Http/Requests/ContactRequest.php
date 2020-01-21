@@ -31,9 +31,9 @@ class ContactRequest extends Request
 	{
 		$rules = [
 			'first_name' => ['required', new BetweenRule(2, 100)],
+			'phone'      => ['required', 'max:20'],
 			'email'      => ['required', 'email', new EmailRule(), new BlacklistEmailRule(), new BlacklistDomainRule()],
 			'message'    => ['required', new BetweenRule(5, 500)],
-			'phone'      => ['max:20'],
 		];
 
 		// R.S
@@ -47,7 +47,6 @@ class ContactRequest extends Request
 
 		if (isEnabledField('file')) {
 			$rules['file'] = [
-				'required',
 				'mimes:' . getUploadFileTypes('file'),
 				'min:' . (int)config('settings.upload.min_file_size', 0),
 				'max:' . (int)config('settings.upload.max_file_size', 12000),

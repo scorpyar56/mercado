@@ -132,7 +132,7 @@ class PageController extends FrontController
 			flash($e->getMessage())->error();
 		}
 		
-		return redirect(config('app.locale') . '/' . trans('routes.contact'));
+		return redirect(config('app.locale') . '/' . trans('routes.contact-us'));
 	}
 
 	/**

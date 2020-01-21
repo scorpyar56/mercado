@@ -105,7 +105,7 @@
                                         <h4><a href="{{ lurl('page/fastsell')}}">{{ t('How to sell fast') }}</a></h4>
                                         <h4><a href="{{ lurl('page/report')}}">{{ t('Report a suspicious user or add') }}</a></h4>
                                         <h4><a href="{{ lurl('page/fraudvictim')}}">{{ t('If you become a victim of fraud') }}</a></h4>
-                                        <h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
+                                        <h4><a href="{{ lurl('contact-us')}}">{{ t('Contact Us') }}</a></h4>
                                     </div>
                                 </div>
                             </div>

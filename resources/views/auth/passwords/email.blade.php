@@ -126,7 +126,7 @@
 							<h4><a href="{{ lurl('page/tips')}}">{{ t('Tips for Users') }}</a></h4>
 							<h4><a href="{{ lurl('page/faq')}}">{{ t('FAQ') }}</a></h4>
 							<h4><a href="{{ lurl('sitemap')}}">{{ t('Sitemap') }}</a></h4>
-							<h4><a href="{{ lurl('contact')}}">{{ t('Contact Us') }}</a></h4>
+							<h4><a href="{{ lurl('contact-us')}}">{{ t('Contact Us') }}</a></h4>
 						</div>
 					</div>
 				</div>
