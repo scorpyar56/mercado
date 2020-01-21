@@ -967,7 +967,8 @@
 					$.each(data.files, function(key, file) {
 						if (typeof file !== 'undefined') {
 							var fname = file.name;
-							out = out + {!! t('Uploaded file #key successfully') !!};
+							// out = out + {!! t('Uploaded file #key successfully') !!};
+							out = out + {!! t('Data updated successfully') !!};
 						}
 					});
 					$('#avatarUploadSuccess ul').append(out);
