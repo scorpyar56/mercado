@@ -94,8 +94,8 @@ return [
     // Login
     'Password' => 'Password',
     'Submit' => 'Send',
-    'Keep me logged in' => 'Keep me logged in',
-    'Lost your password?' => 'Lost your password?',
+    'Keep me logged in' => 'Remember Me',
+    'Lost your password?' => 'Forgot password?',
     'Don\'t have an account?' => 'Don\'t have an account?',
     'Signup' => 'Signup',
     'Sign Up' => 'Sign Up',
