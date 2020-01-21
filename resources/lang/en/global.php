@@ -182,7 +182,7 @@ return [
     'Re-register successfully.'=>'Re-register successfully.',
     'To favorites.' => 'To favorites',
     'Ads information' => 'Ads information',
-    'Phone number' => 'Phone number',
+    'Phone number' => 'Phone',
     'Similar Ads'=>'Similar Ads',
     'Log In' => 'Log In',
     'Register' => 'Registration',
@@ -231,11 +231,11 @@ return [
 
     '1.  Enter your phone number' => '1.  Enter your phone number',
     '2.  Click “Send” button' => '2.  Click “Send” button',
-    '3.  We will send your new password on your email address' => '3.  We will send your new password on your email address',
-    'Please note – password recovery option is available only for users that previously indicated email address in Mercado.gratice account settings' => 'Please note – password recovery option is available only for users that previously indicated email address in Mercado.gratice account settings',
+    '3.  We will send your new password on your email address' => '3.  We will send your new password on your e-mail',
+    'Please note – password recovery option is available only for users that previously indicated email address in Mercado.gratice account settings' => 'Please note: password recovery option is available only for users that previously indicated email in Mercado.gratice account settings',
     // R.S
     
-    'Phone Number' => 'Phone Number',
+    'Phone Number' => 'Phone',
     'Email' => 'Email',
     'Please repeat your password' => 'Please repeat your password',
     'At least :num characters' => 'At least :num characters',
