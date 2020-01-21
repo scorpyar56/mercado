@@ -878,7 +878,14 @@ if (isset(auth()->user()->id)) {
                 }
             }
         } else {
-            resp = {}
+            resp = {
+                200: {
+                    autoWidth:false,
+                },
+                700: {
+                    loop : false,
+                },
+            }
             loop = false;
         }
         $('.owl-carousel').owlCarousel({
@@ -887,7 +894,7 @@ if (isset(auth()->user()->id)) {
             dots: false,
             autoplay: true,
             autoplayTimeout: 3000,
-            autoWidth:true,
+            // autoWidth: true,
             responsive: resp,
         });
 

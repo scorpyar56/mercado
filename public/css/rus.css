@@ -313,7 +313,7 @@
 .featured-list-row .owl-item > .item:first-child{
     position: inherit;
     left: 0%;
-    padding: 15px 15px 15px  0px!important;
+    padding: 15px 0px 15px  0px!important;
     min-width: 100px;
 }
 
@@ -1699,3 +1699,6 @@ input::placeholder {
 
 }
 
+.cab-cel.cel-dif.cal-acc .col-4.col-form-label.required > sup{
+    color: #dc3545;
+}
