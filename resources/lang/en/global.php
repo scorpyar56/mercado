@@ -111,7 +111,7 @@ return [
 	
     
     // Signup
-    'Create your account, Its free' => 'Create your account, It\'s 100% free',
+    'Create your account, Its free' => 'Create your account, it\'s 100% free',
     'Gender' => 'Gender',
     'Select a gender' => 'Select a gender',
     'Male' => 'Male',
@@ -239,10 +239,12 @@ return [
     'Email' => 'Email',
     'Please repeat your password' => 'Please repeat your password',
     'At least :num characters' => 'At least :num characters',
-    'I have read and agree to the <a :attributes>Terms of Use</a>' => 'I have read and agree to the <a :attributes>Terms of Use, Privacy Policy and Posting Rules',
+    'I have read and agree to the <a :attributes>Terms of Use</a>' => 'I have read and agree to the <a :attributes>Terms of Use</a>',
+    'I have read and agree to the' => 'I have read and agree to the ',
     'By continuing on this website, you accept our <a :attributes>Terms of Use</a>' => 'By continuing on this website, you accept our <a :attributes>Terms of Use</a>',
     'By continuing on this website, you accept our <a :attributes>Terms of Use</a> and Posting Rules' => 'By continuing on this website, you accept our <a :attributes>Terms of Use</a> and Posting Rules',
     'Register' => 'Registration',
+    'Four characters' => 'At least 4 characters',
     
     'Your message has been sent to our moderators' => 'Your message has been sent to our moderators.',
     'Your message has been sent to our moderators. Thank you' => 'The message has been successfully sent to our moderators.',
@@ -461,7 +463,7 @@ return [
     
     'Reset your Password' => 'Reset your Password',
     'Reset Password' => 'Reset Password',
-    'Password Confirmation' => 'Password Confirmation',
+    'Password Confirmation' => 'Confirm Password',
     'Reset the Password' => 'Reset Password',
     
     ':domain, sell and buy near you. Simple, fast and efficient.' => ':domain, sell and buy near you. Simple, fast and efficient.',
@@ -520,6 +522,8 @@ return [
     'Whoops !' => 'Whoops !',
     
     'Joined' => 'Joined',
+
+    'And' => 'and',
 
     'Your session has expired. Please try again.' => 'Your session has expired. Please try again.',
     'The session has expired after a longtime. Please try again.' => 'The session has expired after a longtime. Please try again.',

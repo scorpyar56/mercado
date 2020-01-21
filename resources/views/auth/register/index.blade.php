@@ -241,7 +241,7 @@
 													<label class="col-md-2 col-form-label" for="password">{{ t('Password') }} <sup>*</sup></label>
 													<div class="col-md-9">
 														<input id="password" name="password" type="password" class="form-control{{ $passwordError }}"
-															   placeholder="{{ t('Password') }}">
+															   placeholder="{{ t('Four characters') }}">
 														<br>
 														<input id="password_confirmation" name="password_confirmation" type="password" class="form-control{{ $passwordError }}"
 															   placeholder="{{ t('Password Confirmation') }}">
@@ -288,7 +288,7 @@
 												<div class="form-group row required">
 {{--													<label class="col-md-2 col-form-label"></label>--}}
 													<div class="col-md-2"></div>
-													<div class="col-md-9">
+													<div class="col-md-12">
 														<div class="form-check flex-align">
 															<div class="cntr">
 																<label for="term" class="label-cbx">
@@ -299,7 +299,8 @@
 																	<polyline points="4 8 6 10 11 5"></polyline>
 																	</svg>
 																</div>
-																{!! t('I have read and agree to the <a :attributes>Terms of Use</a>', ['attributes' => getUrlPageByType('terms')]) !!}
+																{!! t('I have read and agree to the') !!} <a href="{{ lurl('page/terms-of-use')}}">{{ t('Terms of Use') }}</a>, <a href="{{ lurl('page/privacy-policy')}}">{{ t('Privacy Policy') }}</a> {{ t('And')}} <a href="{{ lurl('page/posting-rules')}}">{{ t('Posting Rules') }}</a>
+																<!-- {!! t('I have read and agree to the <a :attributes>Terms of Use</a>', ['attributes' => getUrlPageByType('terms-of-use')]) !!} -->
 																</label>
 															</div>
 

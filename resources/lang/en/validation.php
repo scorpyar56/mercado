@@ -62,7 +62,7 @@ return [
 	'min'                   => [
 		'numeric' => 'The :attribute must be at least :min.',
 		'file'    => 'The :attribute must be at least :min kilobytes.',
-		'string'  => 'The :attribute must be at least :min characters.',
+		'string'  => ':attribute must be at least :min characters.',
 		'array'   => 'The :attribute must have at least :min items.',
 	],
 	'not_in'                => 'The selected :attribute is invalid.',
@@ -70,12 +70,13 @@ return [
 	'numeric'               => 'The :attribute must be a number.',
 	'present'               => 'The :attribute field must be present.',
 	'regex'                 => 'The :attribute format is invalid.',
-	'required'              => 'Field ":attribute" is required.',
+	'required'              => 'Field :attribute is required.',
 	'required_if'           => 'The :attribute field is required when :other is :value.',
 	'required_unless'       => 'The :attribute field is required unless :other is in :values.',
 	'required_with'         => 'The :attribute field is required when :values is present.',
 	'required_with_all'     => 'The :attribute field is required when :values is present.',
-	'required_without'      => 'The :attribute field is required when :values is not present.',
+	// 'required_without'      => 'The :attribute field is required when :values is not present.',
+	'required_without'      => 'Field :attribute is required',
 	'required_without_all'  => 'The :attribute field is required when none of :values are present.',
 	'same'                  => 'The :attribute and :other must match.',
 	'size'                  => [
@@ -94,7 +95,8 @@ return [
 	
 	// Packages Rules
 	'recaptcha'    => 'The :attribute field is not correct.',
-	'phone'        => 'The :attribute field contains an invalid number.',
+	// 'phone'        => 'The :attribute field contains an invalid number.',
+	'phone'        => 'Field :attribute contains an invalid number',
 	'dumbpwd'      => 'This password is just too common. Please try another!',
 	'phone_number' => 'Your phone number is not valid.',
 	
