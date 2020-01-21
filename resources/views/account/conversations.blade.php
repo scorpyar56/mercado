@@ -56,7 +56,7 @@
 {{--										<input type="checkbox" id="checkAll">--}}
 {{--										{{ t('Select') }}: {{ t('All') }} |--}}
 										<button type="submit" class="btn btn-sm btn-default delete-action btn-default-cab btn-grey">
-											{{ t('Ignore') }}
+											{{ t('Delete') }}
 										</button>
 									</label>
 									<div class="table-search pull-right col-sm-7 table-search-cab">
@@ -139,7 +139,7 @@
 														<strong class="conversation-main">{{ t('Ad') }}:</strong>&nbsp{{ $conversation->subject }}
 													</div>
 													<div class="conversation-info">
-														<strong class="conversation-main">{{ t('From') }}:</strong>&nbsp{{ \Illuminate\Support\Str::limit($conversation->from_name, 50) ?? "Unregistered user" }}
+														<strong class="conversation-main">{{ t('Sender') }}:</strong>&nbsp{{ \Illuminate\Support\Str::limit($conversation->from_name, 50) ?? "Unregistered user" }}
 														{!! (!empty($conversation->filename) and $disk->exists($conversation->filename)) ? ' <i class="icon-attach-2"></i> ' : '' !!}&nbsp;
 														|&nbsp;
 														<a href="{{ lurl('account/conversations/' . $conversation->id . '/messages') }}">

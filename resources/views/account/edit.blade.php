@@ -20,7 +20,7 @@
 		<div class="user-info-modal">
 			<div class="user-modal-content">
 				<div class="modal-header modal-header-dif">
-					<h4 class="modal-title"> {{ t('Are you sure you want to delete this picture?') }}</h4>
+					<h4 class="modal-title"> {{ t('Delete this picture?') }}</h4>
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true"><i class="unir-close"></i></span>
 						<span class="sr-only">{{ t('Close') }}</span>
@@ -29,7 +29,7 @@
 				<div class="modal-footer modal-footer-dif modal-footer-user">
 					<div class="modal-chose">
 						<form role="form" method="POST" action="{{ lurl('account/' . auth()->user()->id . '/photo/delete') }}" enctype="multipart/form-data">
-							<button type="submit" class="btn btn-dif btn-grey">{{ ('Delete') }}</button>
+							<button type="submit" class="btn btn-dif btn-grey">{{ t('Delete') }}</button>
 						</form>
 					</div>
 					<div class="modal-cancel">
@@ -81,7 +81,7 @@
 								<div class="head-message">
 									<h1 class="page-sub-header2 clearfix no-padding">{{ t('Hello') }} {{ $user->name }} </h1>
 									<span class="page-sub-header-sub">
-                                        {{ t('You last logged in at') }}: {{ $user->last_login_at->formatLocalized(config('settings.app.default_datetime_format')) }}
+                                        {{ t('Previous Log In') }}: {{ $user->last_login_at->formatLocalized(config('settings.app.default_datetime_format')) }}
                                     </span>
 								</div>
 
@@ -129,7 +129,7 @@
 										<!-- Number of visitors -->
 										<p>
 											<a href="{{ lurl('account/my-posts') }}">
-												{{ t('Visits') }}
+												{{ t('Views') }}
 											</a>
 											<?php $totalPostsVisits = (isset($countPostsVisits) and $countPostsVisits->total_visits) ? $countPostsVisits->total_visits : 0 ?>
 											{{ \App\Helpers\Number::short($totalPostsVisits) }}
@@ -179,7 +179,7 @@
 							<div class="card card-default col-xl-12-dif">
 								<div class="ads-header">
 									<h3>
-										<a>{{ t('Account Details') }}</a>
+										<a>{{ t('My Profile') }}</a>
 									</h3>
 								</div>
 								<div class="panel-collapse collapse {{ (old('panel')=='' or old('panel')=='userPanel') ? 'show' : '' }} inner-ads-box" id="userPanel">
@@ -293,13 +293,13 @@
 										<!-- email -->
 										<?php $emailError = (isset($errors) and $errors->has('email')) ? ' is-invalid' : ''; ?>
 										<label class="col-4 col-form-label">
-											{{ t('Add email') }}
+											{{ t('E-mail for password recovery') }}
 											
 										</label>
 										<div class="form-group flex-block">
 											<div class="col-12">
 													<input id="email" name="email" type="email" autocomplete="off"
-														class="form-control{{ $emailError }}" placeholder="{{ t('Your Email') }} {{ t('if you forget password we send it on email') }}" 
+														class="form-control{{ $emailError }}" placeholder="{{ t('Your Email') }}" 
 														value="{{ old('email', $user->email) }}">
 											</div>
 										</div>
@@ -315,7 +315,7 @@
 
 										<!-- password_confirmation -->
 										<?php $passwordError = (isset($errors) and $errors->has('password')) ? ' is-invalid' : ''; ?>
-										<label class="col-4 col-form-label">{{ t('Confirm Password') }}</label>
+										<label class="col-4 col-form-label">{{ t('Confirm New Password') }}</label>
 										<div class="form-group flex-block">
 											<div class="col-12">
 												<input id="password_confirmation" name="password_confirmation" type="password"
@@ -927,7 +927,7 @@
 							showClose: false,
 							fileActionSettings: {
 								// removeIcon: '<i class="far fa-trash-alt"></i>',
-								removeIcon: '<a class="change-text">Change</a>',
+								removeIcon: '<a class="change-text">{{t("Change")}}</a>',
 								// removeClass: 'btn btn-sm btn-danger',
 								removeTitle: '{{ t('Remove file') }}'
 							},
@@ -991,7 +991,7 @@
 				$('#photoField').on('filedeleted', function() {
 					$('#userImg').attr({'src':"{!! !empty($gravatar) ? $gravatar : url('/images/user.jpg') !!}"});
 
-					var out = "{{ t('Your photo or avatar has been deleted.') }}";
+					var out = "{{ t('Picture has been deleted successfully.') }}";
 					$('#avatarUploadSuccess').html('<ul><li></li></ul>').hide();
 					$('#avatarUploadSuccess ul li').append(out);
 					$('#avatarUploadSuccess').fadeIn('slow');

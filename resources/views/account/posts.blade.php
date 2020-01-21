@@ -60,9 +60,13 @@
 									<label for="checkAll" class="btn-archive">
 {{--										<input type="checkbox" id="checkAll">--}}
 {{--										{{ t('Select') }}: {{ t('All') }} |--}}
-										@if($pagePath=='archived' or $pagePath=='favourite')
+										@if($pagePath=='favourite')
 											<button type="submit" class="btn btn-sm btn-default delete-action btn-default-cab btn-grey">
 												{{ t('Remove') }}
+											</button>
+										@elseif($pagePath=='archived')
+											<button type="submit" class="btn btn-sm btn-default delete-action btn-default-cab btn-grey">
+												{{ t('Delete') }}
 											</button>
 										@else
 											<button type="submit" class="btn btn-sm btn-default delete-action btn-default-cab btn-grey">
@@ -110,7 +114,7 @@
 										</div>
 										</th>
 										<th class="cel-borderless"><span>{{ t('Photo') }}</span></th>
-										<th data-sort-ignore="true" class="cel-borderless cel-mob"><span>{{ t('Ads Details') }}</span></th>
+										<th data-sort-ignore="true" class="cel-borderless cel-mob"><span>{{ t('Details') }}</span></th>
 										<th data-type="numeric" class="cel-borderless cel-mob"><span>{{ t('Price') }}</span></th>
 										@if($pagePath!='favourite')
 											<th class="cel-borderless border-right" style="text-align: center;border-top-right-radius: .3rem"><span>{{ t('Edit') }}</span></th>

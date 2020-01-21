@@ -31,14 +31,14 @@
 						</label>
 						<textarea name="message"
 								  class="form-control required{{ $messageError }}"
-								  placeholder="{{ t('Your message here...') }}"
+								  placeholder="{{ t('Message...') }}"
 								  rows="5"
 						>{{ old('message') }}</textarea>
 					</div>
 				</div>
 				
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-default pull-right btn-dif btn-green">{{ t('Reply') }}</button>
+					<button type="submit" class="btn btn-default pull-right btn-dif btn-green">{{ t('Send') }}</button>
 					<button type="button" class="btn btn-default btn-default-dif btn-modal btn-grey" data-dismiss="modal">{{ t('Cancel') }}</button>
 				</div>
 			</form>

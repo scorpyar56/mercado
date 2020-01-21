@@ -97,7 +97,7 @@
                         <li>
                             <a class="navbar-list-item {!! ($pagePath=='') ? 'active' : '' !!}" href="{{ lurl('account') }}">
                                 {{--								<i class="icon-home"></i> {{ t('Personal Home') }}--}}
-                                <i class="unir-settings sidebar-icon"></i> {{ t('Home') }}
+                                <i class="unir-settings sidebar-icon"></i> {{ t('Personal Data') }}
                             </a>
                         </li>
                         <li>
@@ -276,7 +276,8 @@
 
             <div class="collapse-box no-border">
                 <h5 class="collapse-title no-border">
-                    {{ t('Terminate Account') }}&nbsp;
+                    {{ t('
+                        ') }}&nbsp;
                     <a href="#TerminateAccount" data-toggle="collapse" class="pull-right collapsed" aria-expanded="false"><i class="fa fa-angle-down"></i></a>
                 </h5>
                 <div class="panel-collapse collapse" id="TerminateAccount">
@@ -284,7 +285,7 @@
                         <li>
                             <a href="#deleteAcc" class="navbar-list-item {!! ($pagePath=='close') ? 'active' : '' !!}" href="{{ lurl('account/close') }}" data-toggle="modal">
                                 {{--								<i class="icon-cancel-circled "></i> {{ t('Close account') }}--}}
-                                <i class="unir-close sidebar-icon"></i> {{ t('Close account') }}
+                                <i class="unir-close sidebar-icon"></i> {{ t('Delete Account') }}
                             </a>
                         </li>
                     </ul>

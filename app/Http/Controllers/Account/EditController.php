@@ -262,7 +262,7 @@ class EditController extends AccountBaseController
 			return response()->json([]);
 		}
 		
-		flash(t("Your photo or avatar has been deleted."))->success();
+		flash(t("Picture has been deleted successfully."))->success();
 		
 		return back();
 	}
