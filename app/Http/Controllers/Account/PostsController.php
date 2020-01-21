@@ -405,7 +405,7 @@ class PostsController extends AccountBaseController
 		
 		// Confirmation
 		if ($nb == 0) {
-			flash(t("No deletion is done. Please try again."))->error();
+			flash(t("No ads selected for archiving."))->error();
 		} else {
 			$count = count($ids);
 			if ($pagePath == "archived") {
@@ -415,11 +415,12 @@ class PostsController extends AccountBaseController
                                 $message = t("1 :entity has been deleted successfully.", ['entity' => t('ad')]);
                             }
                         } else {
-                            if ($count > 1) {
-                                $message = t("x :entities has been archived successfully.", ['entities' => t('ads'), 'count' => $count]);
-                            } else {
-                                $message = t("1 :entity has been archived successfully.", ['entity' => t('ad')]);
-                            }
+                            // if ($count > 1) {
+                            //     $message = t("x :entities has been archived successfully.", ['entities' => t('ads'), 'count' => $count]);
+                            // } else {
+                            //     $message = t("1 :entity has been archived successfully.", ['entity' => t('ad')]);
+							// }
+							$message = t("Archiving completed successfully.");
                         }
 
 			flash($message)->success();
