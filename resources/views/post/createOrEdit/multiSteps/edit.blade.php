@@ -224,6 +224,7 @@ if ($post->category) {
 															   placeholder="{{ t('e.i. 15000') }}"
 															   type="number"
 															   value="{{ \App\Helpers\Number::toFloat(old('price', $post->price)) }}"
+															   onkeydown="return checkOnlyDigits(this,event)"
 														>
 
 														<div class="input-group-append">
@@ -533,6 +534,12 @@ if ($post->category) {
 				singleFieldDelimiter: ','
 			});
 		});
+		
+		function checkOnlyDigits(element,event) {
+			if (event.keyCode == 69 || event.keyCode == 189||event.keyCode == 109) {
+				return false;
+			}
+		}
 	</script>
 
 	<script src="{{ url('assets/js/app/d.select.category.js') . vTime() }}"></script>

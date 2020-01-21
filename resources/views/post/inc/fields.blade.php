@@ -529,7 +529,8 @@ if (!function_exists("createFieldNodeTree")) {
                            type="number"
                            placeholder="{{ $field->name }}"
                            class="form-control input-md{{ $errorClass }}"
-                           value="{{ $defaultValue }}">
+                           value="{{ $defaultValue }}"
+                           onkeydown = "if (event.keyCode == 69 || event.keyCode == 189||event.keyCode == 109) return false">
                     <small id=""
                            class="form-text text-muted">{!! $field->help !!}</small>
                 </div>

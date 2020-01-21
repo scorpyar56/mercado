@@ -177,6 +177,7 @@
 															   class="form-control{{ $priceError }}"
 															   placeholder="{{ t('e.i. 15000') }}"
 															   type="number" value="{{ old('price') }}"
+															   onkeydown="return checkOnlyDigits(this,event)"
 														>
 
 														<div class="input-group-append">
@@ -616,4 +617,11 @@
 	<script src="{{ url('assets/js/app/d.select.category.js') . vTime() }}"></script>
 	<script src="{{ url('assets/js/app/d.select.location.js') . vTime() }}"></script>
 	<script src="{{ url('assets/js/bootstrap-treeview.min.js') }}"></script>
+	<script>
+		function checkOnlyDigits(element,event) {
+			if (event.keyCode == 69 || event.keyCode == 189||event.keyCode == 109) {
+				return false;
+			}
+		}
+	</script>
 @endsection
