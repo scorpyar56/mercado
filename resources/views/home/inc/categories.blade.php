@@ -17,6 +17,22 @@
 				@if ($categoriesOptions['type_of_display'] == 'c_picture_icon')
 
 					@if (isset($categories) and $categories->count() > 0)
+						<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category add-page-btn">
+							<a href="{{ \App\Helpers\UrlGen::addPost() }}">
+								<p class="main-text">{{ t('Publish a free ad now') }}</p>
+								<p class="secondary-text">{{ t('and start receiving calls from buyers!') }}</p>
+							</a>
+						</div>
+						<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category all-ads-btn">
+							<?php $attr = ['countryCode' => config('country.icode')]; ?>
+							<a href="{{ lurl(trans('routes.v-search', $attr), $attr) }}">
+								<img src="{{ url('images/icons_5_all.png') }}" class="lazyload img-fluid">
+								<h6>
+									<span>{{ t('All Ads') }}</span>
+								</h6>
+								<i class="unir-rarrow2 d-sm-none"></i>
+							</a>
+						</div>
 						@foreach($categories as $key => $cat)
 							<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category">
 								<a href="{{ \App\Helpers\UrlGen::category($cat) }}">

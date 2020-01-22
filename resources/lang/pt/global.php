@@ -277,6 +277,8 @@ return [
     'Negotiable' => 'Negociável',
     'Pictures' => 'Imagens',
     'Edited by Admin'=>'Edited by Admin pt',
+    'Publish a free ad now' => 'Publique um anúncio gratuitamente',
+    'and start receiving calls from buyers!' => 'e comece a receber chamadas de compradores!',
     'Your resume' => 'Seu currículo',
     'Resume format' => 'Formato : pdf, doc, docx, odt, rtf, jpg, png',
     'File types: :file_types' => 'Tipos de ficheiros: :file_types',

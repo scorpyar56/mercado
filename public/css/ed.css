@@ -781,8 +781,37 @@ a.btn.btn-rep {
 /*    display: none;*/
 /*}*/
 
+.add-page-btn, .all-ads-btn {
+    display: none;
+}
+
+.add-page-btn {
+    background: #ff8f00 !important;
+    border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+.add-page-btn a {
+    color: #fff;
+}
+
+.main-text, .secondary-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.secondary-text {
+    font-size: 13px;
+}
+
 .unir-rarrow2.icon,
-i.unir-rarrow2 {
+i.help-down.unir-rarrow2 {
     width: 10px;
     height: 10px;
     font-size: 10px;
@@ -979,6 +1008,10 @@ ul.nav-wizard>li:before {
 }
 
 @media (max-width: 767px) {
+
+    .add-page-btn, .all-ads-btn {
+        display: unset;
+    }
 
     .badge-dif-imp-header {
         position: fixed;
