@@ -57,11 +57,11 @@
                                                 <?php $picturesError = (isset($errors) and $errors->has('pictures')) ? ' is-invalid' : ''; ?>
     {{--                                                <div id="picturesBloc" class="form-group row">--}}
 
-                                                    <div class="ads-header">
+                                                    <!-- <div class="ads-header">
                                                         <h3>
                                                             <strong> {{ t('Add photo') }} </strong>
                                                         </h3>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="inner-ads-box inner-ads-box-dif">
         {{--                                                    <div class="col-md-8"></div>--}}

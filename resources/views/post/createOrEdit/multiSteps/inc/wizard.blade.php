@@ -18,9 +18,9 @@
 												
 								<li class="picturesBloc {{ ($uriPath == 'photos') ? 'active' : ((in_array($uriPath, ['photos', 'packages', 'finish']) or (isset($post) and !empty($post))) ? '' : 'disabled') }}">
 									@if (isset($post) and !empty($post))
-										<a href="{{ lurl('posts/create/' . $post->tmp_token . '/photos') }}">{{ t('Photos') }}</a>
+										<a href="{{ lurl('posts/create/' . $post->tmp_token . '/photos') }}">{{ t('Ad Photos') }}</a>
 									@else
-										<a>{{ t('Photos') }}</a>
+										<a>{{ t('Ad Photos') }}</a>
 									@endif
 								</li>
 								<div class="block-arr"></div>
