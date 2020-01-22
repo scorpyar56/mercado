@@ -107,6 +107,8 @@ return [
 	
 	
 	// post_report_sent
+	'Report reason'					   => 'Report reason: ',
+	'Message'						   => 'Message: ',
 	'post_report_sent_title'           => 'New abuse report',
 	'Post URL'                         => 'Post URL',
 	'Unban Request' => 'Unban Request',

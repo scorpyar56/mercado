@@ -426,8 +426,11 @@ return [
     'Reason' => 'Reason',
     'Select a reason' => 'Select a reason',
     'Your E-mail' => 'Your E-mail',
+    //for label
+    'MessageLabel' => 'Message',
+    //for placeholder
     'Message' => 'Message...',
-    'Cancel' => 'Cancel',
+    'Cancel' => 'Cancel', 
     'Send Report' => 'Send',
     'Send request' => 'Send request',
     

@@ -394,9 +394,12 @@ return [
     'Reason' => 'Razão',
     'Select a reason' => 'Selecione  a rasão',
     'Your E-mail' => 'Seuo E-mail',
+    //for label
+    'MessageLabel' => 'Mensagem',
+    //for placeholder
     'Message' => 'Mensagem...',
     'Cancel' => 'Cancelar',
-    'Send Report' => 'Enviar relatório',
+    'Send Report' => 'Enviar',
     'Send request' => 'Send request',
     'Warning! This ad has expired. The product or service is not more available (may be)' => '<strong>Atenção !</strong> Este anúncio expirou. O produto ou serviço não está mais disponível !',
     'Back to Results' => 'Voltar aos resultados',
@@ -610,7 +613,7 @@ return [
     'demo_mode_message' => 'Esta função foi desligada no modo de demonstração.',
     'Photo' => 'Foto',
     'Option' => 'Opção',
-    'Back' => 'Voltar',
+    'Back' => 'Voltar', 
     'Back to the Item' => 'Voltar ao Item',
     'Report for :title' => 'Relatório para ":title"',
     'Send a report for :title' => 'Enviar um relatório para  ":title"',

@@ -21,6 +21,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\DB;
 
 class ReportSent extends Notification implements ShouldQueue
 {
@@ -28,11 +29,13 @@ class ReportSent extends Notification implements ShouldQueue
 	
 	protected $post;
 	protected $report;
+	protected $reason;
 	
 	public function __construct(Post $post, $report)
 	{
 		$this->post = $post;
 		$this->report = $report;
+		$this->reason = DB::select('SELECT name FROM report_types WHERE `id` = ' . $this->report->report_type_id);
 	}
 	
 	public function via($notifiable)
@@ -50,7 +53,8 @@ class ReportSent extends Notification implements ShouldQueue
 				'appName'     => config('app.name'),
 				'countryCode' => $this->post->country_code,
 			]))
+			->line(trans('mail.Report reason') . nl2br($this->reason[0]->name))
 			->line(trans('mail.Post URL') . ': <a href="' . $postUrl . '">' . $postUrl . '</a>')
-			->line(nl2br($this->report->message));
+			->line(trans('mail.Message') . nl2br($this->report->message));
 	}
 }

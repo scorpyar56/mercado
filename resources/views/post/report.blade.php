@@ -22,8 +22,8 @@
 				@if (isset($errors) and $errors->any())
 					<div class="col-md-12">
 						<div class="alert alert-danger">
-							<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="unir-close"></i></button>
-							<h5><strong>{{ t('Oops ! An error has occurred. Please correct the red fields in the form') }}</strong></h5>
+							<!-- <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="unir-close"></i></button> -->
+							<!-- <h5><strong>{{ t('Oops ! An error has occurred. Please correct the red fields in the form') }}</strong></h5> -->
 							<ul class="list list-check">
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -110,8 +110,8 @@
 								<!-- message -->
 								<?php $messageError = (isset($errors) and $errors->has('message')) ? ' is-invalid' : ''; ?>
 								<div class="form-group required">
-									<label for="message" class="control-label">{{ t('Message') }} <sup>*</sup> <span class="text-count"></span></label>
-									<textarea id="message" name="message" class="form-control{{ $messageError }}" rows="10">{{ old('message') }}</textarea>
+									<label for="message" class="control-label">{{ t('MessageLabel') }} <sup>*</sup> <span class="text-count"></span></label>
+									<textarea id="message" placeholder="{{ t('Message') }}" name="message" class="form-control{{ $messageError }}" rows="10">{{ old('message') }}</textarea>
 								</div>
 								
 								@include('layouts.inc.tools.recaptcha', ['label' => true])
@@ -121,7 +121,7 @@
 								
 								<div class="form-group form-group-dif">
 									<button type="submit" class="btn btn-primary btn-lg btn-dif btn-rep btn-green">{{ t('Send Report') }}</button>
-									<a href="{{ rawurldecode(URL::previous()) }}" class="btn btn-default btn-lg btn-default-dif btn-rep btn-grey">{{ t('Back') }}</a>
+									<a href="{{ rawurldecode(URL::previous()) }}" class="btn btn-default btn-lg btn-default-dif btn-rep btn-grey">{{ t('Cancel') }}</a>
 								</div>
 							</fieldset>
 						</form>
